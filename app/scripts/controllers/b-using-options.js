@@ -9,7 +9,7 @@ websiteApp.controller('BUsingOptionsCtrl', ['$scope', '$data', '$timeout', funct
   $scope.doAlert = function (message, showId) {
     var alertMessage = message;
     if (showId) {
-      alertMessage += '\nThe id is ' + $scope.record['_id'];
+      alertMessage += '\nThe id is ' + $scope.record._id;
     }
     alert(alertMessage);
   };
@@ -64,14 +64,14 @@ websiteApp.controller('BUsingOptionsCtrl', ['$scope', '$data', '$timeout', funct
   function setColour(number) {
     var colours = ['#81B7DB', '#C2A369', '#6DDB4F', '#47820C'];
     if (number !== '') {
-      $('#cg_f_eyeColour').css('background-color', colours[parseInt(number)]);
+      angular.element(document.querySelector('#cg_f_eyeColour')).css('background-color', colours[parseInt(number)]);
     } else {
-      $('#cg_f_eyeColour').css('background-color', 'white');
+      angular.element(document.querySelector('#cg_f_eyeColour')).css('background-color', 'white');
     }
   }
 
   $scope.$on('formInputDone', function () {
-    var eyeColor = $('#f_eyeColour');
+    var eyeColor = angular.element(document.querySelector('#f_eyeColour'));
     eyeColor.on('change', function (e) {
       console.log('change ' + JSON.stringify({val: e.val, added: e.added, removed: e.removed}));
       setColour(e.val);

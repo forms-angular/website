@@ -12,11 +12,11 @@
     "underscore": "1.6",
     "ngInfiniteScroll": "git://github.com/forms-angular/ngInfiniteScroll",
     "angular-elastic": "~2",
+    "fng-select2": "*",
     "fng-ui-date": "*",
     "fng-reports": "*",
     "ng-ckeditor": "0.2.1",
     "ckeditor": "*",
-    "fng-select2": "*",
     "components-font-awesome": "3.2.1"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@ var websiteApp = angular.module('websiteApp', [
   'formsAngular',
   'ui.date',
   'ngGrid',
-  'ngCkeditor',
+//  'ngCkeditor',
   'ui.select2'
 ])
 
@@ -36,6 +36,8 @@ var websiteApp = angular.module('websiteApp', [
     };
 
   });
+
+void(websiteApp);
 
 formsAngular.config(['urlServiceProvider', 'cssFrameworkServiceProvider', function (urlService, cssFrameworkService) {
   urlService.setOptions({html5Mode: false});

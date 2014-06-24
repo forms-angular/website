@@ -11,19 +11,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+      <!-- build:css({.tmp,app}) styles/main.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <!-- endbuild -->
     <!-- build:css(app) styles/vendor.css -->
-    <link rel="stylesheet" href="bower_components/forms-angular/dist/forms-angular-with-bs2.css" />
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css" />
-    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
     <link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
-      <link rel="stylesheet" href="/bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
-    <!-- endbuild -->
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
     <!-- endbuild -->
   </head>
   <body ng-app="websiteApp" ng-controller="NavCtrl" ng-keyup="globalShortcuts($event)">
@@ -36,13 +34,15 @@
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        if (window.location.hostname != '0.0.0.0') {
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-3037487-9');
-       ga('send', 'pageview');
+           ga('create', 'UA-3037487-9');
+           ga('send', 'pageview');
+        }
     </script>
 
     <!--[if lt IE 9]>
@@ -61,6 +61,8 @@
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/angular-elastic/elastic.js"></script>
     <script src="bower_components/forms-angular/dist/forms-angular.js"></script>
+    <script src="bower_components/select2/select2.js"></script>
+    <script src="bower_components/angular-ui-select2/src/select2.js"></script>
     <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/angular-ui-date/src/date.js"></script>
     <script src="bower_components/ng-grid/build/ng-grid.min.js"></script>
@@ -68,21 +70,19 @@
     <script src="bower_components/fng-reports/dist/fng-reports.js"></script>
     <script src="bower_components/ng-ckeditor/ng-ckeditor.js"></script>
     <script src="bower_components/ckeditor/ckeditor.js"></script>
-    <script src="bower_components/select2/select2.js"></script>
-    <script src="bower_components/angular-ui-select2/src/select2.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!-- bugild:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/b-using-options.js"></script>
         <script src="scripts/controllers/b-using-options-justnameandpostcode.js"></script>
         <script src="scripts/controllers/d-array-example.js"></script>
         <script src="scripts/controllers/h_deep_nesting.js"></script>
         <script src="scripts/controllers/in-the-wild.js"></script>
-        <script src="scripts/directives/affix.js"></script>
         <script src="scripts/directives/bespoke-field.js"></script>
+        <script src="scripts/directives/affix.js"></script>
 
-        <!-- endbuild -->
+        <!-- endbugild -->
 </body>
 </html>
