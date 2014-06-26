@@ -1,0 +1,62 @@
+<div ng-class="css('rowFluid')">
+    <div class="page-header">
+        <h1>Getting Started</h1>
+        Creating your first application using forms-angular in just a few minutes
+    </div>
+</div>
+<div ng-controller="DemoCtrl">
+    <div ng-class="css('rowFluid')">
+        <div class="span10 offset1">
+            <p>These instructions will take you through the process of creating your
+                first forms-angular application, which will consist of an input form for
+                a simple model, a listing showing data already on file, search, menus and
+                a simple report with several features including outputting to PDF.  The options
+                will be reached through a simple menu.</p>
+            <p>If you want a sneak preview of what the input form will look like when
+                you have finished take a look at one of the <a ng-href="{{buildUrl('examples')}}">examples</a> - there
+                is a simple input form <a ng-href="{{buildUrl('a_unadorned_mongoose/new')}}">here</a>
+                and a more feature-filled one <a ng-href="{{buildUrl('b_using_options/new')}}">here</a>.</p>
+            <!--TODO:
+            Get rid of the "override the name" on the second example-->
+            <section id="prepare" name="Prepare" affix-scroll="">
+
+                <h3>Prepare</h3>
+                <p>(if you need to - you may already have these applications / packages installed)</p>
+                <p>Please note: the "just a few minutes" in the title starts from <em>after</em> these
+                    are installed!</p>
+                <ul>
+                    <li>Install <a href="http://nodejs.org">Node JS</a> and (if it isn't part of the Node install) <a href="https://www.npmjs.org/">npm</a>(installation depends on
+                        operating system)</li>
+                    <li>Install <a href="http://www.mongodb.org">MongoDB</a> (installation depends
+                        on operating system)</li>
+                    <li>Install <a href="http://git-scm.com/downloads">Git</a> (installation depends
+                        on operating system)</li>
+                    <li>Install <a href="http://yeoman.io">Yeoman</a> - <code>npm install -g yo</code>
+                    </li>
+                    <li>Install <a href="http://bower.io">Bower</a> - <code>npm install -g bower</code></li>
+                </ul>
+
+                <p>If you are just having a play you can do all the above on a new Ubuntu server (from
+                    <a href="https://www.digitalocean.com/?refcode=e6e0021274c9">Digital Ocean</a>, for instance)
+                    you can do the above steps with the commands</p>
+                <pre><code>apt-get install -y nodejs mongodb npm && ln -s /usr/bin/nodejs /usr/bin/node
+npm install -g yo bower</code></pre>
+            </section>
+
+            <section id="create" name="Create" affix-scroll="">
+
+                <h3>Create</h3>
+                <p>At the command line, in the folder you want your application to reside in, do:</p>
+                <pre><code>npm install -g generator-fng
+yo fng</code></pre>
+                <p>Follow the onscreen prompts to customise your application</p>
+
+            </section>
+            <section id="run" name="Run" affix-scroll="">
+                <h3>Run</h3>
+                <p><code>grunt serve</code></p>
+                <p>Grunt will open the application in your browser.</p>
+            </section>
+        </div>
+    </div>
+</div>
