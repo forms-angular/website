@@ -8,7 +8,7 @@ describe('Conditionals', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should not show hidden fields', function () {
-    browser.get('/#!/g_conditional_fields/51c583d5b9991226db418f00/edit');
+    browser.get('/#/g_conditional_fields/51c583d5b9991226db418f00/edit');
     var items = element.all(by.css('.hasDatepicker')).map(function (elm) {
       return (elm.isDisplayed());
     });
@@ -23,7 +23,7 @@ describe('Conditionals', function () {
   });
 
   it('should not show hidden fields in sub schemas', function () {
-    browser.get('/#!/f_nested_schema/51c583d5b5c51226db418f17/edit');
+    browser.get('/#/f_nested_schema/51c583d5b5c51226db418f17/edit');
     var items = element.all(by.css('.hasDatepicker')).map(function (elm) {
       return (elm.isDisplayed());
     });

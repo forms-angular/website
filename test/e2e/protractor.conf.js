@@ -2,5 +2,5 @@ exports.config = {
   specs: [
     './**/*.spec.js'
   ],
-  baseUrl: 'http://localhost:3001'
+  baseUrl: 'http://localhost:9000'
 };

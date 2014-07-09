@@ -9,7 +9,7 @@ describe('Forms app demo', function () {
 
   it('should automatically redirect to index when location hash/fragment is empty', function () {
     browser.get('/');
-    expect(browser.getCurrentUrl()).toMatch('\/index');
+    expect(browser.getCurrentUrl()).toMatch('\/#\/');
   });
 
 });

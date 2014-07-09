@@ -8,12 +8,12 @@ describe('Select 2', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should handle enums', function () {
-    browser.get('/#!/b_using_options/519a6075b320153869b155e0/edit');
+    browser.get('/#/b_using_options/519a6075b320153869b155e0/edit');
     expect($('#s2id_f_eyeColour').getText()).toMatch(/Brown/);
   });
 
   it('should handle lookups with collection read', function () {
-    browser.get('/#!/e_referencing_another_collection/51d1b2ca8c8683571c000005/edit');
+    browser.get('/#/e_referencing_another_collection/51d1b2ca8c8683571c000005/edit');
     setTimeout(function () {
       expect($('#s2id_f_teacher').getText()).toMatch(/IsAccepted/);
 //            element('#s2id_f_teacher').click();
@@ -26,7 +26,7 @@ describe('Select 2', function () {
   });
 
   it('should handle lookups using Ajax', function () {
-    browser.get('/#!/f_nested_schema/51c583d5b5c51226db418f16/edit');
+    browser.get('/#/f_nested_schema/51c583d5b5c51226db418f16/edit');
     expect($('#s2id_autogen1 > a > span.select2-chosen').getText()).toMatch(/IsAccepted/);
   });
 
