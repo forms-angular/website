@@ -1,6 +1,11 @@
 {
   "name": "website",
   "version": "0.0.0",
+  "description": "The demonstration website for the forms-angular library",
+  "repository" : {
+    "type":"git",
+    "url":"https://github.com/forms-angular/website"
+  },
   "dependencies": {
     "express": "~4.0.0",
     "morgan": "~1.0.0",
