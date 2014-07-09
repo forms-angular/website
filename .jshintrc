@@ -20,7 +20,8 @@
   "smarttabs": true,
   "globals": {
     "angular" : false,
-    "myDemoApp" : true,
+    "websiteApp" : true,
+    "$": true,
     "alert": false,
     "formsAngular": true,
     "DISPLAY_CELL_TEMPLATE": false,

@@ -4,16 +4,15 @@ var should = require('should'),
     app = require('../../../server'),
     request = require('supertest');
 
-describe('GET /api/awesomeThings', function() {
+describe('GET /api/schema/a_unadorned_mongoose', function() {
   
-  it('should respond with JSON array', function(done) {
+  it('should respond with a schema', function(done) {
     request(app)
-      .get('/api/awesomeThings')
+      .get('/api/schema/a_unadorned_mongoose')
       .expect(200)
-      .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
-        res.body.should.be.instanceof(Array);
+        JSON.parse(res.text)._id.path.should.be.equal('_id');
         done();
       });
   });

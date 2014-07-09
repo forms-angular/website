@@ -9,13 +9,36 @@ module.exports = function(config) {
     autoWatch: true,
 
     // base path, that will be used to resolve files and exclude
-    basePath: '',
+    basePath: '../',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: [],
+    files: [
+      'app/bower_components/jquery/jquery.js',
+      'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+      'app/bower_components/angular-sanitize/angular-sanitize.js',
+      'app/bower_components/underscore/underscore.js',
+      'app/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+      'app/bower_components/angular-elastic/elastic.js',
+      'app/bower_components/forms-angular/dist/forms-angular.js',
+      'app/bower_components/select2/select2.js',
+      'app/bower_components/angular-ui-select2/src/select2.js',
+      'app/bower_components/jquery-ui/ui/jquery-ui.js',
+      'app/bower_components/angular-ui-date/src/date.js',
+      'app/bower_components/ng-grid/build/ng-grid.min.js',
+      'app/bower_components/jspdf/dist/jspdf.min.js',
+      'app/bower_components/fng-reports/dist/fng-reports.js',
+      'app/bower_components/ng-ckeditor/ng-ckeditor.js',
+      'app/bower_components/ckeditor/ckeditor.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/scripts/**/*.js',
+      'app/scripts/template/*.html',
+      'test/client/spec/**/*.js'
+    ],
 
     // list of files / patterns to exclude
     exclude: [],
@@ -38,18 +61,23 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
+      'karma-ng-html2js-preprocessor',
       'karma-jasmine'
     ],
 
+    preprocessors: {
+      'app/scripts/template/*.html': 'ng-html2js'
+    },
+
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
 
     colors: true,
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
