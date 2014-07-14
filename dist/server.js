@@ -31,6 +31,24 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
+// If we are starting the server to run e2e tests then add a little data
+if (app.get('env') === 'test') {
+  var exec = require('child_process').exec;
+  var dataPath = path.join(__dirname, 'test/e2e/e2edata');
+  var dataFiles = fs.readdirSync(dataPath);
+  dataFiles.forEach(function (file) {
+    var fname = dataPath + '/' + file;
+    if (fs.statSync(fname).isFile()) {
+      exec('mongoimport --db fng-test --drop --collection ' + file.slice(0, 1) + 's --jsonArray < ' + fname,
+        function (error, stdout, stderr) {
+          if (error !== null) {
+            console.log('Error importing models : ' + error + ' (Code = ' + error.code + '    ' + error.signal + ') : ' + stderr + ' : ' + stdout);
+          }
+        });
+    }
+  });
+}
+
 // Start server
 app.listen(config.port, config.ip, function () {
   console.log('Express server listening on %s:%d, in %s mode', config.ip, config.port, app.get('env'));
