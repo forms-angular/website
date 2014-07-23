@@ -1,50 +1,48 @@
-<div ng-controller="NavCtrl">
-    <div class="visible-lg visible-desktop">
-        <a href="https://github.com/forms-angular/forms-angular"><img src="/images/270bc532.forkme_right_darkblue_121621.png" style="position: fixed; right: 0; top: 0; z-index: 1032"></a>
-    </div>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid" ng-cloak="">
-                <button type="button" class="navbar-toggle btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="glyphicon glyphicon-bar icon-bar"></span>
-                    <span class="glyphicon glyphicon-bar icon-bar"></span>
-                    <span class="glyphicon glyphicon-bar icon-bar"></span>
-                </button>
-                <div class="pull-left">
-                    <a class="navbar-brandpluslogo brandpluslogo" ng-href="{{buildUrl('/')}}"><img src="/images/ae369a9e.Home_icon_black.png" width="45" alt="Click on logo to go to home page" class="img-responsive"></a>
-                </div>
-                <div class="visible-lg visible-desktop pull-right col-md-2 span2"></div>      <!-- Leave some space for github flash -->
-                <global-search class="global-search"></global-search>
-                <div class="pull-right ghb" style="padding-top: 14px"><iframe src="http://ghbtns.com/github-btn.html?user=forms-angular&repo=forms-angular&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=forms-angular&repo=forms-angular&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></div>
-                <div class="navbar-collapse collapse nav-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a ng-href="{{buildUrl('get-started')}}">Get Started</a></li>
-                        <li><a ng-href="{{buildUrl('schemas')}}">Schemas</a></li>
-                        <li><a ng-href="{{buildUrl('forms')}}">Forms</a></li>
-                        <li><a ng-href="{{buildUrl('plugins')}}">Plugins</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle">More</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-option" ng-href="{{buildUrl('examples')}}">Examples</a></li>
-                                <li><a class="dropdown-option" ng-href="{{buildUrl('api-docs')}}">API Documentation</a></li>
-                                <li><a class="dropdown-option" href="http://webchat.freenode.net/?channels=forms-angular" target="_blank">Chat Room</a></li>
-                                <li><a class="dropdown-option" href="https://twitter.com/formsangular" target="_blank">Twitter</a></li>
-                                <li><a class="dropdown-option" href="https://github.com/forms-angular/forms-angular/issues?state=open">Issues</a></li>
-                                <li><a class="dropdown-option" href="https://github.com/forms-angular/forms-angular/releases">Changelog</a></li>
-                                <li><a class="dropdown-option" ng-href="{{buildUrl('in-the-wild')}}">Who Uses It?</a></li>
-                            </ul>
-                        </li>
-                        <li ng-show="items.length > 0" class="dropdown model-controller-added">
-                            <a class="dropdown-toggle">
-                                {{contextMenu}}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li ng-repeat="choice in items">
-                                    <a class="dropdown-option model-controller-added" ng-hide="isHidden($index)" ng-href="{{choice.url}}" ng-click="doClick($index)">{{choice.text}}</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+<div class="visible-lg visible-desktop">
+    <a href="https://github.com/forms-angular/forms-angular"><img src="/images/270bc532.forkme_right_darkblue_121621.png" style="position: fixed; right: 0; top: 0; z-index: 1032"></a>
+</div>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid" ng-cloak="">
+            <button type="button" class="navbar-toggle btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="glyphicon glyphicon-bar icon-bar"></span>
+                <span class="glyphicon glyphicon-bar icon-bar"></span>
+                <span class="glyphicon glyphicon-bar icon-bar"></span>
+            </button>
+            <div class="pull-left">
+                <a class="navbar-brandpluslogo brandpluslogo" ng-href="{{buildUrl('/')}}"><img src="/images/ae369a9e.Home_icon_black.png" width="45" alt="Click on logo to go to home page" class="img-responsive"></a>
+            </div>
+            <div class="visible-lg visible-desktop pull-right col-md-2 span2"></div>      <!-- Leave some space for github flash -->
+            <global-search class="global-search"></global-search>
+            <div class="pull-right ghb" style="padding-top: 14px"><iframe src="http://ghbtns.com/github-btn.html?user=forms-angular&repo=forms-angular&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=forms-angular&repo=forms-angular&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></div>
+            <div class="navbar-collapse collapse nav-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ng-href="{{buildUrl('get-started')}}">Get Started</a></li>
+                    <li><a ng-href="{{buildUrl('schemas')}}">Schemas</a></li>
+                    <li><a ng-href="{{buildUrl('forms')}}">Forms</a></li>
+                    <li><a ng-href="{{buildUrl('plugins')}}">Plugins</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle">More</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-option" ng-href="{{buildUrl('examples')}}">Examples</a></li>
+                            <li><a class="dropdown-option" ng-href="{{buildUrl('api-docs')}}">API Documentation</a></li>
+                            <li><a class="dropdown-option" href="http://webchat.freenode.net/?channels=forms-angular" target="_blank">Chat Room</a></li>
+                            <li><a class="dropdown-option" href="https://twitter.com/formsangular" target="_blank">Twitter</a></li>
+                            <li><a class="dropdown-option" href="https://github.com/forms-angular/forms-angular/issues?state=open">Issues</a></li>
+                            <li><a class="dropdown-option" href="https://github.com/forms-angular/forms-angular/releases">Changelog</a></li>
+                            <li><a class="dropdown-option" ng-href="{{buildUrl('in-the-wild')}}">Who Uses It?</a></li>
+                        </ul>
+                    </li>
+                    <li ng-show="items.length > 0" class="dropdown model-controller-added">
+                        <a class="dropdown-toggle">
+                            {{contextMenu}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="choice in items">
+                                <a class="dropdown-option model-controller-added" ng-hide="isHidden($index)" ng-href="{{choice.url}}" ng-click="doClick($index)">{{choice.text}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

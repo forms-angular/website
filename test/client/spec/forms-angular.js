@@ -7,8 +7,15 @@ describe('Controller: BaseCtrl', function () {
     angular.mock.module('websiteApp');
   });
 
-  var scope,
-    $httpBackend;
+  var scope;
+  var $httpBackend;
+  var routingService = {
+    parsePathFunc: function () {
+      return function  () {
+        return {modelName: 'collection', newRecord: true};
+      };
+    }
+  };
 
   describe('forms-angular', function() {
 
@@ -18,14 +25,13 @@ describe('Controller: BaseCtrl', function () {
     });
 
     it('should request a schema', function () {
-      inject(function (_$httpBackend_, $rootScope, $controller, $location) {
+      inject(function (_$httpBackend_, $rootScope, $controller) {
         $httpBackend = _$httpBackend_;
         $httpBackend.whenGET('/api/schema/collection').respond({
           'name': {'path': 'name', 'instance': 'String', 'options': {'form': {'label': 'Organisation Name'}, 'list': true}}
         });
-        $location.$$path = '/collection/new';
         scope = $rootScope.$new();
-        $controller('BaseCtrl', {$scope: scope});
+        $controller('BaseCtrl', {$scope: scope, routingService: routingService});
         $httpBackend.flush();
       });
       expect(scope.formSchema.length).toBe(1);
