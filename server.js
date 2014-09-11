@@ -25,8 +25,6 @@ var DataFormHandler = new (formsAngular)(app, {urlPrefix: '/api/'});
 // Bootstrap forms-angular controlled models
 var modelsPath = path.join(__dirname, 'app/models');
 
-DataFormHandler.newResource(require(modelsPath + '/b_using_options.js'));
-
 fs.readdirSync(modelsPath).forEach(function (file) {
   var fname = modelsPath + '/' + file;
   if (fs.statSync(fname).isFile()) {

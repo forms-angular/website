@@ -5,3 +5,4 @@ node_modules
 app/bower_components
 heroku
 /views
+test.js

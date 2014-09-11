@@ -5,8 +5,9 @@ var websiteApp = angular.module('websiteApp', [
   'formsAngular',
   'ui.date',
   'ngGrid',
-//  'ngCkeditor',
-  'ui.select2'
+  'ngCkeditor',
+  'ui.select2',
+  'uploadModule'
 ]);
 
 websiteApp.config(function ($routeProvider) {
