@@ -7,5 +7,5 @@ exports.config = {
     version: '',
     platform: 'ANY'
   },
-  baseUrl: 'http://localhost:9000'
+  baseUrl: 'http://localhost:9001'
 };

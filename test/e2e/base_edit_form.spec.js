@@ -7,18 +7,23 @@ describe('Base edit form', function () {
   var height = 768;
   browser.driver.manage().window().setSize(width, height);
 
-  it('should display a form', function () {
+  it('should display a form without debug info', function () {
     browser.get('/#/b_using_options/new');
     expect($('div#cg_f_surname').getText()).toMatch(/Surname/);
+
+    // check we haven't left the schema or record on display after debugging (assuming we used <pre>)
+    expect(element.all(by.css('pre')).count()).toBe(0);
   });
 
   it('should display an error message if server validation fails', function () {
     browser.get('/#/b_using_options/new');
-    element(by.model('record.surname')).sendKeys('Smith');
+    var field = element(by.model('record.surname'));
+    field.clear();
+    field.sendKeys('Smith');
     element(by.model('record.accepted')).click();
     element(by.model('record.freeText')).sendKeys('this is a rude word');
     $('#saveButton').click();
-    var alertTextPromise = $('.alert-error').getText();
+    var alertTextPromise = element(by.css('.alert-error')).getText();
     expect(alertTextPromise).toMatch(/Error!/);
     expect(alertTextPromise).toMatch(/Wash your mouth!/);
     expect(alertTextPromise).toNotMatch(/eye/);

@@ -10,14 +10,14 @@ describe('Base list', function () {
 
   it('should list all the records', function () {
     browser.get('/#/a_unadorned_mongoose');
-    expect($('a .list-item').getText()).toMatch(/TestPerson1/);
+    expect(element.all(by.css('a .list-item')).first().getText()).toMatch(/TestPerson1/);
   });
 
   it('should support the listOrder option', function () {
     browser.get('/#/g_conditional_fields');
     var list = element.all(by.css('.list-item'));
     expect(list.count()).toBeGreaterThan(8);
-    expect($('.list-item>.span6:first-child').getText()).toNotMatch('Smith05 Smith06 Smith97 Smith08');
+    expect(element.all(by.css('.list-item>.span6:first-child')).get(7).getText()).toMatch('Smith08');
   });
 
   it('should support the model name override', function () {
