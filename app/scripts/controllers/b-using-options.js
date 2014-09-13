@@ -78,7 +78,7 @@ websiteApp.controller('BUsingOptionsCtrl', ['$scope', '$data', '$timeout', funct
     });
     $timeout(
       function () {
-        setColour(eyeColor.select2('val'));
+        setColour($scope.record.eyeColour.id);
       }, 100);
   });
 }]);
