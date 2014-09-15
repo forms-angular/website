@@ -78,7 +78,9 @@ websiteApp.controller('BUsingOptionsCtrl', ['$scope', '$data', '$timeout', funct
     });
     $timeout(
       function () {
-        setColour($scope.record.eyeColour.id);
-      }, 100);
+        if ($scope.record.eyeColour && $scope.record.eyeColour.id) {
+          setColour($scope.record.eyeColour.id);
+        }
+      }, 100);   // very dependent on network speed, but only an illustration and fast enough to pass the e2e test
   });
 }]);
