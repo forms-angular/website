@@ -219,7 +219,8 @@ module.exports = function (grunt) {
           '/json3/',
           '/es5-shim/',
           /blueimp-file-upload\/js\/jquery.fileupload-ui.js/,
-          /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/
+          /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/,
+          /ckeditor\/ckeditor.js/
           ]
       }
     },
