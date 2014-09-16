@@ -8,7 +8,7 @@
     "url": "https://github.com/forms-angular/website"
   },
   "dependencies": {
-    "forms-angular": "^0.4.0-beta.1",
+    "forms-angular": "^0.4.0-beta.2",
     "express": "~4.0.0",
     "morgan": "~1.0.0",
     "body-parser": "~1.0.0",
