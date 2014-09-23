@@ -41,5 +41,11 @@ describe('Base list', function () {
     expect($('li.dropdown.model-controller-added').getText()).toMatch('Custom 2nd Level');
   });
 
+  it('should let user create a new record', function() {
+    browser.get('/#/b_using_options');
+    $('#newBtn').click();
+    expect($('#cg_f_website label').getText()).toMatch('Website');
+  });
+
 });
 
