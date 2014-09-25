@@ -9,12 +9,10 @@ var ESchema = new Schema({
   mentor: { type: Schema.Types.ObjectId, ref: 'c_subdoc_example'},
   teacher: { type: Schema.Types.ObjectId, ref: 'b_using_options', form: {select2: {fngAjax: true}}},
   dateOfBirth: Date,
-  assistants: [
-    { type: Schema.Types.ObjectId, ref: 'a_unadorned_mongoose'}
-  ],
-  team: [
-    { type: Schema.Types.ObjectId, ref: 'd_array_example', form: {select2: true}}
-  ],
+  assistants : [{ type: Schema.Types.ObjectId , ref: 'a_unadorned_mongoose'}],
+  assistants2:  { type:[Schema.Types.ObjectId], ref: 'a_unadorned_mongoose'} ,
+  team : [ { type: Schema.Types.ObjectId , ref: 'f_nested_schema', form: {select2: {fngAjax: true}}} ],
+  team2:   { type:[Schema.Types.ObjectId], ref: 'f_nested_schema', form: {select2: {fngAjax: true}}},
   accepted: Boolean
 });
 

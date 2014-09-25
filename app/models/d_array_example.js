@@ -10,7 +10,9 @@ var DSchema = new Schema({
   accepted: Boolean,
   specialSubjects: [String],
   hobbies: [{type: String}],
-  sports: {type: [String]}
+  sports: {type: [String]},
+  someOptions: {type: [String], enum:['First','Second','Third']},
+  moreOptions: {type: [String], enum:['First','Second','Third'], form:{select2: true}}
 });
 
 var D;
