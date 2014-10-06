@@ -66,7 +66,7 @@ describe('Select and select2', function () {
     expect(element(by.id('f_someOptions_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.cssContainingText('#f_someOptions_1 option', 'Third')).click();
 
-    var addSelect = element(by.id('add_f_moreOptions'));
+    addSelect = element(by.id('add_f_moreOptions'));
     addSelect.click();
     expect(element(by.id('f_moreOptions_0')).getAttribute('class')).toMatch('ng-pristine');
     element(by.css('#s2id_f_moreOptions_0 .select2-arrow')).click();
@@ -94,7 +94,7 @@ describe('Select and select2', function () {
     function checkValues() {
       expect(element(by.id('f_mentor')).getAttribute('value')).toBe('Anderson John');
       expect(element(by.id('f_teacher')).getAttribute('value')).toBe('519a6075b320153869b155e0');
-      expect(element(by.css('#s2id_f_teacher span.select2-chosen')).getText()).toBe('IsAccepted John true 89');
+      expect(element(by.css('#s2id_f_teacher')).getAttribute('class')).toMatch('select2-allowclear');
       expect(element(by.id('f_assistants_0')).getAttribute('value')).toBe('TestPerson1');
       expect(element(by.id('f_assistants_1')).getAttribute('value')).toBe('TestPerson2');
       expect(element(by.id('f_assistants2_0')).getAttribute('value')).toBe('TestPerson1');
@@ -110,6 +110,7 @@ describe('Select and select2', function () {
     }
 
     browser.get('/#/e_referencing_another_collection/new');
+    expect(element(by.css('#s2id_f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
     element(by.cssContainingText('#f_mentor option', 'Anderson John')).click();
     element(by.css('#s2id_f_teacher .select2-arrow')).click();
     var input = element.all(by.css('.select2-input')).first();
