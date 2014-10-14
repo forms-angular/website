@@ -321,6 +321,15 @@ howManyPerDay: {type: Number, form:{showWhen:{lhs:"$smoker", comp:"eq", rhs:true
   ]
 }</code></pre>
     <p>Note that subkey can be an object or an array of objects.  Where there are multiple sub docs that match the subkey the first will be used.</p>
+    <p>Fields in the keylist will be suppressed from the schema, since the values are likely to be invariant.</p>
+    <p>An alternative way of selecting array elements is to use a function that returns the index of the element that should be used.  For example:</p>
+    <pre><code>addressList: {subkey:
+        [
+        {selectFunc: 'selectMostRecent', containerType: 'well-small', title: 'Last used address:'},
+        ]
+        }</code></pre>
+    <p>Where selectMostRecent is a function in the scope that takes two parameters: the record and the subkey object.  The function needs to return
+        the selected index.  In this case no fields will be suppressed from the schema (unless a keyList is present in the subKey object for just that purpose)</p>
 </section>
 </div>
 </div>

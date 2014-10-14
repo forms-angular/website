@@ -1,24 +1,24 @@
 {
   "name": "website",
-  "version": "0.4.0-beta.2",
+  "version": "0.4.0",
   "author": "Mark Chapman <support@forms-angular.org>",
   "dependencies": {
-    "angular": "1.3.0-rc.1",
-    "angular-route": "1.3.0-rc.1",
+    "angular": "1.3.0",
+    "angular-route": "1.3.0",
     "json3": "~3.2.6",
     "es5-shim": "~2.1.0",
     "angular-ui-bootstrap-bower": "0.8.0",
-    "forms-angular": "^0.4.0-beta.1",
+    "forms-angular": "^0.4.0",
     "underscore": "1.6",
     "fng-select2": "*",
     "fng-ui-date": "*",
     "fng-reports": "*",
     "fng-jq-upload": "*",
-    "fng-ckeditor" : "*",
+    "fng-ckeditor": "*",
     "components-font-awesome": "3.2.1"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.0-rc.1",
+    "angular-mocks": "1.3.0",
     "select2-bootstrap-css-1-2": "git://github.com/t0m/select2-bootstrap-css.git#v1.2.4",
     "select2-bootstrap-css-1-3": "git://github.com/t0m/select2-bootstrap-css.git#v1.3.1",
     "bootstrap-3-1-1": "git://github.com/twbs/bootstrap.git#v3.1.1",
@@ -26,6 +26,6 @@
   },
   "testPath": "test/client/spec",
   "resolutions": {
-    "angular": "1.3.0-rc.1"
+    "angular": ">=1.3.0"
   }
 }

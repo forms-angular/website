@@ -1,14 +1,14 @@
 {
   "name": "website",
   "author": "Mark Chapman <support@forms-angular.org>",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The demonstration website for the forms-angular library",
   "repository": {
     "type": "git",
     "url": "https://github.com/forms-angular/website"
   },
   "dependencies": {
-    "forms-angular": "^0.4.0-beta.2",
+    "forms-angular": "^0.4.0",
     "express": "~4.0.0",
     "morgan": "~1.0.0",
     "body-parser": "~1.0.0",
