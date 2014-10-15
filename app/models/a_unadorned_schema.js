@@ -16,9 +16,11 @@ var ASchema = new Schema({
 var A;
 
 try {
-  A = mongoose.model('A');
+  A = mongoose.model('a_unadorned_schema');
 } catch (e) {
-  A = mongoose.model('A', ASchema);
+  A = mongoose.model('a_unadorned_schema', ASchema);
 }
 
-module.exports = A;
+module.exports = {
+  model: A
+};

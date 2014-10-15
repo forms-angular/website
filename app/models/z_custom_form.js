@@ -12,9 +12,11 @@ var ZSchema = new Schema({
 
 var Z;
 try {
-  Z = mongoose.model('Z');
+  Z = mongoose.model('z_custom_form');
 } catch (e) {
-  Z = mongoose.model('Z', ZSchema);
+  Z = mongoose.model('z_custom_form', ZSchema);
 }
 
-module.exports = Z;
+module.exports = {
+  model: Z
+};

@@ -19,19 +19,19 @@
             then the relevant packages will be installed for you.  If you are building your application by hand you will need to run</p>
             <pre>npm install fng-{plugin-name}</pre>
             <p>The plugin names are given in brackets at the top of each section of this page.</p>
-            
+
             <section id="reports" name="Reports" affix-scroll>
                 <h3>Reporting (fng-reports)</h3>
 
                 <p>With the reporting plugin installed, simple reports can be produced by navigating to URLs of the format /#/analyse/modelname - see example
                     <a
-                            ng-href="{{buildUrl('analyse/b_using_options')}}">here</a>.</p>
+                            ng-href="{{buildUrl('analyse/b_enhanced_schema')}}">here</a>.</p>
 
                 <p>More useful reports can be run by passing an <a
                         href="http://docs.mongodb.org/manual/core/aggregation-pipeline/">aggregation
                     pipeline</a>
                     to the server using the format <strong>/#/analyse/model?r=[pipeline]</strong> - for example
-                    <a ng-href="{{buildUrl('analyse/g_conditional_fields?r=%5B%7B%22$group%22:%7B%22_id%22:%22$sex%22,%22count%22:%7B%22$sum%22:1%7D%7D%7D%5D')}}">/#/analyse/g_conditional_fields?r=[{"$group":{"_id":"$sex","count":{"$sum":1}}}]</a>
+                    <a ng-href="{{buildUrl('analyse/g_conditional_field?r=%5B%7B%22$group%22:%7B%22_id%22:%22$sex%22,%22count%22:%7B%22$sum%22:1%7D%7D%7D%5D')}}">/#/analyse/g_conditional_field?r=[{"$group":{"_id":"$sex","count":{"$sum":1}}}]</a>
                     produces a breakdown of the men and women in a collection.</p>
 
                 <p>Reports can be enhanced by passing an object containing the pipeline as a property, along with a
@@ -71,7 +71,7 @@
                             <li><strong>field</strong> (mandatory) the name of the results column to translate</li>
                             <li><strong>fn</strong> a function(row,callback) which modifies a row of the results set and
                                 then calls the callback.
-                                There is an example in <a ng-href="{{buildUrl('models/g_conditional_fields.js')}}">this file</a> (search
+                                There is an example in <a ng-href="{{buildUrl('models/g_conditional_field.js')}}">this file</a> (search
                                 for "functiondemo")
                             </li>
                             <li><strong>translations</strong> an array of value&rarr;display mappings, such as <strong>[{value:'M',
@@ -88,7 +88,7 @@
                         be replaced
                         with the value of the fieldname in the current row. For example a report
                         listing one row per item might have a drilldown of <em>model/|_id|/edit</em> as seen in <a
-                                ng-href="{{buildUrl('analyse/g_conditional_fields/totals')}}">this</a> report.
+                                ng-href="{{buildUrl('analyse/g_conditional_field/totals')}}">this</a> report.
                     </li>
                     <li><strong>params</strong> contains an array of parameters that can be used in the pipeline,
                         normally in a
@@ -141,7 +141,7 @@
 </pre>
 
                 <p>Using these options the report above can be <a
-                        ng-href="{{buildUrl('analyse/g_conditional_fields?r=%7B%22pipeline%22:%5B%7B%22$group%22:%7B%22_id%22:%22$sex%22,%22count%22:%7B%22$sum%22:1%7D%7D%7D%5D,%22title%22:%22Breakdown%20By%20Sex%22,%22columnDefs%22:%5B%7B%22field%22:%22_id%22,%22displayName%22:%22Sex%22%7D,%7B%22field%22:%22count%22,%22displayName%22:%22No%20of%20Applicants%22%7D%5D%7D')}}">tidied
+                        ng-href="{{buildUrl('analyse/g_conditional_field?r=%7B%22pipeline%22:%5B%7B%22$group%22:%7B%22_id%22:%22$sex%22,%22count%22:%7B%22$sum%22:1%7D%7D%7D%5D,%22title%22:%22Breakdown%20By%20Sex%22,%22columnDefs%22:%5B%7B%22field%22:%22_id%22,%22displayName%22:%22Sex%22%7D,%7B%22field%22:%22count%22,%22displayName%22:%22No%20of%20Applicants%22%7D%5D%7D')}}">tidied
                     up</a>.</p>
 
                 <p>If you looked at the link to that last report you would have realised that using the URL to specify a
@@ -149,28 +149,28 @@
                     format
                     quickly becomes unmanageable. A neater alternative is to put the options into an object which is
                     served up via a
-                    static in the model file - see <a ng-href="{{buildUrl('models/g_conditional_fields.js')}}">here</a> for
-                    <a ng-href="{{buildUrl('analyse/g_conditional_fields/breakdownbysex')}}">some</a>
-                    <a ng-href="{{buildUrl('analyse/g_conditional_fields/totalforonesex')}}">examples</a>.</p>
+                    static in the model file - see <a ng-href="{{buildUrl('models/g_conditional_field.js')}}">here</a> for
+                    <a ng-href="{{buildUrl('analyse/g_conditional_field/breakdownbysex')}}">some</a>
+                    <a ng-href="{{buildUrl('analyse/g_conditional_field/totalforonesex')}}">examples</a>.</p>
             </section>
             <section id="select2" name="Select2" affix-scroll>
                 <h3>Select2 (fng-select2)</h3>
                 <p>This plugin enables the use of the <a href="http://ivaynberg.github.io/select2/">Select2</a> component.
                     As well as being better looking than the default &lt;select&gt; component, it can be used for AJAX
                     lookups that cut down the amount of data that needs to be transferred.  You can see a simple example
-                    in the eye colour field in <a ng-href="{{buildUrl('b_using_options/new')}}">this</a> example.  The teacher
+                    in the eye colour field in <a ng-href="{{buildUrl('b_enhanced_schema/new')}}">this</a> example.  The teacher
                     field in <a ng-href="{{buildUrl('e_referencing_another_collection/new')}}">this</a> example uses an AJAX
                     call to the server to return records from another collection.</p>
             </section>
             <section id="datepicker" name="Date Picker" affix-scroll>
                 <h3>Date Picker (fng-ui-date)</h3>
                 <p>This plugin enables the use of the <a href="http://jqueryui.com/datepicker/">jQuery-UI date picker</a>.  You can see an example in the date of
-                    birth field in <a ng-href="{{buildUrl('b_using_options/new')}}">this</a> example.</p>
+                    birth field in <a ng-href="{{buildUrl('b_enhanced_schema/new')}}">this</a> example.</p>
             </section>
             <section id="editor" name="Editor" affix-scroll>
                 <h3>Editor (fng-ckeditor)</h3>
                 <p>This plugin enables the use of the <a href="http://ckeditor.com/">CK editor</a>.  You can see an example
-                    in the formatted text field in <a ng-href="{{buildUrl('b_using_options/new')}}">this</a> example.</p>
+                    in the formatted text field in <a ng-href="{{buildUrl('b_enhanced_schema/new')}}">this</a> example.</p>
             </section>
 
         </div>

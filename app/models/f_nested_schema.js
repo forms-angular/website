@@ -7,14 +7,14 @@ var ExamsSchema = new Schema({
   examDate: Date,
   score: Number,
   result: {type: String, enum: ['distinction', 'merit', 'pass', 'fail']},
-  grader: { type: Schema.Types.ObjectId, ref: 'b_using_options', form: {select2: {fngAjax: true}, label: 'Marked By'}},
+  grader: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {select2: {fngAjax: true}, label: 'Marked By'}},
   retakeDate: {type: Date, form: {showWhen: {lhs: '$exams.result', comp: 'eq', rhs: 'fail'}}}
 }, {_id: false});
 
 var FSchema = new Schema({
   surname: {type: String, index: true, list: {}},
   forename: {type: String, index: true, list: true},
-  aTest: { type: Schema.Types.ObjectId, ref: 'b_using_options'},
+  aTest: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'},
 
 //  exams: [ExamsSchema]    // defaults to horizontal compact form
   // or
@@ -23,9 +23,9 @@ var FSchema = new Schema({
 
 var F;
 try {
-  F = mongoose.model('F');
+  F = mongoose.model('f_nested_schema');
 } catch (e) {
-  F = mongoose.model('F', FSchema);
+  F = mongoose.model('f_nested_schema', FSchema);
 }
 
 F.prototype.searchResultFormat = function () {
@@ -84,7 +84,9 @@ FSchema.statics.form = function (layout) {
 
 module.exports = {
   model: F,
-  searchResultFormat: F.prototype.searchResultFormat
+  options: {
+    searchResultFormat: F.prototype.searchResultFormat
+  }
 };
 
 

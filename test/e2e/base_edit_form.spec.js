@@ -8,7 +8,7 @@ describe('Base edit form', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should display a form without debug info', function () {
-    browser.get('/#/b_using_options/new');
+    browser.get('/#/b_enhanced_schema/new');
     expect($('div#cg_f_surname').getText()).toMatch(/Surname/);
 
     // check we haven't left the schema or record on display after debugging (assuming we used <pre>)
@@ -16,7 +16,7 @@ describe('Base edit form', function () {
   });
 
   it('should display an error message if server validation fails', function () {
-    browser.get('/#/b_using_options/new');
+    browser.get('/#/b_enhanced_schema/new');
     var field = element(by.model('record.surname'));
     field.clear();
     field.sendKeys('Smith');
@@ -32,7 +32,7 @@ describe('Base edit form', function () {
   describe('should display deletion confirmation modal', function () {
 
     beforeEach(function () {
-      browser.get('/#/a_unadorned_mongoose/666a6075b320153869b17599/edit');
+      browser.get('/#/a_unadorned_schema/666a6075b320153869b17599/edit');
     });
 
     it('should display deletion confirmation modal', function () {
@@ -47,9 +47,9 @@ describe('Base edit form', function () {
   describe('Allows user to navigate away', function () {
 
     it('does not put up dialog if no changes', function () {
-      browser.get('/#/a_unadorned_mongoose/666a6075b320153869b17599/edit');
+      browser.get('/#/a_unadorned_schema/666a6075b320153869b17599/edit');
       $('#newButton').click();
-      expect(browser.getCurrentUrl()).toMatch('/a_unadorned_mongoose/new');
+      expect(browser.getCurrentUrl()).toMatch('/a_unadorned_schema/new');
     });
 
   });
@@ -57,7 +57,7 @@ describe('Base edit form', function () {
   describe('prompts user to save changes', function () {
 
     beforeEach(function () {
-      browser.get('/#/b_using_options/519a6075b320153869b155e0/edit');
+      browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
       element(by.model('record.freeText')).sendKeys('This is a rude thing');
       $('#newButton').click();
       browser.sleep(500);  //Really naff, but I tried for ages to do something better.  Apparently zones.js will sort it out eventually
@@ -67,14 +67,14 @@ describe('Base edit form', function () {
       var list = element.all(by.css('.modal'));
       expect(list.count()).toBe(1);
       $('.modal-footer button.dlg-cancel').click();
-      expect(browser.getCurrentUrl()).toMatch('/b_using_options/519a6075b320153869b155e0/edit');
+      expect(browser.getCurrentUrl()).toMatch('/b_enhanced_schema/519a6075b320153869b155e0/edit');
       list = element.all(by.css('.modal'));
       expect(list.count()).toBe(0);
     });
 
     it('supports losing changes', function () {
       $('.modal-footer button.dlg-no').click();
-      expect(browser.getCurrentUrl()).toMatch('/b_using_options/new');
+      expect(browser.getCurrentUrl()).toMatch('/b_enhanced_schema/new');
       var list = element.all(by.css('.modal'));
       expect(list.count()).toBe(0);
     });
@@ -94,8 +94,8 @@ describe('Base edit form', function () {
       expect(list.count()).toBe(1);
       yesBtn = $('.modal-footer button.dlg-yes');
       yesBtn.click();
-      expect(browser.getCurrentUrl()).toMatch('/b_using_options/new');
-      browser.get('/#/b_using_options/519a6075b320153869b155e0/edit');
+      expect(browser.getCurrentUrl()).toMatch('/b_enhanced_schema/new');
+      browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
       expect($('#f_freeText').getAttribute('value')).toMatch(/polite thing/);
     });
   });
@@ -103,7 +103,7 @@ describe('Base edit form', function () {
   describe('form button changes', function () {
 
     it('enables cancel button after a change', function () {
-      browser.get('/#/b_using_options/new');
+      browser.get('/#/b_enhanced_schema/new');
       var freeTextField = element(by.model('record.surname'));
       freeTextField.clear();
       freeTextField.sendKeys('Smith');
@@ -131,7 +131,7 @@ describe('Base edit form', function () {
   describe('tab sets', function () {
 
     it('shows multiple tabs when appropriate', function () {
-      browser.get('/#/i_tabbed_forms/new');
+      browser.get('/#/i_tabbed_form/new');
       var list = element.all(by.css('.tabbable li a'));
       expect(list.count()).toBe(2);
     });

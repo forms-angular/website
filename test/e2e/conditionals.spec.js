@@ -8,7 +8,7 @@ describe('Conditionals', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should not show hidden fields', function () {
-    browser.get('/#/g_conditional_fields/51c583d5b9991226db418f00/edit');
+    browser.get('/#/g_conditional_field/51c583d5b9991226db418f00/edit');
     var items = element.all(by.css('.hasDatepicker')).map(function (elm) {
       return (elm.isDisplayed());
     });

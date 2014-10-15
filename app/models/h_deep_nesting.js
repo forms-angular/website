@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CourseTeachersSchema = new Schema({
-  teacher: { type: Schema.Types.ObjectId, ref: 'b_using_options'},
+  teacher: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'},
   room: Number
 });
 
@@ -12,7 +12,7 @@ var ExamsSchema = new Schema({
   examDate: Date,
   score: Number,
   result: {type: String, enum: ['distinction', 'merit', 'pass', 'fail']},
-  grader: { type: Schema.Types.ObjectId, ref: 'b_using_options'}
+  grader: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'}
 });
 
 var CourseSchema = new Schema({
@@ -33,16 +33,18 @@ var HSchema = new Schema({
     exams: [ExamsSchema]
   },
   assistants: [
-    { type: Schema.Types.ObjectId, ref: 'b_using_options'}
+    { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'}
   ]
 });
 
 var H;
 try {
-  H = mongoose.model('H');
+  H = mongoose.model('h_deep_nesting');
 } catch (e) {
-  H = mongoose.model('H', HSchema);
+  H = mongoose.model('h_deep_nesting', HSchema);
 }
 
-module.exports = H;
+module.exports = {
+  model: H
+};
 

@@ -19,9 +19,11 @@ var CSchema = new Schema({
 
 var C;
 try {
-  C = mongoose.model('C');
+  C = mongoose.model('c_subdoc_example');
 } catch (e) {
-  C = mongoose.model('C', CSchema);
+  C = mongoose.model('c_subdoc_example', CSchema);
 }
 
-module.exports = C;
+module.exports = {
+  model: C
+};

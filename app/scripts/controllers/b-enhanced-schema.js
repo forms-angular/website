@@ -1,6 +1,6 @@
 'use strict';
 
-websiteApp.controller('BUsingOptionsCtrl', ['$scope', '$data', '$timeout', function ($scope, $data, $timeout) {
+websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', function ($scope, $data, $timeout) {
 
   $scope.record = $data.record;
 

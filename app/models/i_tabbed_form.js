@@ -21,9 +21,11 @@ var ISchema = new Schema({
 
 var I;
 try {
-  I = mongoose.model('I');
+  I = mongoose.model('i_tabbed_form');
 } catch (e) {
-  I = mongoose.model('I', ISchema);
+  I = mongoose.model('i_tabbed_form', ISchema);
 }
 
-module.exports = I;
+module.exports = {
+  model : I
+};

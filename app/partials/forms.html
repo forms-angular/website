@@ -79,14 +79,14 @@ you can easily switch between modes without having to manually change all the in
 
 <p>The listing routes (of the format <strong>/#/:model</strong>) are used to build a page
     containing a list of documents in the collection, showing the <a ng-href="{{buildUrl('schemas#list-fields')}}">list fields</a>.  You can
-    specify a sort order by adding a <strong>listOrder</strong> value to the model as shown in <a href="/models/g_conditional_fields.js">this</a> model.
+    specify a sort order by adding a <strong>listOrder</strong> value to the model as shown in <a href="/models/g_conditional_field.js">this</a> model.
     Alternatively you can specify a sort order at run-time using the o parameter as in <a ng-href="{{buildUrl('f_nested_schema?o=%7B%22forename%22:1%7D')}}">this</a> example.
 </p>
 
 <p>Listing routes support filters, such as</p>
 
-<a ng-href="{{buildUrl('b_using_options?f=%7B%22surname%22:%22Smith%22%7D')}}">
-    <pre>/#/b_using_options?f={"surname":"Smith"}</pre>
+<a ng-href="{{buildUrl('b_enhanced_schema?f=%7B%22surname%22:%22Smith%22%7D')}}">
+    <pre>/#/b_enhanced_schema?f={"surname":"Smith"}</pre>
 </a>
 
 <p>and calls to the aggregation framework, provided they project to an array of docs that contains an _id property
@@ -103,7 +103,7 @@ you can easily switch between modes without having to manually change all the in
 <p>These can be combined (though there appears to be a problem unless the filter precedes the aggregation).</p>
 
 <p>By default the list order is the MongoDB natural order. The default list order for a table can be set by
-    specifying a <strong>listOrder</strong> option in the model definition (see <a href="/models/g_conditional_fields.js">g_conditional_fields</a> for an example).</p>
+    specifying a <strong>listOrder</strong> option in the model definition (see <a href="/models/g_conditional_field.js">g_conditional_field</a> for an example).</p>
 </section>
 <section id="search" name="Search" affix-scroll>
     <h3>Search</h3>
@@ -113,13 +113,13 @@ you can easily switch between modes without having to manually change all the in
 
     <p>There are a number of options that can be added to model exports to modify the search behaviour. Examples can be
         found
-        in the model definitions files for <a href="/models/f_nested_schema.js">f_nested_schema</a> and <a href="/models/g_conditional_fields.js">g_conditional_fields</a>.</p>
+        in the model definitions files for <a href="/models/f_nested_schema.js">f_nested_schema</a> and <a href="/models/g_conditional_field.js">g_conditional_field</a>.</p>
     <ul>
         <li><strong>searchImportance</strong> is a value from 0 to 99 (default) that can be used to determine the order
-            of table searches. There is an example in <a href="/models/g_conditional_fields.js">this</a> model.
+            of table searches. There is an example in <a href="/models/g_conditional_field.js">this</a> model.
         </li>
         <li><strong>searchOrder</strong> can be used to set the default ordering of the search results within a model.
-            There is an example in <a href="/models/g_conditional_fields.js">this</a> model.
+            There is an example in <a href="/models/g_conditional_field.js">this</a> model.
             It is normally used in conjunction with searchImportance.
         </li>
         <li><strong>searchResultFormat</strong> allows fine control of the display of search results. It points to a
@@ -236,7 +236,7 @@ you can easily switch between modes without having to manually change all the in
 
     <h5>Menu</h5>
 
-    <p>The menu can be added to where required by the models (see an example <a ng-href="{{buildUrl('b_using_options')}}">here</a>)
+    <p>The menu can be added to where required by the models (see an example <a ng-href="{{buildUrl('b_enhanced_schema')}}">here</a>)
         The options can be configured to appear when records are being listed, edited or created. The top level text is
         taken from the model controller's <strong>dropDownDisplay</strong> variable, if present. If not present it will
         fall back to the modelNameDisplay (see above) and if that is not present the model name.</p>
@@ -257,7 +257,7 @@ you can easily switch between modes without having to manually change all the in
     <h5 id="postprocessing">Post form-input generation processing</h5>
 
     <p>The form-input directive broadcasts a <strong>formInputDone</strong> message when it has
-        processed a control. This can be acted on by the model controller. In our <a ng-href="{{buildUrl('b_using_options/new')}}">example</a> we
+        processed a control. This can be acted on by the model controller. In our <a ng-href="{{buildUrl('b_enhanced_schema/new')}}">example</a> we
         add a change handler to a select2 control which changes background color of a control group
         when the eye colour is changed.  Try it, and then see how it is done at the bottom of
         <a href="/scripts/controllers/b-using-options.js">this</a> controller.</p>
@@ -316,7 +316,7 @@ you can easily switch between modes without having to manually change all the in
             environment. A common use case is to apply 'fine-grain' authentication.
         </li>
     </ul>
-    <p>There are examples of both in <a href="/models/b_using_options.js">this</a> model</p>
+    <p>There are examples of both in <a href="/models/b_enhanced_schema.js">this</a> model</p>
 </section>
 
 </div>

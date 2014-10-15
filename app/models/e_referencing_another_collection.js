@@ -7,10 +7,10 @@ var ESchema = new Schema({
   forename: {type: String, list: true},
   weight: {type: Number, form: {label: 'Weight (lbs)'}},
   mentor: { type: Schema.Types.ObjectId, ref: 'c_subdoc_example'},
-  teacher: { type: Schema.Types.ObjectId, ref: 'b_using_options', form: {select2: {fngAjax: true}}},
+  teacher: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {select2: {fngAjax: true}}},
   dateOfBirth: Date,
-  assistants : [{ type: Schema.Types.ObjectId , ref: 'a_unadorned_mongoose'}],
-  assistants2:  { type:[Schema.Types.ObjectId], ref: 'a_unadorned_mongoose'} ,
+  assistants : [{ type: Schema.Types.ObjectId , ref: 'a_unadorned_schema'}],
+  assistants2:  { type:[Schema.Types.ObjectId], ref: 'a_unadorned_schema'} ,
   team : [ { type: Schema.Types.ObjectId , ref: 'f_nested_schema', form: {select2: {fngAjax: true}}} ],
   team2:   { type:[Schema.Types.ObjectId], ref: 'f_nested_schema', form: {select2: {fngAjax: true}}},
   accepted: Boolean
@@ -18,9 +18,9 @@ var ESchema = new Schema({
 
 var E;
 try {
-  E = mongoose.model('E');
+  E = mongoose.model('e_referencing_another_collection');
 } catch (e) {
-  E = mongoose.model('E', ESchema);
+  E = mongoose.model('e_referencing_another_collection', ESchema);
 }
 
 ESchema.statics.report = function (report) {
@@ -37,7 +37,7 @@ ESchema.statics.report = function (report) {
           {field: 'count', displayName: 'Number in Class'}
         ],
         columnTranslations: [
-          {field: '_id', ref: 'b_using_options'}
+          {field: '_id', ref: 'b_enhanced_schema'}
         ]
       };
       break;
@@ -45,6 +45,8 @@ ESchema.statics.report = function (report) {
   return reportSchema;
 };
 
-module.exports = E;
+module.exports = {
+  model: E
+};
 
 

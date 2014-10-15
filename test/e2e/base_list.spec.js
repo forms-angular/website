@@ -9,12 +9,12 @@ describe('Base list', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should list all the records', function () {
-    browser.get('/#/a_unadorned_mongoose');
+    browser.get('/#/a_unadorned_schema');
     expect(element.all(by.css('a .list-item')).first().getText()).toMatch(/TestPerson1/);
   });
 
   it('should support the listOrder option', function () {
-    browser.get('/#/g_conditional_fields');
+    browser.get('/#/g_conditional_field');
     var list = element.all(by.css('.list-item'));
     expect(list.count()).toBeGreaterThan(8);
     expect(element.all(by.css('.list-item>.span6:first-child')).get(7).getText()).toMatch('Smith08');
@@ -26,7 +26,7 @@ describe('Base list', function () {
   });
 
   it('should support dropdown text override', function () {
-    browser.get('/#/b_using_options');
+    browser.get('/#/b_enhanced_schema');
     expect($('li.dropdown.model-controller-added').getText()).toMatch('Custom Dropdown');
   });
 
@@ -36,13 +36,13 @@ describe('Base list', function () {
   });
 
   it('should support the model name override with bespoke formschema', function () {
-    browser.get('/#/b_using_options/justnameandpostcode');
+    browser.get('/#/b_enhanced_schema/justnameandpostcode');
     expect($('h1').getText()).toMatch('Another override');
     expect($('li.dropdown.model-controller-added').getText()).toMatch('Custom 2nd Level');
   });
 
   it('should let user create a new record', function() {
-    browser.get('/#/b_using_options');
+    browser.get('/#/b_enhanced_schema');
     $('#newBtn').click();
     expect($('#cg_f_website label').getText()).toMatch('Website');
   });

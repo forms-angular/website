@@ -15,9 +15,9 @@ var GSchema = new Schema({
 
 var G;
 try {
-  G = mongoose.model('G');
+  G = mongoose.model('g_conditional_field');
 } catch (e) {
-  G = mongoose.model('G', GSchema);
+  G = mongoose.model('g_conditional_field', GSchema);
 }
 
 GSchema.statics.report = function (report) {
@@ -58,7 +58,7 @@ GSchema.statics.report = function (report) {
           {'$project': {'surname': 1, 'forename': 1, 'bribeAmount': 1, '_id': 1}}
         ],
         'title': 'A report with totals and drilldown',
-        drilldown: 'g_conditional_fields/|_id|/edit',
+        drilldown: 'g_conditional_field/|_id|/edit',
         'columnDefs': [
           {'field': 'surname', 'displayName': 'Surname', 'width': '200', totalsRow: 'Total'},
           {'field': 'forename', 'displayName': 'Forename', 'width': 200},
@@ -101,9 +101,11 @@ GSchema.statics.report = function (report) {
 
 module.exports = {
   model: G,
-  searchImportance: 1,
-  searchOrder: {surname: 1},
-  listOrder: {surname: 1}
+  options: {
+    searchImportance: 1,
+    searchOrder: {surname: 1},
+    listOrder: {surname: 1}
+  }
 };
 
 

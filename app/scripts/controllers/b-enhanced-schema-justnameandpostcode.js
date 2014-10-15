@@ -1,5 +1,5 @@
 'use strict';
-websiteApp.controller('BUsingOptionsJustnameandpostcodeCtrl', ['$scope', '$data', function ($scope, $data) {
+websiteApp.controller('BEnhancedSchemaJustnameandpostcodeCtrl', ['$scope', '$data', function ($scope, $data) {
 
   $scope.record = $data.record;
 

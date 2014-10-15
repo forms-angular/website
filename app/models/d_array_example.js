@@ -17,10 +17,12 @@ var DSchema = new Schema({
 
 var D;
 try {
-  D = mongoose.model('D');
+  D = mongoose.model('d_array_example');
 } catch (e) {
-  D = mongoose.model('D', DSchema);
+  D = mongoose.model('d_array_example', DSchema);
 }
 
-module.exports = D;
+module.exports = {
+  model : D
+};
 

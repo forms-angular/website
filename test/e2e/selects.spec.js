@@ -8,7 +8,7 @@ describe('Select and select2', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should handle enums', function () {
-    browser.get('/#/b_using_options/519a6075b320153869b155e0/edit');
+    browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
     expect($('#s2id_f_eyeColour').getText()).toMatch(/Brown/);
   });
 
