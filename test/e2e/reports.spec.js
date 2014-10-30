@@ -36,4 +36,10 @@ describe('Reports', function () {
 
     expect(browser.getCurrentUrl()).toMatch('/b_enhanced_schema/519a6075b320153869b155e0/edit');
   });
+
+  it('should run a standard report', function(){
+    browser.get('#/analyse/g_conditional_fields/breakdownbysex');
+    expect($('.ngHeaderText.ng-binding.colt1').getText()).toMatch(/No of Applicants/);
+    expect(element.all(by.css('.ngCell.col1.colt1 > div:nth-child(2) > div > span')).first().getText()).toMatch(/11/);
+  })
 });
