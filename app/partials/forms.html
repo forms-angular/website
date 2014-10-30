@@ -228,7 +228,10 @@ you can easily switch between modes without having to manually change all the in
         a model followed by <strong>Ctrl</strong> (or the name of the model followed by the name of
         the custom form followed by Ctrl. There is an sample model controller <a href="/scripts/controllers/b-using-options.js">here</a>
         which is used in the examples in this section. The NavCtrl controller handles the model controllers, so don't remove
-        it.</p>
+        it.  Sometimes it is useful to have model controllers access the base controller, which is created after them.  The best way to
+        do this is to add a <em>function modifyBaseCtrl(baseScope)</em> to the model controller, which is called when the BaseCtrl scope
+        is available.
+    </p>
 
     <h5 id="naming">Naming</h5>
     <p>The BaseCtrl scope has a variable called <strong>modelNameDisplay</strong> which is used in several places in the
