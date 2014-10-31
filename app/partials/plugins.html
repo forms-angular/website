@@ -39,7 +39,7 @@
                     options:</p>
                 <ul>
                     <li><strong>title</strong> this option allows a title to be specified. The default is the model
-                        name.
+                        name.  Current values of <a href="#params">params</a> can be inserted into the title using the syntax |(paramname)| within the title.
                     </li>
                     <li><strong>columnDefs</strong> an array of column instruction objects which determines the output
                         order and
@@ -88,9 +88,10 @@
                         be replaced
                         with the value of the fieldname in the current row. For example a report
                         listing one row per item might have a drilldown of <em>model/|_id|/edit</em> as seen in <a
-                                ng-href="{{buildUrl('analyse/g_conditional_field/totals')}}">this</a> report.
+                                ng-href="{{buildUrl('analyse/g_conditional_field/totals')}}">this</a> report.  A |(paramname)|
+                        will also be subtituted by the current value of a <a href="#params">param</a>.
                     </li>
-                    <li><strong>params</strong> contains an array of parameters that can be used in the pipeline,
+                    <li id="params"><strong>params</strong> contains an array of parameters that can be used in the pipeline,
                         normally in a
                         $match such as {$match:{sex:("sex")}}. Parameters can have the following properties:
                         <ul>
