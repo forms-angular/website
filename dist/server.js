@@ -44,7 +44,7 @@ if (app.get('env') === 'test') {
   dataFiles.forEach(function (file) {
     var fname = dataPath + '/' + file;
     if (fs.statSync(fname).isFile()) {
-      exec('mongoimport --db fng-test --drop --collection ' + file.slice(0, 1) + 's --jsonArray < ' + fname,
+      exec('mongoimport --db fng-test --drop --collection ' + file.slice(0, -3) + 's --jsonArray < ' + fname,
         function (error, stdout, stderr) {
         if (error !== null) {
           console.log('Error importing models : ' + error + ' (Code = ' + error.code + '    ' + error.signal + ') : ' + stderr + ' : ' + stdout);
