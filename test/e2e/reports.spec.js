@@ -38,7 +38,8 @@ describe('Reports', function () {
   });
 
   it('should run a standard report', function(){
-    browser.get('#/analyse/g_conditional_fields/breakdownbysex');
+    browser.get('/#/analyse/g_conditional_field/breakdownbysex');
+    expect($('h1').getText()).toMatch('Numbers of Applicants By Sex');
     expect($('.ngHeaderText.ng-binding.colt1').getText()).toMatch(/No of Applicants/);
     expect(element.all(by.css('.ngCell.col1.colt1 > div:nth-child(2) > div > span')).first().getText()).toMatch(/11/);
   })
