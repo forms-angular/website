@@ -185,7 +185,7 @@
             width</a>.
             Options are: mini, small, medium (default), large, xlarge, xxlarge and block-level.
         </li>
-        <li><strong>readonly</strong> adds the readonly attribute to the generated input (doesn't work with
+        <li><strong>readonly</strong> adds the readonly attribute to the generated input (currently doesn't work with
             date - and perhaps other types). </li>
         <li><strong>rows</strong> sets the number of rows in inputs (such as textarea) that support this.
             Setting rows to <strong>"auto"</strong> makes the textarea expand to fit the content, rather than create a
@@ -207,6 +207,8 @@ howManyPerDay: {type: Number, form:{showWhen:{lhs:"$smoker", comp:"eq", rhs:true
             </ul>
         </li>
         <li><strong>noAdd</strong> inhibits an Add button being generated for arrays.</li>
+        <li><strong>unshift</strong> (for arrays of sub documents) puts an add button in the sub schema header which allows insertion of
+          new sub documents at the beginning of the array.</li>
         <li><strong>noRemove</strong> inhibits a Remove button being generated for array elements.</li>
         <li><strong>add</strong> allows arbitrary attributes to be added to the input tag.</li>
         <li><strong>class</strong> allows arbitrary classes to be added to the input tag.</li>
