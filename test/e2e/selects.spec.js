@@ -14,7 +14,7 @@ describe('Select and select2', function () {
 
   it('should handle lookups using Ajax', function () {
     browser.get('/#/f_nested_schema/51c583d5b5c51226db418f16/edit');
-    expect($('#s2id_autogen1 > a > span.select2-chosen').getText()).toMatch(/IsAccepted/);
+    expect(element.all(by.css('.select2-container')).get(0).element(by.css('a > span.select2-chosen')).getText()).toMatch(/IsAccepted/);
   });
 
   it('should do all the arrays in d as expected', function(){
@@ -61,6 +61,7 @@ describe('Select and select2', function () {
     var addSelect = element(by.id('add_f_someOptions'));
     addSelect.click();
     expect(element(by.id('f_someOptions_0')).getAttribute('class')).toMatch('ng-pristine');
+    // Next bit depends on https://github.com/angular/protractor/pull/1524
     element(by.cssContainingText('#f_someOptions_0 option', 'Second')).click();
     addSelect.click();
     expect(element(by.id('f_someOptions_1')).getAttribute('class')).toMatch('ng-pristine');
@@ -133,19 +134,26 @@ describe('Select and select2', function () {
     expect(element(by.id('f_assistants2_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.cssContainingText('#f_assistants2_1 option', 'TestPerson2')).click();
 
+    // Slow things down (for select2, presumably)
+    browser.driver.manage().timeouts().implicitlyWait(500);
     addSelect = element(by.id('add_f_team'));
     addSelect.click();
     expect(element(by.id('f_team_0')).getAttribute('class')).toMatch('ng-pristine');
     element(by.css('#s2id_f_team_0 .select2-arrow')).click();
     input = element.all(by.css('.select2-input')).get(1);
     input.sendKeys('Jo');
+    browser.waitForAngular();
+    expect(element(by.css('.select2-result-label')).getText()).toMatch('Brown, John');
     input.sendKeys(protractor.Key.ENTER);
+    browser.waitForAngular();
     addSelect.click();
     expect(element(by.id('f_team_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.css('#s2id_f_team_1 .select2-arrow')).click();
     input = element.all(by.css('.select2-input')).get(2);
     input.sendKeys('Je');
+    browser.waitForAngular();
     input.sendKeys(protractor.Key.ENTER);
+    browser.waitForAngular();
 
     addSelect = element(by.id('add_f_team2'));
     addSelect.click();
@@ -153,14 +161,18 @@ describe('Select and select2', function () {
     element(by.css('#s2id_f_team2_0 .select2-arrow')).click();
     input = element.all(by.css('.select2-input')).get(3);
     input.sendKeys('Jo');
+    browser.waitForAngular();
     input.sendKeys(protractor.Key.ENTER);
+    browser.waitForAngular();
     addSelect.click();
     expect(element(by.id('f_team2_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.css('#s2id_f_team2_1 .select2-arrow')).click();
     input = element.all(by.css('.select2-input')).get(4);
     input.sendKeys('Je');
+    browser.waitForAngular();
     input.sendKeys(protractor.Key.ENTER);
-
+    browser.waitForAngular();
+    browser.driver.manage().timeouts().implicitlyWait(100);
     checkValues();
 
     // Save the record and check they all refresh OK

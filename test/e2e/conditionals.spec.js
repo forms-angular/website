@@ -24,6 +24,7 @@ describe('Conditionals', function () {
 
   it('should not show hidden fields in sub schemas', function () {
     browser.get('/#/f_nested_schema/51c583d5b5c51226db418f17/edit');
+    browser.waitForAngular();
     var items = element.all(by.css('.hasDatepicker')).map(function (elm) {
       return (elm.isDisplayed());
     });

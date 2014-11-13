@@ -16,9 +16,9 @@ var FSchema = new Schema({
   forename: {type: String, index: true, list: true},
   aTest: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'},
 
-//  exams: [ExamsSchema]    // defaults to horizontal compact form
+  exams: [ExamsSchema]    // defaults to horizontal compact form
   // or
-  exams: {type: [ExamsSchema], form: {formStyle: 'inline'}}
+  //exams: {type: [ExamsSchema], form: {formStyle: 'inline'}}
 });
 
 var F;
