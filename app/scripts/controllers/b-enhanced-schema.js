@@ -70,17 +70,14 @@ websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', fun
     }
   }
 
-  $scope.$on('formInputDone', function () {
+  $scope.onAllReady = function (baseScope) {
     var eyeColor = angular.element(document.querySelector('#f_eyeColour'));
     eyeColor.on('change', function (e) {
       console.log('change ' + JSON.stringify({val: e.val, added: e.added, removed: e.removed}));
       setColour(e.val);
     });
-    $timeout(
-      function () {
-        if ($scope.record.eyeColour && $scope.record.eyeColour.id) {
-          setColour($scope.record.eyeColour.id);
-        }
-      }, 100);   // very dependent on network speed, but only an illustration and fast enough to pass the e2e test
-  });
+    if ($scope.record.eyeColour && $scope.record.eyeColour.id) {
+      setColour($scope.record.eyeColour.id);
+    }
+  };
 }]);
