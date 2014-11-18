@@ -248,8 +248,8 @@ you can easily switch between modes without having to manually change all the in
         fall back to the modelNameDisplay (see above) and if that is not present the model name.</p>
 
     <p>Sometimes menu options only apply to a subset of records in a collection.  In this case they can be hidden by
-        specifying an <strong>isHidden($index)</strong> function.  For example to hide the option when a field has a
-        certain value:</p>
+        specifying an <strong>isHidden($index)</strong> function or disabled using an <strong>isDisabled($index)</strong>
+        function.  For example to hide the option when a field has a certain value:</p>
 
         <pre><code>$scope.contextMenu = [{
   text: 'Do something',
