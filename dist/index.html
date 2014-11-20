@@ -11,8 +11,27 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-      <link rel="stylesheet" href="styles/94325def.main.css"/>
-    <link rel="stylesheet" href="styles/19ae6a48.vendor.css"/>
+      <!-- build:css({.tmp,app}) styles/main.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <!-- endbuild -->
+    <!-- build:css(app) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/select2/select2.css">
+    <link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.css">
+    <link rel="stylesheet" href="bower_components/fng-select2/fng-select2.css">
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css">
+    <link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload.css">
+    <link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload-ui.css">
+    <link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload-noscript.css">
+    <link rel="stylesheet" href="bower_components/blueimp-file-upload/css/jquery.fileupload-ui-noscript.css">
+    <link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery.css">
+    <link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery-indicator.css">
+    <link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery-video.css">
+    <link rel="stylesheet" href="bower_components/fng-jq-upload/css/override-blueimp.css">
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
+    <!-- endbower -->
+      <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
+    <!-- endbuild -->
   </head>
   <body ng-app="websiteApp" ng-controller="NavCtrl" ng-keyup="globalShortcuts($event)">
     <!--[if lt IE 7]>
@@ -40,9 +59,65 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <script src="scripts/e7943681.vendor.js"></script>
+    <!-- build:js(app) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-elastic/elastic.js"></script>
+    <script src="bower_components/forms-angular/dist/forms-angular.js"></script>
+    <script src="bower_components/select2/select2.js"></script>
+    <script src="bower_components/angular-ui-select2/src/select2.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-date/src/date.js"></script>
+    <script src="bower_components/ng-grid/build/ng-grid.min.js"></script>
+    <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
+    <script src="bower_components/fng-reports/dist/fng-reports.js"></script>
+    <script src="bower_components/blueimp-tmpl/js/tmpl.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-ios.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-orientation.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-meta.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-exif.js"></script>
+    <script src="bower_components/blueimp-load-image/js/load-image-exif-map.js"></script>
+    <script src="bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/cors/jquery.postmessage-transport.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/cors/jquery.xdr-transport.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.fileupload-angular.js"></script>
+    <script src="bower_components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-helper.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-gallery.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-gallery-fullscreen.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-gallery-indicator.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-gallery-video.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-gallery-vimeo.js"></script>
+    <script src="bower_components/blueimp-gallery/js/blueimp-gallery-youtube.js"></script>
+    <script src="bower_components/fng-jq-upload/dist/fng-jq-upload.js"></script>
+    <script src="bower_components/ng-ckeditor/ng-ckeditor.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
     <!--<script src="bower_components/ckeditor/ckeditor.js"></script>-->
     <script src="//cdn.ckeditor.com/4.4.4/standard/ckeditor.js"></script>
 
-    <script src="scripts/72943f35.scripts.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/b-enhanced-schema.js"></script>
+    <script src="scripts/controllers/b-enhanced-schema-justnameandpostcode.js"></script>
+    <script src="scripts/controllers/d-array-example.js"></script>
+    <script src="scripts/controllers/h_deep_nesting.js"></script>
+    <script src="scripts/controllers/in-the-wild.js"></script>
+    <script src="scripts/directives/bespoke-field.js"></script>
+    <script src="scripts/directives/affix.js"></script>
+    <!-- endbuild -->
 </body>
