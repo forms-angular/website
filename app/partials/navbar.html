@@ -21,7 +21,7 @@
                     <li><a ng-href="{{buildUrl('schemas')}}">Schemas</a></li>
                     <li><a ng-href="{{buildUrl('forms')}}">Forms</a></li>
                     <li><a ng-href="{{buildUrl('plugins')}}">Plugins</a></li>
-                    <li dropdown class="dropdown"><a dropdown-toggle class="dropdown-toggle">More</a>
+                    <li class="dropdown"><a class="dropdown-toggle">More</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-option" ng-href="{{buildUrl('examples')}}">Examples</a></li>
                             <li><a class="dropdown-option" ng-href="{{buildUrl('api-docs')}}">API Documentation</a></li>
@@ -33,8 +33,8 @@
                             <li><a class="dropdown-option" ng-href="{{buildUrl('supported-by')}}">Supported By...</a></li>
                         </ul>
                     </li>
-                    <li dropdown ng-show="items.length > 0" class="dropdown model-controller-added">
-                        <a dropdown-toggle class="dropdown-toggle">
+                    <li ng-show="items.length > 0" class="dropdown model-controller-added">
+                        <a class="dropdown-toggle">
                             {{contextMenu}}
                         </a>
                         <ul class="dropdown-menu">
