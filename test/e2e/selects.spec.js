@@ -110,13 +110,30 @@ describe('Select and select2', function () {
       expect(element(by.css('#s2id_f_team2_1 span.select2-chosen')).getText()).toBe('Brown Jenny');
     }
 
+    function select2Select(addButton, field, index, selectText, fullText) {
+      addButton.click();
+      expect(element(by.id('f_'+field+'_'+index)).getAttribute('class')).toMatch('ng-pristine');
+      element(by.css('#s2id_f_'+field+'_'+index+' .select2-arrow')).click();
+      input.sendKeys(selectText);
+      browser.waitForAngular();
+      input.sendKeys(protractor.Key.ENTER);
+      browser.waitForAngular();
+      expect(element(by.css('#s2id_f_'+field+'_'+index+' a span.select2-chosen')).getText()).toBe(fullText);
+    }
+
+    // Slow things down (for select2, presumably)
+    browser.driver.manage().timeouts().implicitlyWait(800);
+
     browser.get('/#/e_referencing_another_collection/new');
     expect(element(by.css('#s2id_f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
     element(by.cssContainingText('#f_mentor option', 'Anderson John')).click();
     element(by.css('#s2id_f_teacher .select2-arrow')).click();
-    var input = element.all(by.css('.select2-input')).first();
+    var input = element(by.css('#select2-drop input'));
     input.sendKeys('Is');
+    browser.waitForAngular();
     input.sendKeys(protractor.Key.ENTER);
+    browser.waitForAngular();
+    expect(element(by.css('#s2id_f_teacher a span.select2-chosen')).getText()).toMatch('IsAccepted John');
 
     var addSelect = element(by.id('add_f_assistants'));
     addSelect.click();
@@ -134,45 +151,16 @@ describe('Select and select2', function () {
     expect(element(by.id('f_assistants2_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.cssContainingText('#f_assistants2_1 option', 'TestPerson2')).click();
 
-    // Slow things down (for select2, presumably)
-    browser.driver.manage().timeouts().implicitlyWait(500);
     addSelect = element(by.id('add_f_team'));
-    addSelect.click();
-    expect(element(by.id('f_team_0')).getAttribute('class')).toMatch('ng-pristine');
-    element(by.css('#s2id_f_team_0 .select2-arrow')).click();
-    input = element.all(by.css('.select2-input')).get(1);
-    input.sendKeys('Jo');
-    browser.waitForAngular();
-    expect(element(by.css('.select2-result-label')).getText()).toMatch('Brown, John');
-    input.sendKeys(protractor.Key.ENTER);
-    browser.waitForAngular();
-    addSelect.click();
-    expect(element(by.id('f_team_1')).getAttribute('class')).toMatch('ng-pristine');
-    element(by.css('#s2id_f_team_1 .select2-arrow')).click();
-    input = element.all(by.css('.select2-input')).get(2);
-    input.sendKeys('Je');
-    browser.waitForAngular();
-    input.sendKeys(protractor.Key.ENTER);
-    browser.waitForAngular();
+    select2Select(addSelect, 'team', 0, 'Jo', 'Brown John');
+    select2Select(addSelect, 'team', 1, 'Je', 'Brown Jenny');
 
     addSelect = element(by.id('add_f_team2'));
-    addSelect.click();
-    expect(element(by.id('f_team2_0')).getAttribute('class')).toMatch('ng-pristine');
-    element(by.css('#s2id_f_team2_0 .select2-arrow')).click();
-    input = element.all(by.css('.select2-input')).get(3);
-    input.sendKeys('Jo');
-    browser.waitForAngular();
-    input.sendKeys(protractor.Key.ENTER);
-    browser.waitForAngular();
-    addSelect.click();
-    expect(element(by.id('f_team2_1')).getAttribute('class')).toMatch('ng-pristine');
-    element(by.css('#s2id_f_team2_1 .select2-arrow')).click();
-    input = element.all(by.css('.select2-input')).get(4);
-    input.sendKeys('Je');
-    browser.waitForAngular();
-    input.sendKeys(protractor.Key.ENTER);
-    browser.waitForAngular();
+    select2Select(addSelect, 'team2', 0, 'Jo', 'Brown John');
+    select2Select(addSelect, 'team2', 1, 'Je', 'Brown Jenny');
+
     browser.driver.manage().timeouts().implicitlyWait(100);
+
     checkValues();
 
     // Save the record and check they all refresh OK

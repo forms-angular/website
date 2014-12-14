@@ -11,6 +11,7 @@
     "forms-angular": "^0.4.0",
     "underscore": "1.6",
     "fng-select2": "*",
+    "fng-ui-select": "*",
     "fng-ui-date": "*",
     "fng-reports": "*",
     "fng-jq-upload": "*",

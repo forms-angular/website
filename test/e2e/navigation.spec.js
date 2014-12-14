@@ -7,7 +7,7 @@ describe('Navigation', function () {
   var browser = protractor.getInstance();
   browser.driver.manage().window().setSize(width, height);
 
-  var baseMenuCount = 7;
+  var baseMenuCount = 8;
 
   it('should cope with a list with menu options', function () {
     browser.get('/#/b_enhanced_schema');

@@ -7,6 +7,7 @@ var websiteApp = angular.module('websiteApp', [
   'ngGrid',
   'ngCkeditor',
   'ui.select2',
+  'fng.uiSelect',
   'uploadModule'
 ]);
 
@@ -31,6 +32,7 @@ formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', fu
     {route: '/plugins', options: {templateUrl: 'partials/plugins.html'}},
     {route: '/more', options: {templateUrl: 'partials/more.html'}},
     {route: '/in-the-wild', options: {templateUrl: 'partials/in-the-wild.html'}},
+    {route: '/supported-by', options: {templateUrl: 'partials/supported-by.html'}},
     {route: '/examples', options: {templateUrl: 'partials/examples.html'}},
     {route: '/api-docs', options: {templateUrl: 'partials/api-docs.html'}},
     {route: '/404', options: {templateUrl: 'partials/404.html'}},
