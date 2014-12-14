@@ -34,15 +34,25 @@ var BSchema = new Schema({
   weight: {type: Number, min: 5, max: 300, form: {label: 'Approx Weight (lbs)',  // this label overrides the one generated from the field name
     step: 5}},                         // input uses the min and max from the Mongoose schema, and the step from the form object
 
+  hairColour: {
+    type: String,
+    enum: ['Black', 'Blond', 'Brown', 'Fair', 'Grey', 'What hair?'],
+    required: false,
+    form: {
+      directive: 'fng-ui-select',
+      placeHolder: 'Choose hair colour...',
+      help:'This controller uses the <a href="https://github.com/forms-angular/fng-ui-select">fng-ui-select plugin</a> which pulls in the <a href="https://github.com/angular-ui/ui-select">angular-ui ui-select component</a>.'
+    }
+  },
   eyeColour: {
     type: String,
     enum: ['Blue', 'Brown', 'Green', 'Hazel'],
     required: false,
     form: {
       placeHolder: 'Select eye colour',   // Placeholders work in a combo box
-      select2: {},
+      select2: {},     // deprecated - use fng-ui-select
       help: 'This control has had an event handler added to it (which looks horrid - sorry!).' +
-            '  See post form-input generation processing section of <a ng-href="{{buildUrl(\'forms#client-side-customisation\')}}">documentation</a> for details.'
+            '  See post form-input generation processing section of <a ng-href="{{buildUrl(\'forms#client-side-customisation\')}}">documentation</a> for details. This field uses the (deprecated) ui-select2 component.'
     }
   },
   sex: {type: String, enum: ['Male', 'Female'], form: {type: 'radio', inlineRadio: true}},
