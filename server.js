@@ -41,10 +41,12 @@ if (app.get('env') === 'test') {
   var exec = require('child_process').exec;
   var dataPath = path.join(__dirname, 'test/e2e/e2edata');
   var dataFiles = fs.readdirSync(dataPath);
+  var mongoHost = config.mongo.uri.match(/mongodb:\/\/(.*\d)/)
+
   dataFiles.forEach(function (file) {
     var fname = dataPath + '/' + file;
     if (fs.statSync(fname).isFile()) {
-      exec('mongoimport --db fng-test --drop --collection ' + file.slice(0, -3) + 's --jsonArray < ' + fname,
+      exec('mongoimport --host ' + mongoHost + ' --db fng-test --drop --collection ' + file.slice(0, -3) + 's --jsonArray < ' + fname,
         function (error, stdout, stderr) {
         if (error !== null) {
           console.log('Error importing models : ' + error + ' (Code = ' + error.code + '    ' + error.signal + ') : ' + stderr + ' : ' + stdout);
