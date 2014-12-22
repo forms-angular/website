@@ -54,6 +54,13 @@ module.exports = function (grunt) {
           livereload: true
         }
       },
+      styles: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        tasks: ['newer:copy:styles', 'autoprefixer']
+      },
+      gruntfile: {
+        files: ['Gruntfile.js']
+      },
       mochaTest: {
         files: ['test/server/{,*/}*.js'],
         tasks: ['env:test', 'mochaTest']
@@ -66,13 +73,7 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
         tasks: ['newer:less']
       },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
-      },
-      gruntfile: {
-        files: ['Gruntfile.js']
-      },
+
       livereload: {
         files: [
           '<%= yeoman.app %>/partials/{,*//*}*.{html,jade}',

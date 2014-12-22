@@ -4,7 +4,6 @@ describe('Find functions', function () {
 
   var width = 1024;
   var height = 768;
-  var browser = protractor.getInstance();
   browser.driver.manage().window().setSize(width, height);
 
   it('should find only the allowed records', function () {

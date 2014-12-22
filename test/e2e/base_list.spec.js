@@ -5,7 +5,6 @@ describe('Base list', function () {
   // ensure that menu options appear
   var width = 1024;
   var height = 768;
-  var browser = protractor.getInstance();
   browser.driver.manage().window().setSize(width, height);
 
   it('should list all the records', function () {
