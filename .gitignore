@@ -6,3 +6,7 @@ app/bower_components
 heroku
 /views
 test.js
+
+# Configuration files have an example to be copied from
+lib/config/env/development.js
+lib/config/env/test.js
