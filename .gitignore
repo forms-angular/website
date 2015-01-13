@@ -10,3 +10,5 @@ test.js
 # Configuration files have an example to be copied from
 lib/config/env/development.js
 lib/config/env/test.js
+dist/lib/config/env/development.js
+dist/lib/config/env/test.js
