@@ -86,7 +86,7 @@ describe('Base edit form', function () {
       expect(list.count()).toBe(0);
       var freeTextField = element(by.model('record.freeText'));
       freeTextField.clear();
-      freeTextField.sendKeys('This is a polite thing ' + new Date().getTime());  // to ensure that it is a change
+      freeTextField.sendKeys('This is a polite thing');
       $('#newButton').click();
       browser.sleep(500);
       list = element.all(by.css('.modal'));
