@@ -27,6 +27,8 @@ describe('Controller: BaseCtrl', function () {
     it('should request a schema', function () {
       inject(function (_$httpBackend_, $rootScope, $controller) {
         $httpBackend = _$httpBackend_;
+        // TODO Figure out why the next line is suddenly required
+        $httpBackend.whenGET('partials/landing-page.html').respond('No idea why it suddenly needs this');
         $httpBackend.whenGET('/api/schema/collection').respond({
           'name': {'path': 'name', 'instance': 'String', 'options': {'form': {'label': 'Organisation Name'}, 'list': true}}
         });

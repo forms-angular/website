@@ -230,8 +230,7 @@ module.exports = function (grunt) {
           /blueimp-file-upload\/js\/jquery.fileupload-ui.js/,
           /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/,
           /ckeditor\/ckeditor.js/,
-          /select2-bootstrap-css\/select2-bootstrap.css/,
-          /angular-ui-bootstrap-bower\/ui-bootstrap-tpls.js/
+          /select2-bootstrap-css\/select2-bootstrap.css/
           ]
       }
     },
@@ -482,8 +481,6 @@ module.exports = function (grunt) {
     this.async();
   });
 
-  grunt.registerTask('e2e', ['express:test', 'protractor']);
-
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
@@ -520,7 +517,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', function(target) {
     if (target === 'server') {
       return grunt.task.run([
-        'env:test',
+        //'env:test',
         'mochaTest'
       ]);
     }
@@ -534,10 +531,17 @@ module.exports = function (grunt) {
       ]);
     }
 
+    else if (target === 'e2e') {
+      return grunt.task.run([
+        'express:test',
+        'protractor'
+      ]);
+    }
+
     else grunt.task.run([
       'test:server',
       'test:client',
-      'protractor'
+      'test:e2e'
     ]);
   });
 
