@@ -517,7 +517,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', function(target) {
     if (target === 'server') {
       return grunt.task.run([
-        //'env:test',
+        'env:test',
         'mochaTest'
       ]);
     }
@@ -539,9 +539,9 @@ module.exports = function (grunt) {
     }
 
     else grunt.task.run([
+      'test:e2e',
       'test:server',
-      'test:client',
-      'test:e2e'
+      'test:client'
     ]);
   });
 
