@@ -131,7 +131,7 @@ describe('Base edit form', function () {
 
     it('shows multiple tabs when appropriate', function () {
       browser.get('/#/i_tabbed_form/new');
-      var list = element.all(by.css('.tabbable li a'));
+      var list = element.all(by.css('.nav-tabs li a'));
       expect(list.count()).toBe(2);
     });
 

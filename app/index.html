@@ -11,13 +11,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-      <!-- build:css({.tmp,app}) styles/main.css -->
-      <link rel="stylesheet" href="styles/main.css">
-      <!-- endbuild -->
     <!-- build:css(app) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
-    <link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fng-select2/fng-select2.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <link rel="stylesheet" href="bower_components/fng-ui-select/styles/fng-ui-select.css" />
@@ -35,12 +31,12 @@
       <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="websiteApp" ng-controller="NavCtrl" ng-keyup="globalShortcuts($event)">
+  <body ng-app="websiteApp" ng-cloak ng-controller="NavCtrl" ng-keyup="globalShortcuts($event)">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ng-include="'partials/navbar.html'"></div>
-    <div class="container-fluid" ng-view=""></div>
+    <div ng-controller="CSSSwitchCtrl" class="container-fluid" ng-view=""></div>
     <div ng-include="'partials/footer.html'"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -66,8 +62,8 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/angular-elastic/elastic.js"></script>
@@ -110,6 +106,7 @@
     <script src="bower_components/blueimp-gallery/js/blueimp-gallery-youtube.js"></script>
     <script src="bower_components/fng-jq-upload/dist/fng-jq-upload.js"></script>
     <script src="bower_components/ng-ckeditor/ng-ckeditor.js"></script>
+    <script src="bower_components/angular-css/angular-css.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <script src="bower_components/ckeditor/ckeditor.js"></script>

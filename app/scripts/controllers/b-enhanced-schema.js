@@ -1,6 +1,6 @@
 'use strict';
 
-websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', function ($scope, $data, $timeout) {
+websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', function ($scope, $data) {
 
   $scope.record = $data.record;
 
@@ -70,7 +70,7 @@ websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', fun
     }
   }
 
-  $scope.onAllReady = function (baseScope) {
+  $scope.onAllReady = function () {
     var eyeColor = angular.element(document.querySelector('#f_eyeColour'));
     eyeColor.on('change', function (e) {
       console.log('change ' + JSON.stringify({val: e.val, added: e.added, removed: e.removed}));

@@ -6,6 +6,7 @@ app/bower_components
 heroku
 /views
 test.js
+test/e2e/screenshots/**/*.json
 
 # Configuration files have an example to be copied from
 lib/config/env/development.js

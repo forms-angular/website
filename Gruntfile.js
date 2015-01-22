@@ -34,6 +34,13 @@ module.exports = function (grunt) {
           debug: true
         }
       },
+      test: {
+        options: {
+          script: 'server.js',
+          debug: true,
+          node_env: 'test'
+        }
+      },
       prod: {
         options: {
           script: 'public/server.js',
@@ -180,7 +187,8 @@ module.exports = function (grunt) {
           compile: true
         },
         files: {
-          '.tmp/styles/main.css': ['<%= yeoman.app %>/styles/demo-bs2.less']
+          '.tmp/styles/main-bs2.css': ['<%= yeoman.app %>/styles/demo-bs2.less'],
+          '.tmp/styles/main-bs3.css': ['<%= yeoman.app %>/styles/demo-bs3.less']
         }
       }
     },
@@ -221,7 +229,9 @@ module.exports = function (grunt) {
           '/es5-shim/',
           /blueimp-file-upload\/js\/jquery.fileupload-ui.js/,
           /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/,
-          /ckeditor\/ckeditor.js/
+          /ckeditor\/ckeditor.js/,
+          /select2-bootstrap-css\/select2-bootstrap.css/,
+          /angular-ui-bootstrap-bower\/ui-bootstrap-tpls.js/
           ]
       }
     },
@@ -441,12 +451,11 @@ module.exports = function (grunt) {
 
     protractor: {
       options: {
-        configFile: "test/e2e/protractor-firefox.conf.js", // Default config file as it works on Travis
         keepAlive: true, // If false, the grunt process stops when the test fails.
         noColor: false // If true, protractor will not use colors in its output.
       },
-      headless: {
-        configFile: "test/e2e/protractor-phantom.conf.js"
+      firefox: {
+        configFile: "test/e2e/protractor-firefox.conf.js"
       }
     },
 
@@ -472,6 +481,8 @@ module.exports = function (grunt) {
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
   });
+
+  grunt.registerTask('e2e', ['express:test', 'protractor']);
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -501,10 +512,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('protractorMessage', function () {
-    grunt.log.warn('Please run protractor as well, either by doing\n    grunt protractor\n(which doesn\'t work for me) or\n    protractor test/e2e/protractor-firefox.conf.js');
-  });
-
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve']);
@@ -530,7 +537,7 @@ module.exports = function (grunt) {
     else grunt.task.run([
       'test:server',
       'test:client',
-      'protractorMessage'
+      'protractor'
     ]);
   });
 
