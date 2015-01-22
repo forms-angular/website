@@ -39,7 +39,10 @@ describe('Base edit form', function () {
       var list = element.all(by.css('.modal'));
       expect(list.count()).toBe(1);
       expect($('.modal h3').getText()).toMatch('Delete Item');
-      $('.modal-footer button.dlg-cancel').click();
+      $('.modal-footer button.dlg-no').click();
+      expect(browser.getCurrentUrl()).toMatch('/a_unadorned_schema/666a6075b320153869b17599/edit');
+      list = element.all(by.css('.modal'));
+      expect(list.count()).toBe(0);
     });
 
   });
