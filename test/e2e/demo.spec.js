@@ -9,6 +9,7 @@ describe('Forms app demo', function () {
   it('should automatically redirect to index when location hash/fragment is empty', function () {
     browser.get('/');
     expect(browser.getCurrentUrl()).toMatch('\/#\/');
+    expect($('h3').getText()).toMatch('Probably the most opinionated framework in the world');
   });
 
 });
