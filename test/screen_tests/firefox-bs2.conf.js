@@ -3,13 +3,13 @@ var path = require('path');
 
 exports.config = {
   specs: [
-    './**/*.spec.js'
+    './screen-comparisons-bs2.spec.js'
   ],
   capabilities: {
     browserName: 'firefox'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:9000',
+  baseUrl: 'http://0.0.0.0:9000',
   framework: 'jasmine',
 
   onPrepare: function() {
@@ -23,10 +23,12 @@ exports.config = {
 
     browser.addMockModule('disableNgAnimate', disableNgAnimate);
 
-    // Add a screenshot reporter and take screenshots of failed tests
+    // Add a screenshot reporter and store screenshots to `/tmp/screnshots`:
     jasmine.getEnv().addReporter(new ScreenShotReporter({
-      baseDirectory: 'failed_tests/screenshots',
-      takeScreenShotsOnlyForFailedSpecs: true
+      baseDirectory: 'test/screen_tests/screenshots',
+      pathBuilder: function (spec, descriptions, results, capabilities) {
+        return path.join('bs2-' + capabilities.caps_.browserName + '-' + descriptions.reverse().join('-'));
+      }
     }));
   }
 

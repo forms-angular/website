@@ -56,7 +56,7 @@ var BSchema = new Schema({
     }
   },
   sex: {type: String, enum: ['Male', 'Female'], form: {type: 'radio', inlineRadio: true}},
-  dateOfBirth: Date,
+  dateOfBirth: {type: Date, form: {helpInline: 'When is their birthday?'}},
   accepted: {type: Boolean, required: true, form: {helpInline: 'Did we take them?'}, list: {}},   // helpInline displays to the right of the input control
   interviewScore: {type: Number, form: {hidden: true}, list: {}},  // this field does appear on listings, even though it is hidden on default form
   freeText: {

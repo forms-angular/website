@@ -453,8 +453,14 @@ module.exports = function (grunt) {
         keepAlive: true, // If false, the grunt process stops when the test fails.
         noColor: false // If true, protractor will not use colors in its output.
       },
-      firefox: {
+      e2e: {
         configFile: "test/e2e/protractor-firefox.conf.js"
+      },
+      firefoxBs2: {
+        configFile: "test/screen_tests/firefox-bs2.conf.js"
+      },
+      firefoxBs3: {
+        configFile: "test/screen_tests/firefox-bs3.conf.js"
       }
     },
 
@@ -481,6 +487,14 @@ module.exports = function (grunt) {
     this.async();
   });
 
+  grunt.registerTask('prepare', [
+    'clean:server',
+    'wiredep',
+    'less',
+    'concurrent:server',
+    'autoprefixer'
+  ]);
+
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
@@ -488,21 +502,13 @@ module.exports = function (grunt) {
 
     if (target === 'debug') {
       return grunt.task.run([
-        'clean:server',
-        'wiredep',
-        'less',
-        'concurrent:server',
-        'autoprefixer',
+        'prepare',
         'concurrent:debug'
       ]);
     }
 
     grunt.task.run([
-      'clean:server',
-      'wiredep',
-      'less',
-      'concurrent:server',
-      'autoprefixer',
+      'prepare',
       'express:dev',
       'open',
       'watch'
@@ -533,15 +539,26 @@ module.exports = function (grunt) {
 
     else if (target === 'e2e') {
       return grunt.task.run([
+        'prepare',
         'express:test',
-        'protractor'
+        'protractor:e2e'
+      ]);
+    }
+
+    else if (target === 'screens') {
+      return grunt.task.run([
+        'prepare',
+        'express:test',
+        'protractor:firefoxBs2',
+        'protractor:firefoxBs3'
       ]);
     }
 
     else grunt.task.run([
-      'test:e2e',
       'test:server',
-      'test:client'
+      'test:client',
+      'test:e2e',
+      'test:screens'
     ]);
   });
 
