@@ -8,11 +8,40 @@ module.exports = function(framework) {
 
     it('a_unadorned_schema', function () {
       browser.setLocation(framework + '/a_unadorned_schema/666a6075b320153869b17599/edit');
+      expect($('.header-lhs h4').getText()).toMatch('A Unadorned Schema');
     });
 
     it('b_enhanced_schema', function () {
       browser.setLocation(framework + '/b_enhanced_schema/519a6075b320153869b155e0/edit');
       expect($('#cke_f_formattedText').getText()).toMatch('Source');  // Wait for ckEditor
+      expect($('.header-lhs h4').getText()).toMatch('B Enhanced Schema');
+    });
+
+    it('c_subdoc_example', function () {
+      browser.setLocation(framework + '/c_subdoc_example/519aaaaab3201fff69b175e0/edit');
+      expect($('.header-lhs h4').getText()).toMatch('C Subdoc Example');
+    });
+
+    it('d_array_example', function () {
+      browser.setLocation(framework + '/d_array_example/51a6182aea4ea77715000005/edit');
+      expect($('.header-lhs h4').getText()).toMatch('D Array Example');
+    });
+
+    it('e_referencing_another_collection', function () {
+      browser.setLocation(framework + '/e_referencing_another_collection/51d1b2ca8c8683571c000005/edit');
+      expect($('.header-lhs h4').getText()).toMatch('E Referencing Another Collection');
+    });
+
+    it('f_nested_schema', function () {
+      browser.setLocation(framework + '/f_nested_schema/51c583d5b5c51226db418f16/edit');
+      expect(element.all(by.css('span.select2-chosen')).first().getText()).toMatch('IsAccepted John');
+      expect($('.header-lhs h4').getText()).toMatch('F Nested Schema');
+    });
+
+    it('h_deep_nesting', function () {
+      browser.setLocation(framework + '/h_deep_nesting/54c98b797c627d258d04d55d/edit');
+      expect(element(by.css('select[name="studies-exams-grader"]')).$('option:checked').getText()).toMatch('IsAccepted John');
+      expect($('.header-lhs h4').getText()).toMatch('Smith Alan');
     });
 
   });
