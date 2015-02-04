@@ -41,6 +41,11 @@ module.exports = function(framework) {
     it('h_deep_nesting', function () {
       browser.setLocation(framework + '/h_deep_nesting/54c98b797c627d258d04d55d/edit');
       expect(element(by.css('select[name="studies-exams-grader"]')).$('option:checked').getText()).toMatch('IsAccepted John');
+      if (framework === 'bs3') {
+        // Need to force a resize for some reason
+        browser.driver.manage().window().setSize(width - 10, height);
+        browser.driver.manage().window().setSize(width, height);
+      }
       expect($('.header-lhs h4').getText()).toMatch('Smith Alan');
     });
 
