@@ -2,15 +2,24 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var ExamsSchema = new Schema({
+  subject: String,
+  examDate: {type:Date, form:{size: 'small'} },
+  result: {type: String, enum: ['distinction', 'merit', 'pass', 'fail']},
+  grader: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {select2: {fngAjax: true}, label: 'Marked By'}},
+  retakeDate: {type: Date, form: {showWhen: {lhs: '$exams.result', comp: 'eq', rhs: 'fail'}}}
+}, {_id: false});
+
 var GSchema = new Schema({
   surname: {type: String, list: {}, index: true},
   forename: {type: String, list: true, index: true},
   sex: {type: String, enum: ['F', 'M']},
   accepted: {type: Boolean, form: {help: 'When someone is accepted additional fields appear'}},
-  startDate: {type: Date, form: {showWhen: {lhs: '$accepted', comp: 'eq', rhs: true}}},
+  startDate: {type: Date, form: {showIf: {lhs: '$accepted', comp: 'eq', rhs: true}}},     // This syntax is is heading towards deprecation - use showWhen
   startingPosition: {type: String, form: {showWhen: {lhs: '$accepted', comp: 'eq', rhs: true}}},
   bribeAmount: {type: Number, form: {help: 'Try a number between 10 and 200 to see an angular expression used in a conditional'}},
-  loggedInBribeBook: {type: Boolean, form: {showWhen: 'record.bribeAmount >= 10 && record.bribeAmount <= 200'}}
+  loggedInBribeBook: {type: Boolean, form: {showWhen: 'record.bribeAmount >= 10 && record.bribeAmount <= 200'}},
+  exams: {type: [ExamsSchema], form: {formStyle: 'inline'}}
 });
 
 var G;

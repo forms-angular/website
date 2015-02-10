@@ -4,14 +4,30 @@
         surname: "Smith00",
         sex: 'M',
         bribeAmount: 123,
-        forename:  "John00"        
+        forename:  "John00"
     },
     {
-        _id : ObjectId("51c583d5b9991226db418f01"),
+        _id: ObjectId("51c583d5b9991226db418f01"),
         surname: "Smith01",
-        sex: 'M',
+        sex: "M",
         bribeAmount: 123,
-        forename:  "John01"
+        forename: "John01",
+        exams: [
+            {
+                subject: "Maths",
+                examDate: "2015-02-12T00:00:00.000Z",
+                score: 78,
+                result: "pass",
+                grader: "519a6075b440153869b155e0"
+            },
+            {
+                subject: "French",
+                examDate: "2015-02-02T00:00:00.000Z",
+                score: 34,
+                result: "fail",
+                grader: "519a6075b320153869b155e0"
+            }
+        ]
     },
     {
         _id : ObjectId("51c583d5b9991226db418f02"),
