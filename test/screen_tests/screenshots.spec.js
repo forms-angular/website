@@ -38,6 +38,12 @@ module.exports = function(framework) {
       expect($('.header-lhs h4').getText()).toMatch('F Nested Schema');
     });
 
+    it('g_conditional_field', function () {
+      browser.setLocation(framework + '/g_conditional_field/51c583d5b9991226db418f01/edit');
+      expect(element.all(by.css('span.select2-chosen')).first().getText()).toMatch('Jones Alan');
+      expect($('.header-lhs h4').getText()).toMatch('G Conditional Field');
+    });
+
     it('h_deep_nesting', function () {
       browser.setLocation(framework + '/h_deep_nesting/54c98b797c627d258d04d55d/edit');
       expect(element(by.css('select[name="studies-exams-grader"]')).$('option:checked').getText()).toMatch('IsAccepted John');
