@@ -72,7 +72,6 @@ websiteApp.cssLoaded = false;
 
 websiteApp
   .run(function($location, $css, cssFrameworkService) {
-    console.log('Config', $location.path());
     var framework = $location.path().slice(1);
     var newPath;
 
@@ -83,7 +82,6 @@ websiteApp
     } else {
       framework = websiteApp.defaultFramework;
     }
-    console.log('Loading stylesheets for ' + framework);
     $css.add(websiteApp.css[framework]);
     if (newPath) {$location.path(newPath);}
     })
