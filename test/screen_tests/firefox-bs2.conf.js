@@ -23,7 +23,7 @@ exports.config = {
 
     browser.addMockModule('disableNgAnimate', disableNgAnimate);
 
-    // Add a screenshot reporter and store screenshots to `/tmp/screnshots`:
+    // Add a screenshot reporter and store screenshots
     jasmine.getEnv().addReporter(new ScreenShotReporter({
       baseDirectory: 'test/screen_tests/screenshots',
       pathBuilder: function (spec, descriptions, results, capabilities) {
