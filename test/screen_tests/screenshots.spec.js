@@ -57,4 +57,13 @@ module.exports = function(framework) {
 
   });
 
+  describe('pause', function() {
+
+    it('sometimes needs a second at the end', function () {
+      browser.setLocation('/');
+      expect($('h3').getText()).toMatch('Probably the most opinionated framework in the world');
+    });
+
+  });
+
 };

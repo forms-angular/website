@@ -8,6 +8,8 @@ heroku
 test.js
 failed_tests
 test/screen_tests/screenshots/*.json
+test/screen_tests/screenshots/bs2-firefox-pause*.*
+test/screen_tests/screenshots/bs3-firefox-pause*.*
 
 # Configuration files have an example to be copied from
 lib/config/env/development.js
