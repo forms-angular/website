@@ -99,7 +99,7 @@
 
     <p>Mongoose is a popular package that simplifies using MongoDB with Node JS. Mongoose requires that
         a schema is created for each 'model'. <strong>forms-angular</strong> (specifically the BaseCtrl controller)
-        can convert Mongoose schemas into the schemas that         the form-input directive uses, which saves a lot of
+        can convert Mongoose schemas into the schemas that the form-input directive uses, which saves a lot of
         coding by hand and makes it very easy to keep your front and back ends in sync.  If you use BaseCtrl, then you
         should set the <strong>schema</strong> attribute of the form-input tag to "baseSchema()".</p>
 
@@ -319,7 +319,10 @@ howManyPerDay: {type: Number, form:{showWhen:{lhs:"$smoker", comp:"eq", rhs:true
     {keyList: {type: 'Delivery'}, containerType: 'well-small', title: 'Deliver To:'}
   ]
 }</code></pre>
-    <p>Note that subkey can be an object or an array of objects.  Where there are multiple sub docs that match the subkey the first will be used.</p>
+    <p>Note that subkey can be an object or an array of objects.  Where there are multiple sub docs that match the subkey the first will be used.  If there are no sub
+      docs then one will be created</p>
+  <p>An alternative way of selecting the sub doc is to specify a function, using the <strong>selectFunc</strong> property.  In this case the function
+  (which) must be on the base scope - usually added during the onAllReady event handler.  No automatic sub sub creation happens in this case.</p>
 </section>
 </div>
 </div>
