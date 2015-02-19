@@ -34,6 +34,7 @@
         <li><strong>/#/:model</strong> which lists the documents in the collection, with links to the form for editing them</li>
         <li><strong>/#/:model/new</strong> which enables the user to create a new document using the default form for the collection</li>
         <li><strong>/#/:model/:id/edit</strong> which enables the user to edit a document</li>
+        <li><strong>/#/:model/:id/edit/:tab</strong> which enables the user to edit a document, opening a tabbed form at a specified tab</li>
         <li><strong>/#/analyse/:model</strong> which lists the documents in the collection in a grid</li>
     </ul>
 
@@ -135,7 +136,11 @@ you can easily switch between modes without having to manually change all the in
                 <li><strong>weighting</strong> is a value from 0 to 9999 (default) that specifies the sort ordering</li>
                 <li><strong>text</strong> the display text for the item</li>
             </ul>
-            Both the resource and resourceText can be localised by a line of code like
+            and may additionally contain
+          <ul>
+            <li><strong>resourceTab</strong> the tab within the target form that should be added to the URLe</li>
+          </ul>
+            Both the resource, resourceText and resourceTab can be localised by a line of code like
             <pre><code>DataFormHandler.getResource('person').options.localisationData = [{from: 'person/customer', to: 'person/client', context: 'resource'},{from:'Customer', to:'Client', context: 'resourceText'}];</code></pre>
         </li>
     </ul>
