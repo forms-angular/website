@@ -39,7 +39,7 @@
                     options:</p>
                 <ul>
                     <li><strong>title</strong> this option allows a title to be specified. The default is the model
-                        name.  Current values of <a href="#params">params</a> can be inserted into the title using the syntax |(paramname)| within the title.
+                        name.  Current values of <a href="#/plugins#drilldown">params</a> can be inserted into the title using the syntax |(paramname)| within the title.
                     </li>
                     <li><strong>columnDefs</strong> an array of column instruction objects which determines the output
                         order and
@@ -84,12 +84,12 @@
                         If there is more than one of <strong>fn</strong>, <strong>translations</strong> and
                         <strong>ref</strong> they are performed in that order.
                     </li>
-                    <li><strong>drilldown</strong> a url that clicking on the row will navigate to. A |fieldname| will
+                    <li id="drilldown"><strong>drilldown</strong> a url that clicking on the row will navigate to. A |fieldname| will
                         be replaced
                         with the value of the fieldname in the current row. For example a report
                         listing one row per item might have a drilldown of <em>model/|_id|/edit</em> as seen in <a
                                 ng-href="{{buildUrl('analyse/g_conditional_field/totals')}}">this</a> report.  A |(paramname)|
-                        will also be subtituted by the current value of a <a href="#params">param</a>.
+                        will also be subtituted by the current value of a <a href="#/plugins#drilldown">param</a>.
                     </li>
                     <li id="params"><strong>params</strong> contains an array of parameters that can be used in the pipeline,
                         normally in a
@@ -105,8 +105,8 @@
                             <li><strong>label</strong> allows you to override the default input label</li>
                             <li><strong>size</strong> sets <a
                                     href="http://twitter.github.io/bootstrap/base-css.html#forms">input control
-                                width</a>.
-                                Options are: mini, small (default), medium, large, xlarge, xxlarge and block-level..
+                                width</a> (but you need to take account of the form size - already a fairly small part of the whole windiw width).
+                                Options are: mini, small, medium (default), large, xlarge, xxlarge and block-level.
                             </li>
 
                             <li><strong>enum</strong> an array of values to populate a select input</li>
@@ -152,7 +152,7 @@
                     served up via a
                     static in the model file - see <a ng-href="{{buildUrl('models/g_conditional_field.js')}}">here</a> for
                     <a ng-href="{{buildUrl('analyse/g_conditional_field/breakdownbysex')}}">some</a>
-                    <a ng-href="{{buildUrl('analyse/g_conditional_field/totalforonesex')}}">examples</a>.</p>
+                    <a id="linkfortest" ng-href="{{buildUrl('analyse/g_conditional_field/totalforonesex')}}">examples</a>.</p>
             </section>
           <section id="ui-select" name="ui-select" affix-scroll>
             <h3>ui-select (fng-ui-select)</h3>
