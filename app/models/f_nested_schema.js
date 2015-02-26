@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ExamsSchema = new Schema({
-  subject: String,
-  examDate: Date,
+  subject: {type: String, required: true},
+  examDate: {type: Date, required: true},
   score: Number,
   result: {type: String, enum: ['distinction', 'merit', 'pass', 'fail']},
   grader: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {select2: {fngAjax: true}, label: 'Marked By'}},
@@ -12,7 +12,7 @@ var ExamsSchema = new Schema({
 }, {_id: false});
 
 var FSchema = new Schema({
-  surname: {type: String, index: true, list: {}},
+  surname: {type: String, index: true, required: true, list: {}},
   forename: {type: String, index: true, list: true},
   aTest: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'},
 

@@ -1,5 +1,15 @@
 module.exports = function(framework) {
 
+  function waitForPromiseTest(promiseFn, testFn) {
+    browser.wait(function () {
+      var deferred = protractor.promise.defer();
+      promiseFn().then(function (data) {
+        deferred.fulfill(testFn(data));
+      });
+      return deferred.promise;
+    });
+  }
+
   describe('1024x768', function () {
 
     var width = 1024;
@@ -53,6 +63,11 @@ module.exports = function(framework) {
         browser.driver.manage().window().setSize(width, height);
       }
       expect($('.header-lhs h4').getText()).toMatch('Smith Alan');
+    });
+
+    it('report and params', function() {
+      browser.setLocation('/analyse/g_conditional_field/totalforonesex');
+      expect(element(by.css('.header-lhs h1')).getText()).toMatch('Numbers of Applicants By Sex');
     });
 
   });
