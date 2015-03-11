@@ -18,8 +18,12 @@
     <p>The most visible part of forms-angular is the <strong>form-input</strong> directive which
         takes a <em>schema</em> in the scope and creates inputs. These schemas can be very simple as in the
         example below:</p>
-    <pre>&lt;div ng-init="name=[{name:'surname'},{name:'forename']"&gt;
-    &lt;form-input schema="name" /&gt;
+    <pre>
+&lt;div
+  ng-init="name=[
+    {name:'surname'},
+    {name:'forename']" &gt;
+  &lt;form-input schema="name" /&gt;
 &lt;div&gt;</pre>
     <p>This simple bit of markup creates a small schema and stores it in the scope as <em>name</em> (you
         wouldn't normally it like this, but it illustrates things well) then invokes the form-input directive,
@@ -160,7 +164,15 @@
     <h3>The <em>form</em> Object</h3>
 
     <p>The mark-up of generated forms can be influenced by use of the <strong>form</strong> object in the
-        schema type: <code>surname: {type:String, form:{label:'Family Name', size:'large'}}</code></p>
+        schema type: <pre>
+  <code>
+surname: {
+  type:String,
+  form:{
+    label:'Family Name',
+    size:'large'
+  }
+}</code></pre></p>
 
     <p>The form object can have the following optional keys:</p>
     <ul>
