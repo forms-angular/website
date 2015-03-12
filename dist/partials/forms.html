@@ -1,5 +1,7 @@
 <div ng-class="css('rowFluid')">
-    <div class="page-header">
+  <div class="visible-lg visible-desktop col-md-3 span3">
+  </div>
+  <div class="col-sm-9 span9 page-header">
         <h1>Forms</h1>
         Finding, editing and reporting on data
     </div>
@@ -7,7 +9,7 @@
 
 <div class="container-fluid" ng-controller="DemoCtrl">
 <div ng-class="css('rowFluid')">
-<div class="col-sm-3 span3">
+<div class="visible-lg visible-desktop col-sm-3 span3">
     <affix></affix>
 </div>
 
@@ -169,55 +171,65 @@ you can easily switch between modes without having to manually change all the in
     <ul>
         <li><strong>formstyle</strong> this attribute can take the values <strong>vertical</strong>, <strong>horizontal</strong>,
             <strong>inline</strong> and <strong>horizontalCompact</strong>.  The first three generate the markup for a Twitter Bootstrap style and the last slightly modified style. <strong>vertical</strong>
-            generates markup that works with the default form style, and the others needs classes adding as follows:
-            <table class="table" ng-init="name=[{name:'surname'},{name:'forename'}]">
-                <thead>
-                    <tr>
-                        <th>formstyle</th>
-                        <th>Associated Bootstrap class</th>
-                        <th>forms-angular class</th>
-                        <th>Restrictions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>horizontalCompact / compact (default)</td>
-                        <td>form-horizontal</td>
-                        <td>compact</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><form-input schema="name" noautofocus="true"></td>
-                    </tr>
-                    <tr>
-                        <td>vertical</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><form-input formstyle="vertical" schema="name" noautofocus="true"></td>
-                    </tr>
-                    <tr>
-                        <td>horizontal</td>
-                        <td>form-horizontal</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><form-input formstyle="horizontal" schema="name" noautofocus="true"></td>
-                    </tr>
-                    <tr>
-                        <td>inline</td>
-                        <td>form-inline</td>
-                        <td></td>
-                        <td>Array fields not supported</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><form-input formstyle="inline" schema="name" noautofocus="true"></td>
-                    </tr>
-                </tbody>
+            generates markup that works with the default form style, and the others need classes adding as follows:
+          <br>
+          <br>
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td>
+                    <p class="lead">horizontalCompact / compact (default)</p>
+                    <img src="/images/c9b6692b.horizontalCompact.png" alt="Example of horizonalCompact layout">
+                  
+                </td></tr>
+                <tr class="info">
+                  <td>This layout generates forms that use the Bootstrap <strong>form-horizontal</strong> class and the
+                    forms-angular <strong>compact</strong> class (which mostly decreases vertical padding).</td>
+                </tr>
+              </tbody>
             </table>
+          <table class="table table-bordered">
+            <tbody>
+            <tr>
+              <td>
+                <p class="lead">vertical</p>
+                <img src="/images/49b04f37.vertical.png" alt="Example of vertical layout">
+              </td>
+            </tr>
+            <tr class="info">
+              <td>This layout generates forms that use the default Bootstrap form styling.</td>
+            </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered">
+            <tbody>
+            <tr>
+              <td>
+                <p class="lead">horizontal</p>
+                <img src="/images/24222c37.horizontal.png" alt="Example of horizontal layout">
+              </td>
+            </tr>
+            <tr class="info">
+              <td>This layout also generates forms that use Bootstrap <strong>form-horizontal</strong> class, but in this
+                case do not change it.</td>
+            </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered">
+            <tbody>
+            <tr>
+              <td>
+                <p class="lead">inline</p>
+                <img src="/images/b427c8bd.inline.png" alt="Example of inline layout">
+              </td>
+            </tr>
+            <tr class="info">
+              <td>This layout generates forms that use Bootstrap <strong>form-inline</strong> class.  This layout is not
+                supported for Array fields.</td>
+            </tr>
+            </tbody>
+          </table>
+
             <p>Forms and sub forms that are created by the directive will have these classes added in the appropriate place.</p></li>
         <li><strong>model</strong> the object in the scope to be bound to the model controller.  Specifying
             the model inhibits the generation of the <strong>form</strong> tag unless the <strong>forceform</strong> attribute is set to true</li>
