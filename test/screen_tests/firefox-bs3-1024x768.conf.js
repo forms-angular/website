@@ -3,7 +3,7 @@ var path = require('path');
 
 exports.config = {
   specs: [
-    './screen-comparisons-bs2.spec.js'
+    './bs3-1024x768.spec.js'
   ],
   capabilities: {
     browserName: 'firefox'
@@ -27,7 +27,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new ScreenShotReporter({
       baseDirectory: 'test/screen_tests/screenshots',
       pathBuilder: function (spec, descriptions, results, capabilities) {
-        return path.join('bs2-' + capabilities.caps_.browserName + '-' + descriptions.reverse().join('-'));
+        return path.join('bs3-firefox-1024x768-' + descriptions[0]);
       }
     }));
   }

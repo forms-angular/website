@@ -456,11 +456,14 @@ module.exports = function (grunt) {
       e2e: {
         configFile: "test/e2e/protractor-firefox.conf.js"
       },
-      firefoxBs2: {
-        configFile: "test/screen_tests/firefox-bs2.conf.js"
+      bs2_320x480: {
+        configFile: "test/screen_tests/firefox-bs2-320x480.conf.js"
       },
-      firefoxBs3: {
-        configFile: "test/screen_tests/firefox-bs3.conf.js"
+      bs2_1024x768: {
+        configFile: "test/screen_tests/firefox-bs2-1024x768.conf.js"
+      },
+      bs3_1024x768: {
+        configFile: "test/screen_tests/firefox-bs3-1024x768.conf.js"
       }
     },
 
@@ -549,8 +552,9 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'prepare',
         'express:test',
-        'protractor:firefoxBs2',
-        'protractor:firefoxBs3'
+        'protractor:bs2_320x480',
+        'protractor:bs2_1024x768',
+        'protractor:bs3_1024x768'
       ]);
     }
 

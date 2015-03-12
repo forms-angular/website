@@ -3,7 +3,7 @@ var path = require('path');
 
 exports.config = {
   specs: [
-    './screen-comparisons-bs3.spec.js'
+    './bs2-320x480.spec.js'
   ],
   capabilities: {
     browserName: 'firefox'
@@ -23,11 +23,11 @@ exports.config = {
 
     browser.addMockModule('disableNgAnimate', disableNgAnimate);
 
-    // Add a screenshot reporter and store screenshots to `/tmp/screnshots`:
+    // Add a screenshot reporter and store screenshots
     jasmine.getEnv().addReporter(new ScreenShotReporter({
       baseDirectory: 'test/screen_tests/screenshots',
       pathBuilder: function (spec, descriptions, results, capabilities) {
-        return path.join('bs3-' + capabilities.caps_.browserName + '-' + descriptions.reverse().join('-'));
+        return path.join('bs2-firefox-320x480-' + descriptions[0]);
       }
     }));
   }

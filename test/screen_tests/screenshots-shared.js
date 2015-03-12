@@ -1,4 +1,4 @@
-module.exports = function(framework) {
+module.exports = function(framework, width, height) {
 
   function waitForPromiseTest(promiseFn, testFn) {
     browser.wait(function () {
@@ -10,10 +10,8 @@ module.exports = function(framework) {
     });
   }
 
-  describe('1024x768', function () {
+  describe('shot', function () {
 
-    var width = 1024;
-    var height = 768;
     browser.driver.manage().window().setSize(width, height);
 
     it('a_unadorned_schema', function () {
@@ -68,15 +66,6 @@ module.exports = function(framework) {
     it('report and params', function() {
       browser.setLocation('/analyse/g_conditional_field/totalforonesex');
       expect(element(by.css('.header-lhs h1')).getText()).toMatch('Numbers of Applicants By Sex');
-    });
-
-  });
-
-  describe('pause', function() {
-
-    it('sometimes needs a second at the end', function () {
-      browser.setLocation('/');
-      expect($('h3').getText()).toMatch('Probably the most opinionated framework in the world');
     });
 
   });
