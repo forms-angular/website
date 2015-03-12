@@ -12,7 +12,10 @@ module.exports = function(framework, width, height) {
 
   describe('shot', function () {
 
-    browser.driver.manage().window().setSize(width, height);
+    it('landing page', function() {
+      browser.driver.manage().window().setSize(width, height);
+      expect(element(by.css('h1')).getText()).toMatch('forms-angular');
+    });
 
     it('a_unadorned_schema', function () {
       browser.setLocation(framework + '/a_unadorned_schema/666a6075b320153869b17599/edit');
@@ -61,6 +64,11 @@ module.exports = function(framework, width, height) {
         browser.driver.manage().window().setSize(width, height);
       }
       expect($('.header-lhs h4').getText()).toMatch('Smith Alan');
+    });
+
+    it('docs page', function() {
+      browser.setLocation(framework + '/schemas');
+      expect(element(by.css('h1')).getText()).toMatch('Schemas');
     });
 
     it('report and params', function() {

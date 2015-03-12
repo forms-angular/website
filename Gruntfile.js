@@ -459,6 +459,9 @@ module.exports = function (grunt) {
       bs2_320x480: {
         configFile: "test/screen_tests/firefox-bs2-320x480.conf.js"
       },
+      bs3_320x480: {
+        configFile: "test/screen_tests/firefox-bs3-320x480.conf.js"
+      },
       bs2_1024x768: {
         configFile: "test/screen_tests/firefox-bs2-1024x768.conf.js"
       },
@@ -553,6 +556,7 @@ module.exports = function (grunt) {
         'prepare',
         'express:test',
         'protractor:bs2_320x480',
+        'protractor:bs3_320x480',
         'protractor:bs2_1024x768',
         'protractor:bs3_1024x768'
       ]);
