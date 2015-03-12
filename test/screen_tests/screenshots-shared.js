@@ -67,7 +67,7 @@ module.exports = function(framework, width, height) {
     });
 
     it('docs page', function() {
-      browser.setLocation(framework + '/schemas');
+      browser.setLocation('/schemas');
       expect(element(by.css('h1')).getText()).toMatch('Schemas');
     });
 
