@@ -262,7 +262,8 @@ you can easily switch between modes without having to manually change all the in
 
     <h5>Menu</h5>
 
-    <p>The menu can be added to where required by the models (see an example <a ng-href="{{buildUrl('b_enhanced_schema')}}">here</a>)
+    <p>The <b><model-controller-dropdown /></b> directive can be added to a <b>ul.navbar-nav</b> to add a dynamic dropdown menu
+        populated by the model controllers (see an example <a ng-href="{{buildUrl('b_enhanced_schema')}}">here</a>)
         The options can be configured to appear when records are being listed, edited or created. The top level text is
         taken from the model controller's <strong>dropDownDisplay</strong> variable, if present. If not present it will
         fall back to the modelNameDisplay (see above) and if that is not present the model name.</p>
@@ -278,6 +279,13 @@ you can easily switch between modes without having to manually change all the in
     return $scope.record._id ? $scope.record.field === 'value' : true;
   },
     ...
+}];</code></pre>
+
+    <p>A divider can be added to a menu:</p>
+        <pre><code>$scope.contextMenu = [{
+  divider: true
+  },
+  ...
 }];</code></pre>
 
     <h5 id="postprocessing">Post form-input generation processing</h5>

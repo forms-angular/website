@@ -38,17 +38,7 @@
               <li><a class="dropdown-option" ng-href="{{buildUrl('supported-by')}}">Supported By...</a></li>
             </ul>
           </li>
-          <li ng-show="items.length > 0" class="dropdown model-controller-added" dropdown>
-            <a class="dropdown-toggle" dropdown-toggle>
-              {{contextMenu}}
-            </a>
-            <ul class="dropdown-menu">
-              <li ng-repeat="choice in items" ng-hide="isHidden($index)" ng-class="isDisabled($index)?'disabled':''">
-                <a class="dropdown-option model-controller-added" ng-href="{{choice.url}}"
-                   ng-click="doClick($index, $event)">{{choice.text}}</a>
-              </li>
-            </ul>
-          </li>
+          <model-controller-dropdown />
         </ul>
         <div class="pull-right ghb" style="padding-top: 14px;">
           <iframe src="http://ghbtns.com/github-btn.html?user=forms-angular&repo=forms-angular&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
