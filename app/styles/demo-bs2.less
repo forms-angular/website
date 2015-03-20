@@ -2,6 +2,16 @@
 @import "../bower_components/bootstrap-2-3-2/less/bootstrap.less";
 @import "bootswatch-cerulean-2.3.2.less";
 @import "variables-cerulean-2.3.2.less";
+
+// See Marc Robichaud's answer on http://stackoverflow.com/questions/26628309/less-v2-does-not-compile-twitters-bootstrap-2-x
+#grid {
+  .core  {
+    .span(@gridColumns) {
+      width: (@gridColumnWidth * @gridColumns) + (@gridGutterWidth * (@gridColumns - 1));
+    }
+  }
+};
+
 @import "../bower_components/forms-angular/less/forms-angular-bs-common.less";
 @import "../bower_components/bootstrap-2-3-2/less/responsive";
 @import "../bower_components/select2-bootstrap-css-1-2/lib/select2-bootstrap";
