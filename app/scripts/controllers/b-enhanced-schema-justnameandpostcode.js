@@ -9,6 +9,9 @@ websiteApp.controller('BEnhancedSchemaJustnameandpostcodeCtrl', ['$scope', '$dat
 
   $scope.contextMenu = [
     {
+      divider: true      // Add a divider to your drop down menu
+    },
+    {
       fn: $scope.doAlert,
       args: ['Reading the data 2', true],
       listing: false,
