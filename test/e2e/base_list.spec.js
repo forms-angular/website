@@ -26,7 +26,7 @@ describe('Base list', function () {
 
   it('should support dropdown text override', function () {
     browser.get('/#/b_enhanced_schema');
-    expect($('li.dropdown.model-controller-added').getText()).toMatch('Custom Dropdown');
+    expect($('li.dropdown.mcdd').getText()).toMatch('Custom Dropdown');
   });
 
   it('should revert to normal model descriptions', function () {
@@ -37,7 +37,7 @@ describe('Base list', function () {
   it('should support the model name override with bespoke formschema', function () {
     browser.get('/#/b_enhanced_schema/justnameandpostcode');
     expect($('h1').getText()).toMatch('Another override');
-    expect($('li.dropdown.model-controller-added').getText()).toMatch('Custom 2nd Level');
+    expect($('li.dropdown.mcdd').getText()).toMatch('Custom 2nd Level');
   });
 
   it('should let user create a new record', function() {
