@@ -18,7 +18,7 @@
     small amendments - to meet a vast number of requirements.  They all use RESTful routes
     and handle querying and updating the server.</p>
 
-<section id="styling" name="Styling" affix-scroll=""><h3>Styling</h3>
+<section id="styling" name="Styling" affix-scroll><h3>Styling</h3>
     <p><strong>forms-angular</strong> uses <a href="http://getbootstrap.com/">Twitter Bootstrap</a> to lay out the forms.
     Mostly due to historical accident, versions <a href="http://getbootstrap.com/2.3.2">2.3.2</a>
     and <a href="http://getbootstrap.com/">3.1.1</a> are supported by forms-angular (though only the latter is
@@ -29,7 +29,7 @@
 }]);</code></pre>
 
 </section>
-<section id="routes" name="Routes" affix-scroll=""><h3>Routes</h3>
+<section id="routes" name="Routes" affix-scroll><h3>Routes</h3>
     <p>For each model the following routes are supported:</p>
 
     <ul>
@@ -62,7 +62,7 @@
 you can easily switch between modes without having to manually change all the internal links.</p>
 </section>
 
-<section id="input-form" name="Input Form" affix-scroll="">
+<section id="input-form" name="Input Form" affix-scroll>
 <h3>Input Form</h3>
 <p>The <strong>form-input</strong> directive expands the schema into nice looking
     data capture form, but that is only a small part of the story.
@@ -80,7 +80,7 @@ you can easily switch between modes without having to manually change all the in
 </ul>
 </section>
 
-<section id="listing" name="Listing Form" affix-scroll="">
+<section id="listing" name="Listing Form" affix-scroll>
 <h3>Listing Form</h3>
 
 <p>The listing routes (of the format <strong>/#/:model</strong>) are used to build a page
@@ -111,7 +111,7 @@ you can easily switch between modes without having to manually change all the in
 <p>By default the list order is the MongoDB natural order. The default list order for a table can be set by
     specifying a <strong>listOrder</strong> option in the model definition (see <a href="/models/g_conditional_field.js">g_conditional_field</a> for an example).</p>
 </section>
-<section id="search" name="Search" affix-scroll="">
+<section id="search" name="Search" affix-scroll>
     <h3>Search</h3>
     <p>The smallest form is the search form, in the navbar at the top of this page. It is implemented as a directive - <strong>global-search</strong>.
         When you enter text into it the controller makes a call to the server which looks for matching data by searching the indexed
@@ -161,7 +161,7 @@ you can easily switch between modes without having to manually change all the in
 </section>
 
 
-<section id="form-input-directive" name="form-input Directive" affix-scroll="">
+<section id="form-input-directive" name="form-input Directive" affix-scroll>
     <h3>The form-input Directive</h3>
 
     <p>The form-input directive, which is the core component of forms-angular, takes one mandatory attribute - schema -
@@ -241,7 +241,7 @@ you can easily switch between modes without having to manually change all the in
     </ul>
 </section>
 
-<section id="client-side-customisation" name="Client Side Customization" affix-scroll="">
+<section id="client-side-customisation" name="Client Side Customization" affix-scroll>
     <h3>Client Side Customization</h3>
 
     <p>Additional functionality can be added by using "model controllers" which have the name of
@@ -262,7 +262,8 @@ you can easily switch between modes without having to manually change all the in
 
     <h5>Menu</h5>
 
-    <p>The menu can be added to where required by the models (see an example <a ng-href="{{buildUrl('b_enhanced_schema')}}">here</a>)
+    <p>The <b><model-controller-dropdown></b> directive can be added to a <b>ul.navbar-nav</b> to add a dynamic dropdown menu
+        populated by the model controllers (see an example <a ng-href="{{buildUrl('b_enhanced_schema')}}">here</a>)
         The options can be configured to appear when records are being listed, edited or created. The top level text is
         taken from the model controller's <strong>dropDownDisplay</strong> variable, if present. If not present it will
         fall back to the modelNameDisplay (see above) and if that is not present the model name.</p>
@@ -335,7 +336,7 @@ you can easily switch between modes without having to manually change all the in
 
 </section>
 
-<section id="server-side-customisation" name="Server Side Customization" affix-scroll="">
+<section id="server-side-customisation" name="Server Side Customization" affix-scroll>
     <h3>Server Side Customization</h3>
 
     <h5>Server side data events</h5>
