@@ -20,7 +20,7 @@ var BSchema = new Schema({
     line3: {type: String, form: {label: null, add: 'random attributes', class : 'some classes here'}},
     town: {type: String, form: {label: 'Town', placeHolder: 'Post town'}},          // You can specify place holders
     postcode: {type: String,
-      match: /(GIR 0AA)|([A-Z]{1,2}[0-9][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2})/,
+      match: /^(GIR 0AA|[A-Z]{1,2}[0-9][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2})$/,
       form: {label: 'Postcode', size: 'small', help: 'Enter your UK postcode (for example TN2 1AA)'}},  // help displays on the line under the control, size adds matching bootstrap input- class
     country: {type: String, form: {label: 'Country', hidden: true}},
     surveillance: {type: Boolean, secure: true, form: {hidden: true}}
