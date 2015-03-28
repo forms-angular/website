@@ -55,7 +55,7 @@ ESchema.statics.form = function (layout) {
         surname: {},
         forename: {},
         weight: {},
-        mentor:{link:{linkOnly:true, text:'{{ listFieldValues("mentor") }}'}}
+        mentor:{link:{linkOnly:true}}
       };
       break;
   }
