@@ -43,6 +43,12 @@ module.exports = function(framework, width, height) {
       expect($('.header-lhs h4').getText()).toMatch('E Referencing Another Collection');
     });
 
+    it('e_referencing_another_collection-links', function () {
+      // don't specify framework here as it isn't supported in fng-routes (but it still works)
+      browser.setLocation('/e_referencing_another_collection/links/51d1b2ca8c8683571c000005/edit');
+      expect($('body').getText()).toMatch('E Referencing Another Collection');
+    });
+
     it('f_nested_schema', function () {
       browser.setLocation(framework + '/f_nested_schema/51c583d5b5c51226db418f16/edit');
       expect(element.all(by.css('span.select2-chosen')).first().getText()).toMatch('IsAccepted John');
@@ -53,17 +59,6 @@ module.exports = function(framework, width, height) {
       browser.setLocation(framework + '/g_conditional_field/51c583d5b9991226db418f01/edit');
       expect(element.all(by.css('span.select2-chosen')).first().getText()).toMatch('Jones Alan');
       expect($('.header-lhs h4').getText()).toMatch('G Conditional Field');
-    });
-
-    it('h_deep_nesting', function () {
-      browser.setLocation(framework + '/h_deep_nesting/54c98b797c627d258d04d55d/edit');
-      expect(element(by.css('select[name="studies-exams-grader"]')).$('option:checked').getText()).toMatch('IsAccepted John');
-      if (framework === 'bs3') {
-        // Need to force a resize for some reason
-        browser.driver.manage().window().setSize(width - 10, height);
-        browser.driver.manage().window().setSize(width, height);
-      }
-      expect($('.header-lhs h4').getText()).toMatch('Smith Alan');
     });
 
     it('docs page', function() {

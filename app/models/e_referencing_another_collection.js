@@ -47,6 +47,21 @@ ESchema.statics.report = function (report) {
   return reportSchema;
 };
 
+ESchema.statics.form = function (layout) {
+  var formSchema = '';
+  switch (layout) {
+    case 'links' :
+      formSchema = {
+        surname: {},
+        forename: {},
+        weight: {},
+        mentor:{link:{linkOnly:true, text:'{{ listFieldValues("mentor") }}'}}
+      };
+      break;
+  }
+  return formSchema;
+};
+
 module.exports = {
   model: E
 };
