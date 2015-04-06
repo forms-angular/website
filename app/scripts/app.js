@@ -27,7 +27,7 @@ websiteApp
 websiteApp.frameworks = ['bs2', 'bs3'];   // Just for testing forms-angular
 websiteApp.defaultFramework = 'bs2';
 
-formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', function (cssFrameworkService, routingService) {
+formsAngular.formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', function (cssFrameworkService, routingService) {
   routingService.start(
     {
       // Define the fixed routes (the dynamic routes for CRUD will be created by forms-angular)
@@ -57,11 +57,8 @@ formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', fu
 }]);
 
 /**
- * The rest of this file all about testing different frameworks and will almost certainly be of no interest to
+ * The rest of this file is all about testing different frameworks and will almost certainly be of no interest to
  * anyone not working on forms-angular itself
- *
- * CSSInitialiseCtrl
- * CSSSwitchCtrl
  **/
 
 websiteApp.css = {
@@ -107,8 +104,7 @@ websiteApp
         }
       });
     }
-  }])
-;
+  }]);
 
 
 

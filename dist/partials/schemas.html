@@ -235,10 +235,12 @@ howManyPerDay: {type: Number, form:{showWhen:{lhs:"$smoker", comp:"eq", rhs:true
         <li><strong>link</strong> sets up hyperlinks for reference fields as follows:
             <ul>
                 <li><em>linkOnly</em> if true (which at the time of writing is the only option supported)
-                    then the input
-                    element is not generated.
+                    then the input element is not generated.
                 </li>
-                <li><em>text</em> the text used for the link.</li>
+                <li><em>form</em> can be used to generate a link to a <a ng-href="{{buildUrl('schemas#custom')}}">custom schema</a></li>
+                <li><em>text</em> the literal value used for the link.  If this property is omitted then text is generated from the field values of the
+                  document referred to by the link - see examples in the collection <a ng-href="{{buildUrl('e_referencing_another_collection/links')}}">here</a>
+                  (view source code in the form static of <a href="/models/e_referencing_another_collection.js">this</a> file).</li>
             </ul>
         </li>
     </ul>
@@ -307,7 +309,8 @@ howManyPerDay: {type: Number, form:{showWhen:{lhs:"$smoker", comp:"eq", rhs:true
         </li>
         <li><strong>/#/:model/:formschema/:id/edit</strong></li>
     </ul>
-    <p>It is also possible to show a subset of fields in a sub-schema, which can be seen (<a ng-href="{{buildUrl('f_nested_schema/ResultsOnly/new')}}">here</a> if you add a new exam.</p>
+    <p>It is also possible to show a subset of fields in a sub-schema, which can be seen (<a ng-href="{{buildUrl('f_nested_schema/ResultsOnly/new')}}">here</a>
+      if you add a new exam.</p>
 
     <h4>Subkeys</h4>
     <p>Custom schemas are a good way to allow access to only part of a document, for instance if a customer record contained operational

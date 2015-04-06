@@ -10,13 +10,7 @@
     </div>
   </div>
   <div class="container-fluid page-body report-body">
-    <div ng-show="errorMessage" ng-class="css('rowFluid')">
-      <div class="span6 col-xs-6 col-sm-offset-3 offset3 alert alert-error">
-        <button type="button" class="close" ng-click="dismissError()">&times;</button>
-        <h4>{{alertTitle}}</h4>
-        <div ng-bind-html="errorMessage"></div>
-      </div>
-    </div>
+    <error-display></error-display>
     <div class="row-fluid">
       <div class="gridStyle" ng-grid="gridOptions"></div>
     </div>

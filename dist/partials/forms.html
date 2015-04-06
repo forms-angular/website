@@ -14,9 +14,8 @@
 </div>
 
 <div class="affix-section span9 col-sm-9">
-<p>Forms angular comes with a small number of forms that can be used - sometimes with
-    small amendments - to meet a vast number of requirements.  They all use RESTful routes
-    and handle querying and updating the server.</p>
+<p>Forms angular comes with a small number of forms that can be used to meet a vast number of requirements.  They all use RESTful routes
+    and handle querying and updating the server.  Alternatively you can build your own forms using the directives provided by forms-angular.</p>
 
 <section id="styling" name="Styling" affix-scroll><h3>Styling</h3>
     <p><strong>forms-angular</strong> uses <a href="http://getbootstrap.com/">Twitter Bootstrap</a> to lay out the forms.
@@ -121,7 +120,8 @@ you can easily switch between modes without having to manually change all the in
         found
         in the model definitions files for <a href="/models/f_nested_schema.js">f_nested_schema</a> and <a href="/models/g_conditional_field.js">g_conditional_field</a>.</p>
     <ul>
-        <li><strong>searchImportance</strong> is a value from 0 to 99 (default) that can be used to determine the order
+        <li><strong>searchImportance</strong> can be <strong>false</strong> (which suppresses the model from appearing in search results)
+            or a value from 0 to 99 (default) that can be used to determine the order
             of table searches. There is an example in <a href="/models/g_conditional_field.js">this</a> model.
         </li>
         <li><strong>searchOrder</strong> can be used to set the default ordering of the search results within a model.
