@@ -37,6 +37,7 @@ module.exports = function (config) {
       'app/bower_components/ng-ckeditor/ng-ckeditor.js',
       'app/bower_components/ckeditor/ckeditor.js',
       'app/bower_components/angular-css/angular-css.js',
+      'app/bower_components/forms-js/dist/forms-js.js',
       'app/bower_components/blueimp-tmpl/js/tmpl.js',
       'app/bower_components/blueimp-load-image/js/load-image.js',
       'app/bower_components/blueimp-load-image/js/load-image-ios.js',
@@ -76,6 +77,7 @@ module.exports = function (config) {
       'app/bower_components/blueimp-file-upload/js/jquery.iframe-transport.js',
       'app/bower_components/fng-jq-upload/dist/fng-jq-upload.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular-messages/angular-messages.js',
       'app/scripts/**/*.js',
       'app/scripts/template/*.html',
       'test/client/spec/**/*.js'

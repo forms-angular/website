@@ -13,21 +13,20 @@ var websiteApp = angular.module('websiteApp', [
 ]);
 
 websiteApp
-  .config(function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/'});
-  })
-  .controller('DemoCtrl', function ($scope, $location, $anchorScroll) {
-
+  }])
+  .controller('DemoCtrl', ['$scope', '$location', '$anchorScroll', function ($scope, $location, $anchorScroll) {
     $scope.scrollToSection = function (id) {
       $location.hash(id);
       $anchorScroll();
     };
-  });
+  }]);
 
 websiteApp.frameworks = ['bs2', 'bs3'];   // Just for testing forms-angular
 websiteApp.defaultFramework = 'bs2';
 
-formsAngular.formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', function (cssFrameworkService, routingService) {
+formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', function (cssFrameworkService, routingService) {
   routingService.start(
     {
       // Define the fixed routes (the dynamic routes for CRUD will be created by forms-angular)
@@ -68,7 +67,7 @@ websiteApp.css = {
 websiteApp.cssLoaded = false;
 
 websiteApp
-  .run(function($location, $css, cssFrameworkService) {
+  .run(['$location', '$css', 'cssFrameworkService', function($location, $css, cssFrameworkService) {
     // Don't mess around with switching CSS files if were aren't running in dev or test config
     if ($location.$$port === 9000) {
       var framework = $location.path().slice(1);
@@ -90,7 +89,7 @@ websiteApp
     } else {
       $css.add(['styles/50app.css']);
     }
-    })
+    }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {
     // Don't mess around with switching CSS files if were aren't running in dev or test config
     if ($location.$$port === 9000) {
