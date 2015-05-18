@@ -381,6 +381,12 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      maincss: {
+        expand: true,
+        cwd: '.tmp/styles/',
+        dest: '<%= yeoman.dist %>/public/styles',
+        src: '{,*/}*.css'
       }
     },
 
@@ -584,7 +590,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'copy:maincss'
   ]);
 
   grunt.registerTask('heroku', function () {
