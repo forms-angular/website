@@ -78,5 +78,6 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "license": "MIT"
 }

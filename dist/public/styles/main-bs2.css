@@ -5061,6 +5061,7 @@ i[class^="icon-"] {
 }
 .page-header {
   padding-left: 20px;
+  z-index: 2;
 }
 .header-rhs {
   min-width: 226px;
