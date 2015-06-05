@@ -96,9 +96,9 @@ websiteApp
       // Switch the CSS when asked
       $scope.$on('fngFormLoadStart', function (event, formScope) {
         if (formScope.variant && formScope.variant !== cssFrameworkService.framework()) {
-          $css.remove(css[cssFrameworkService.framework()]);
+          $css.remove(websiteApp.css[cssFrameworkService.framework()]);
           cssFrameworkService.setFrameworkForDemoWebsite(formScope.variant);
-          $css.add(css[cssFrameworkService.framework()]);
+          $css.add(websiteApp.css[cssFrameworkService.framework()]);
           console.log('Switched to ' + cssFrameworkService.framework());
         }
       });

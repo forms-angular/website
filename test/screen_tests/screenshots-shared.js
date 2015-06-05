@@ -61,6 +61,11 @@ module.exports = function(framework, width, height) {
       expect($('.header-lhs h4').getText()).toMatch('G Conditional Field');
     });
 
+    it('i_tabbed_form', function () {
+      browser.setLocation(framework + '/i_tabbed_form/557104d6d6eae89c4c1a331f/edit');
+      expect($('.header-lhs h4').getText()).toMatch('I Tabbed Form');
+    });
+
     it('docs page', function() {
       browser.setLocation('/schemas');
       expect(element(by.css('h1')).getText()).toMatch('Schemas');
