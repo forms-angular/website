@@ -5183,6 +5183,10 @@ a.fng-link,
 span.fng-link {
   line-height: 30px;
 }
+.form-inline a.fng-link,
+.form-inline span.fng-link {
+  padding: 0 15px;
+}
 span input[type="radio"] {
   margin: 9px 0 0;
 }
@@ -6392,6 +6396,7 @@ form .schema-foot {
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
+  padding: 4px 15px;
 }
 form .form-inline > .sub-doc {
   background-color: #ffffff;
