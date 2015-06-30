@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 var jqUploads = require('fng-jq-upload');
 
 var BSchema = new Schema({
+  photo: {type: [new Schema(jqUploads.FileSchema)], form: {directive: 'fng-jq-upload-form', fngJqUploadForm:{autoUpload:true, sizeLimit:524288, single:true, width: 100, height: 100}}},
   surname: {type: String, required: true, index: true, list: {}}, // this field appears in a listing and the default edit form header
   forename: {type: String, list: true, index: true},        // this field appears in a listing and the default edit form header
   website: {type: String, form: {type: 'url'}},
-  files: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Add small files - maximum size 0.5MB', directive: 'fng-jq-upload-form', add:{autoUpload:true, sizeLimit:524288}}},
   login: {type: String, secure: true, form: {hidden: true}},  // secure prevents the data from being sent by the API, hidden from being shown on the default form
   passwordHash: {type: String, secure: true, form: {hidden: true}},
   address: {
@@ -53,8 +53,10 @@ var BSchema = new Schema({
   },
   sex: {type: String, enum: ['Male', 'Female'], form: {type: 'radio', inlineRadio: true}},
   dateOfBirth: {type: Date, form: {helpInline: 'When is their birthday?'}},
+  CV: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Attach the CV - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{single:true, autoUpload: true, sizeLimit:524288}}},
   accepted: {type: Boolean, required: true, form: {helpInline: 'Did we take them?'}, list: {}},   // helpInline displays to the right of the input control
   interviewScore: {type: Number, form: {hidden: true}, list: {}},  // this field does appear on listings, even though it is hidden on default form
+  interviewForms: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Attach the scans of the interview forms - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{autoUpload:true, sizeLimit:524288}}},
   freeText: {
     type: String,
     form: {
