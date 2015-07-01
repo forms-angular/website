@@ -6396,7 +6396,6 @@ form .schema-foot {
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
-  padding: 4px 15px;
 }
 form .form-inline > .sub-doc {
   background-color: #ffffff;
@@ -6414,6 +6413,12 @@ form .form-inline > .sub-doc {
 }
 .fileupload-buttonbar {
   margin-left: 0;
+}
+@media (max-width: 767px) {
+  form .schema-head,
+  form .schema-foot {
+    padding: 5px 15px;
+  }
 }
 body {
   padding-top: 40px;
