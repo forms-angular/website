@@ -65,7 +65,7 @@ you can easily switch between modes without having to manually change all the in
 <h3>Input Form</h3>
 <p>The <strong>form-input</strong> directive expands the schema into nice looking
     data capture form, but that is only a small part of the story.
-    The <a href="https://github.com/forms-angular/generator-angular-fullstack/blob/master/templates/views/html/partials/base-edit.html">
+    The <a href="https://github.com/forms-angular/generator-angular-fullstack/blob/master/app/templates/client/partials/base-edit.html">
     basic edit form</a> also gives you:</p>
 <ul>
     <li>Header section showing the key fields from the record.</li>
@@ -165,7 +165,7 @@ you can easily switch between modes without having to manually change all the in
     <h3>The form-input Directive</h3>
 
     <p>The form-input directive, which is the core component of forms-angular, takes one mandatory attribute - schema -
-        which is documented at the top of the <a ng-href="{{buildUrl('schema.html')}}">page</a> and some optional attributes.</p>
+        which is documented at the top of the <a ng-href="{{buildUrl('schemas')}}">page</a> and some optional attributes.</p>
 
     <p>The optional attributes that can be passed for form-input are:</p>
     <ul>
@@ -246,7 +246,7 @@ you can easily switch between modes without having to manually change all the in
 
     <p>Additional functionality can be added by using "model controllers" which have the name of
         a model followed by <strong>Ctrl</strong> (or the name of the model followed by the name of
-        the custom form followed by Ctrl. There is an sample model controller <a href="/scripts/controllers/b-using-options.js">here</a>
+        the custom form followed by Ctrl. There is an sample model controller <a href="/scripts/controllers/b_enhanced_schema.js">here</a>
         which is used in the examples in this section. The NavCtrl controller handles the model controllers, so don't remove
         it.  There are two points during the creation of a form when the model controllers are called:</p>
       <ol>
@@ -294,7 +294,7 @@ you can easily switch between modes without having to manually change all the in
         processed a control. This can be acted on by the model controller. In our <a ng-href="{{buildUrl('b_enhanced_schema/new')}}">example</a> we
         add a change handler to a select2 control which changes background color of a control group
         when the eye colour is changed.  Try it, and then see how it is done at the bottom of
-        <a href="/scripts/controllers/b-using-options.js">this</a> controller.</p>
+        <a href="/scripts/controllers/b_enhanced_schema.js">this</a> controller.</p>
 
     <h5>Client side data events</h5>
 
