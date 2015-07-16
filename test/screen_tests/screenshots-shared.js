@@ -24,8 +24,8 @@ module.exports = function(framework, width, height) {
 
     it('b_enhanced_schema', function () {
       browser.setLocation(framework + '/b_enhanced_schema/519a6075b320153869b155e0/edit');
-      expect($('#cke_f_formattedText').getText()).toMatch('Source');  // Wait for ckEditor
       expect($('.header-lhs h4').getText()).toMatch('B Enhanced Schema');
+      expect($('#cke_f_formattedText').getText()).toMatch('Source');  // Wait for ckEditor
     });
 
     it('c_subdoc_example', function () {

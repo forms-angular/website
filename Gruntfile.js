@@ -462,9 +462,6 @@ module.exports = function (grunt) {
         keepAlive: false, // If false, the grunt process stops when the test fails.
         noColor: false // If true, protractor will not use colors in its output.
       },
-      e2e: {
-        configFile: "test/e2e/protractor-firefox.conf.js"
-      },
       bs2_320x480: {
         configFile: "test/screen_tests/firefox-bs2-320x480.conf.js"
       },
@@ -476,6 +473,9 @@ module.exports = function (grunt) {
       },
       bs3_1024x768: {
         configFile: "test/screen_tests/firefox-bs3-1024x768.conf.js"
+      },
+      e2e: {
+        configFile: "test/e2e/protractor-firefox.conf.js"
       }
     },
 
