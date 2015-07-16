@@ -456,6 +456,9 @@ module.exports = function (grunt) {
 
     protractor: {
       options: {
+        args: {
+          seleniumServerJar: '/usr/local/lib/node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar'
+        },
         keepAlive: false, // If false, the grunt process stops when the test fails.
         noColor: false // If true, protractor will not use colors in its output.
       },
