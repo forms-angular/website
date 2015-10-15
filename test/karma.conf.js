@@ -37,7 +37,6 @@ module.exports = function (config) {
       'app/bower_components/ng-ckeditor/ng-ckeditor.js',
       'app/bower_components/ckeditor/ckeditor.js',
       'app/bower_components/angular-css/angular-css.js',
-      'app/bower_components/forms-js/dist/forms-js.js',
       'app/bower_components/blueimp-tmpl/js/tmpl.js',
       'app/bower_components/blueimp-load-image/js/load-image.js',
       'app/bower_components/blueimp-load-image/js/load-image-ios.js',

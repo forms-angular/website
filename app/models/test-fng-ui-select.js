@@ -14,7 +14,8 @@ var TestFngUiSelectSchema = new Schema({
   multipleOutsideCached: [ { type: Schema.Types.ObjectId,  ref: 'f_nested_schema',   form: {directive: 'fng-ui-select', size: 'xxlarge', fngUiSelect: {forceMultiple: true}, label: 'Multiple Out. Cached' }} ],
   multipleInsideCached:    { type:[Schema.Types.ObjectId], ref: 'f_nested_schema',   form: {directive: 'fng-ui-select', size: 'xxlarge', fngUiSelect: {forceMultiple: true}, label: 'Multiple In. Cached'  }},
   multipleOutsideAjax  : [ { type: Schema.Types.ObjectId,  ref: 'f_nested_schema',   form: {directive: 'fng-ui-select', size: 'xxlarge', fngUiSelect: {fngAjax: true}, label: 'Multiple Out. Ajax'   }} ],
-  multipleInsideAjax:      { type:[Schema.Types.ObjectId], ref: 'f_nested_schema',   form: {directive: 'fng-ui-select', size: 'xxlarge', fngUiSelect: {fngAjax: true}, label: 'Multiple In. Ajax'    }}
+  multipleInsideAjax:      { type:[Schema.Types.ObjectId], ref: 'f_nested_schema',   form: {directive: 'fng-ui-select', size: 'xxlarge', fngUiSelect: {fngAjax: true}, label: 'Multiple In. Ajax'    }},
+  filteredAjax:            { type: Schema.Types.ObjectId,  ref: 'b_enhanced_schema', form: {directive: 'fng-ui-select', fngUiSelect: {fngAjax: escape(JSON.stringify({interviewScore:{$gt:90}})) }}}
 });
 
 var E;

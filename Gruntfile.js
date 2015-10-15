@@ -548,7 +548,7 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'autoprefixer',
-        'karma'
+        //'karma'
       ]);
     }
 

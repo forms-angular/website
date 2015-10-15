@@ -1,15 +1,15 @@
 {
   "name": "website",
   "author": "Mark Chapman <support@forms-angular.org>",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "description": "The demonstration website for the forms-angular library",
   "repository": {
     "type": "git",
     "url": "https://github.com/forms-angular/website"
   },
   "dependencies": {
-    "forms-angular": "0.4.1",
-    "fng-jq-upload": "0.4.1",
+    "forms-angular": "0.5.1",
+    "fng-jq-upload": "0.5.0",
     "express": "~4.12.3",
     "morgan": "~1.5.2",
     "body-parser": "~1.12.2",

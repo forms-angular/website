@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var jqUploads = require('fng-jq-upload');
 
 var BSchema = new Schema({
-  photo: {type: [new Schema(jqUploads.FileSchema)], form: {directive: 'fng-jq-upload-form', fngJqUploadForm:{autoUpload:true, sizeLimit:524288, single:true, width: 100, height: 100}}},
+  photo: {type: [new Schema(jqUploads.FileSchema)], form: {directive: 'fng-jq-upload-form', fngJqUploadForm:{autoUpload:true, sizeLimit:256 * 1024, single:true, width: 100, height: 100}}},
   surname: {type: String, required: true, index: true, list: {}}, // this field appears in a listing and the default edit form header
   forename: {type: String, list: true, index: true},        // this field appears in a listing and the default edit form header
   website: {type: String, form: {type: 'url'}},

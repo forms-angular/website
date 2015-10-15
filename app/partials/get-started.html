@@ -25,7 +25,7 @@
                 <p>Please note: the "just a few minutes" in the title starts from <em>after</em> these
                     are installed!</p>
                 <ul>
-                    <li>Install <a href="http://nodejs.org">Node JS</a> and (if it isn't part of the Node install) <a href="https://www.npmjs.org/">npm</a>(installation depends on
+                    <li>Install <a href="http://nodejs.org">Node JS</a> and (if it isn't part of the Node install) <a href="https://www.npmjs.org/">npm</a> (installation depends on
                         operating system)</li>
                     <li>Install <a href="http://www.mongodb.org">MongoDB</a> (installation depends
                         on operating system)</li>
@@ -34,23 +34,24 @@
                     <li>Install <a href="http://yeoman.io">Yeoman</a> - <code>npm install -g yo</code>
                     </li>
                     <li>Install <a href="http://bower.io">Bower</a> - <code>npm install -g bower</code></li>
+                    <li>(If you are going to use the file upload plugin with image files) Install <a href="http://www.imagemagick.org/script/index.php">imagemagick</a> - <code>npm install -g imagemagick</code></li>
                 </ul>
 
                 <p>If you are just having a play you can do all the above on a new Ubuntu server (from
                     <a href="https://www.digitalocean.com/?refcode=e6e0021274c9">Digital Ocean</a>, for instance)
-                    you can do the above steps with the commands</p>
-                <pre><code>apt-get install -y nodejs mongodb npm git && ln -s /usr/bin/nodejs /usr/bin/node
-npm install -g yo bower</code></pre>
+                    you can do the above steps with the following commands</p>
+                <pre><code>apt-get update && apt-get install -y mongodb git make g++ imagemagick
+git clone https://github.com/tj/n.git
+cd n && make install  && n stable</code></pre>
+              <p>Note that you may need <strong>sudo</strong> before some of the commands above.</p>
             </section>
-
             <section id="create" name="Create" affix-scroll>
-
                 <h3>Create</h3>
                 <p>At the command line, in the folder you want your application to reside in, do:</p>
-                <pre><code>npm install -g generator-fng
-yo fng</code></pre>
-                <p>Follow the onscreen prompts to customise your application</p>
-
+                <pre><code>npm install -g yo bower generator-fng grunt-cli && yo fng</code></pre>
+                <p>Follow the onscreen prompts to customise your application.  Note that this command must <strong>not</strong>
+                  be run with sudo (see <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank">
+                  this</a> page for how to install global packages as a user).</p>
             </section>
             <section id="run" name="Run" affix-scroll>
                 <h3>Run</h3>
