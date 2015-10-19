@@ -8,7 +8,7 @@
     "es5-shim": "~2.1.0",
     "forms-angular": "^0.5.1",
     "underscore": "1.6",
-    "fng-select2": "~0.5.0",
+    "fng-select2": "~0.4.0",
     "fng-ui-select": "~0.5.0",
     "fng-ui-date": "~0.5.0",
     "fng-reports": "~0.5.0",
