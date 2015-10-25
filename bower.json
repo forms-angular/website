@@ -12,7 +12,7 @@
     "fng-jq-upload": "~0.5.0",
     "fng-ckeditor": "~0.5.0",
     "json3": "3.3.2",
-    "components-font-awesome": "4.4.0",
+    "components-font-awesome": "3.2.1",
     "angular-css": "1.0.7",
     "es5-shim": "4.1.14"
   },

@@ -221,7 +221,6 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
-        src: '<%= yeoman.app %>/index.html',
         exclude: [
           /bootstrap-sass-official/,
           /bootstrap.js/,
@@ -231,7 +230,8 @@ module.exports = function (grunt) {
           /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/,
           /ckeditor\/ckeditor.js/,
           /select2-bootstrap-css\/select2-bootstrap.css/
-          ]
+          ],
+        src: ['<%= yeoman.app %>/index.html']
       }
     },
 

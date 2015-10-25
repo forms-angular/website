@@ -1,13 +1,11 @@
 'use strict';
 
 var express = require('express'),
-    favicon = require('static-favicon'),
+    favicon = require('serve-favicon'),
     morgan = require('morgan'),
     compression = require('compression'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
-    cookieParser = require('cookie-parser'),
-    session = require('express-session'),
     errorHandler = require('errorhandler'),
     path = require('path'),
     config = require('./config');
@@ -34,6 +32,8 @@ module.exports = function(app) {
 
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(path.join(config.root, 'app')));
+    app.use(express.static(path.join(config.root, 'dist')));
+    app.use(express.static(path.join(config.root, 'dist/public')));
   } else if ('test' === env) {
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(path.join(config.root, 'app')));
