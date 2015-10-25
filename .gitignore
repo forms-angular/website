@@ -3,6 +3,7 @@ node_modules
 .sass-cache
 .idea
 ~tmpnpmout.txt
+npm-debug.log
 app/bower_components
 heroku
 /views
