@@ -22,7 +22,9 @@ To run this website project on your development environment, please follow these
   bower install
   ```
 
-3. [node-imagemagick](https://github.com/yourdeveloper/node-imagemagick) uses a default path for the 'convert' and 'identify' utilities that cannot be modified from the [imagemagick-stream](https://github.com/eivindfjeldstad/imagemagick-stream) library. You may need to perform a symlink to these tools' hardcoded paths in order to get imagemagick to work. These instructions may apply to you if you use automated tools  (e.g. [Boxen](https://boxen.github.com/)) to configure your environment using non-default paths.
+3. Run ```node_modules/protractor/bin/webdriver-manager update```
+
+4. [node-imagemagick](https://github.com/yourdeveloper/node-imagemagick) uses a default path for the 'convert' and 'identify' utilities that cannot be modified from the [imagemagick-stream](https://github.com/eivindfjeldstad/imagemagick-stream) library. You may need to perform a symlink to these tools' hardcoded paths in order to get imagemagick to work. These instructions may apply to you if you use automated tools  (e.g. [Boxen](https://boxen.github.com/)) to configure your environment using non-default paths.
 
   ```bash
   sudo mkdir -p /usr/local/bin
