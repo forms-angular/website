@@ -4,7 +4,8 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs'),
     mongoose = require('mongoose'),
-    formsAngular = require('forms-angular');
+    formsAngular = require('forms-angular'),
+    fngJqUpload = require('fng-jq-upload');
 
 /**
  * Main application file
@@ -22,7 +23,7 @@ require('./lib/config/express')(app);
 
 var fngHandler = new (formsAngular)(app, {
   urlPrefix: '/api/',
-  JQMongoFileUploader: {}
+  JQMongoFileUploader: {module: fngJqUpload.Controller}
 });
 
 // Bootstrap forms-angular controlled models
