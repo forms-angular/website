@@ -91,48 +91,58 @@ describe('Select and select2', function () {
 
   it('should do all the arrays in e as expected', function(){
 
-    function checkValues() {
+    function checkNonChangingValues() {
       expect(element(by.id('f_mentor')).getAttribute('value')).toBe('Anderson John');
-      expect(element(by.id('f_teacher')).getAttribute('value')).toBe('519a6075b320153869b155e0');
-      expect(element(by.css('#s2id_f_teacher')).getAttribute('class')).toMatch('select2-allowclear');
+      expect(element(by.css('#f_teacher a span.select2-chosen span')).getText()).toMatch('IsAccepted John');
       expect(element(by.id('f_assistants_0')).getAttribute('value')).toBe('TestPerson1');
       expect(element(by.id('f_assistants_1')).getAttribute('value')).toBe('TestPerson2');
       expect(element(by.id('f_assistants2_0')).getAttribute('value')).toBe('TestPerson1');
       expect(element(by.id('f_assistants2_1')).getAttribute('value')).toBe('TestPerson2');
-      expect(element(by.id('f_team_0')).getAttribute('value')).toBe('51c583d5b5c51226db418f15');
-      expect(element(by.css('#s2id_f_team_0 span.select2-chosen')).getText()).toBe('Brown John');
-      expect(element(by.id('f_team_1')).getAttribute('value')).toBe('51c583d5b5c51226db418f17');
-      expect(element(by.css('#s2id_f_team_1 span.select2-chosen')).getText()).toBe('Brown Jenny');
-      expect(element(by.id('f_team2_0')).getAttribute('value')).toBe('51c583d5b5c51226db418f15');
-      expect(element(by.css('#s2id_f_team2_0 span.select2-chosen')).getText()).toBe('Brown John');
-      expect(element(by.id('f_team2_1')).getAttribute('value')).toBe('51c583d5b5c51226db418f17');
-      expect(element(by.css('#s2id_f_team2_1 span.select2-chosen')).getText()).toBe('Brown Jenny');
+
     }
 
-    function select2Select(addButton, field, index, selectText, fullText) {
-      addButton.click();
-      expect(element(by.id('f_'+field+'_'+index)).getAttribute('class')).toMatch('ng-pristine');
-      element(by.css('#s2id_f_'+field+'_'+index+' .select2-arrow')).click();
+    function checkPreSavedValues() {
+
+      checkNonChangingValues();
+
+      expect(element(by.css('#f_team_0 a span.select2-chosen span')).getText()).toBe('Brown, John');
+      expect(element(by.css('#f_team_1 a span.select2-chosen span')).getText()).toBe('Brown, Jenny');
+      expect(element(by.css('#f_team2_0 a span.select2-chosen span')).getText()).toBe('Brown, John');
+      expect(element(by.css('#f_team2_1 a span.select2-chosen span')).getText()).toBe('Brown, Jenny');
+
+    }
+
+    function checkPostSavedValues() {
+
+      checkNonChangingValues();
+
+      expect(element(by.css('#f_team_0 a span.select2-chosen span')).getText()).toBe('Brown John');
+      expect(element(by.css('#f_team_1 a span.select2-chosen span')).getText()).toBe('Brown Jenny');
+      expect(element(by.css('#f_team2_0 a span.select2-chosen span')).getText()).toBe('Brown John');
+      expect(element(by.css('#f_team2_1 a span.select2-chosen span')).getText()).toBe('Brown Jenny');
+    }
+
+    function selectFngUiSelect(addSelect, field, selectText, fullText) {
+
+      addSelect.click();
+      expect(element(by.id(field)).getAttribute('class')).toMatch('ng-valid');
+      element(by.css('#'+field + ' a')).click();
+      var input = element(by.css('#'+field + ' .select2-search input'));
       input.sendKeys(selectText);
       browser.waitForAngular();
       input.sendKeys(protractor.Key.ENTER);
       browser.waitForAngular();
-      expect(element(by.css('#s2id_f_'+field+'_'+index+' a span.select2-chosen')).getText()).toBe(fullText);
+      expect(element(by.css('#'+field + ' a span.select2-chosen span')).getText()).toMatch(fullText);
+
     }
 
-    // Slow things down (for select2, presumably)
-    browser.driver.manage().timeouts().implicitlyWait(800);
-
     browser.get('/#/e_referencing_another_collection/new');
-    expect(element(by.css('#s2id_f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
+
+
+    expect(element(by.css('#f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
     element(by.cssContainingText('#f_mentor option', 'Anderson John')).click();
-    element(by.css('#s2id_f_teacher .select2-arrow')).click();
-    var input = element(by.css('#select2-drop input'));
-    input.sendKeys('Is');
-    browser.waitForAngular();
-    input.sendKeys(protractor.Key.ENTER);
-    browser.waitForAngular();
-    expect(element(by.css('#s2id_f_teacher a span.select2-chosen')).getText()).toMatch('IsAccepted John');
+
+    selectFngUiSelect(element(by.css('#f_teacher a')), 'f_teacher', 'Is', 'IsAccepted John');
 
     var addSelect = element(by.id('add_f_assistants'));
     addSelect.click();
@@ -150,22 +160,17 @@ describe('Select and select2', function () {
     expect(element(by.id('f_assistants2_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.cssContainingText('#f_assistants2_1 option', 'TestPerson2')).click();
 
-    addSelect = element(by.id('add_f_team'));
-    select2Select(addSelect, 'team', 0, 'Jo', 'Brown John');
-    select2Select(addSelect, 'team', 1, 'Je', 'Brown Jenny');
+    selectFngUiSelect(element(by.id('add_f_team')), 'f_team_0', 'Jo', 'Brown, John')
+    selectFngUiSelect(element(by.id('add_f_team')), 'f_team_1', 'Je', 'Brown, Jenny')
+    selectFngUiSelect(element(by.id('add_f_team2')), 'f_team2_0', 'Jo', 'Brown, John')
+    selectFngUiSelect(element(by.id('add_f_team2')), 'f_team2_1', 'Je', 'Brown, Jenny')
 
-    addSelect = element(by.id('add_f_team2'));
-    select2Select(addSelect, 'team2', 0, 'Jo', 'Brown John');
-    select2Select(addSelect, 'team2', 1, 'Je', 'Brown Jenny');
+    checkPreSavedValues();
 
-    browser.driver.manage().timeouts().implicitlyWait(100);
-
-    checkValues();
-
-    // Save the record and check they all refresh OK
+    //// Save the record and check they all refresh OK
     element(by.css('#saveButton')).click();
     expect(browser.getCurrentUrl()).toMatch(/e_referencing_another_collection\/[0-9a-f]{24}\/edit/);
-    checkValues();
+    checkPostSavedValues();
 
   });
 

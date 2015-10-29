@@ -8,13 +8,12 @@ var ESchema = new Schema({
   weight: {type: Number, form: {label: 'Weight (lbs)'}},
   mentor:    { type: Schema.Types.ObjectId, ref: 'c_subdoc_example'},
   guide:     { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {directive: 'fng-ui-select'}},
-  teacher:   { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {select2: {fngAjax: true}}},
-  pedagogue: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {directive: 'fng-ui-select', fngUiSelect: {fngAjax: true}}},
+  teacher: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {directive: 'fng-ui-select', fngUiSelect: {fngAjax: true}}},
   dateOfBirth: Date,
   assistants : [{ type: Schema.Types.ObjectId , ref: 'a_unadorned_schema'}],
   assistants2:  { type:[Schema.Types.ObjectId], ref: 'a_unadorned_schema'} ,
-  team : [ { type: Schema.Types.ObjectId , ref: 'f_nested_schema', form: {select2: {fngAjax: true}}} ],
-  team2:   { type:[Schema.Types.ObjectId], ref: 'f_nested_schema', form: {select2: {fngAjax: true}}},
+  team : [ { type: Schema.Types.ObjectId , ref: 'f_nested_schema', form: {directive: 'fng-ui-select', fngUiSelect: {fngAjax: true}}} ],
+  team2:   { type:[Schema.Types.ObjectId], ref: 'f_nested_schema', form: {directive: 'fng-ui-select', fngUiSelect: {fngAjax: true}}},
   accepted: Boolean
 });
 
