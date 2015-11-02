@@ -1,4 +1,4 @@
-var ScreenShotReporter = require('protractor-screenshot-reporter');
+var ScreenShotReporter = require('protractor-jasmine2-screenshot-reporter');
 var path = require('path');
 
 exports.config = {
@@ -8,9 +8,9 @@ exports.config = {
   capabilities: {
     browserName: 'firefox'
   },
-  //directConnect: true,  broken with firefox 38 - see https://github.com/angular/protractor/issues/2134
+  directConnect: true,
   baseUrl: 'http://0.0.0.0:9000',
-  framework: 'jasmine',
+  framework: 'jasmine2',
 
   onPrepare: function() {
 
@@ -25,9 +25,9 @@ exports.config = {
 
     // Add a screenshot reporter and store screenshots
     jasmine.getEnv().addReporter(new ScreenShotReporter({
-      baseDirectory: 'test/screen_tests/screenshots',
-      pathBuilder: function (spec, descriptions, results, capabilities) {
-        return path.join('bs2-firefox-1024x768-' + descriptions[0]);
+      dest:'test/screen_tests/screenshots/bs2-firefox-1024x768',
+      pathBuilder: function(currentSpec, suites, browserCapabilities) {
+        return currentSpec.description;
       }
     }));
   }

@@ -11,7 +11,7 @@ describe('Find functions', function () {
     var list = element.all(by.css('.list-item'));
     expect(list.count()).toBe(2);
     expect($('.list-body').getText()).toMatch(/IsAccepted/);
-    expect($('.list-body').getText()).toNotMatch(/NotAccepted/);
+    expect($('.list-body').getText()).not.toMatch(/NotAccepted/);
   });
 
   it('should support filters', function () {
@@ -19,7 +19,7 @@ describe('Find functions', function () {
     var list = element.all(by.css('.list-item'));
     expect(list.count()).toBe(1);
     expect($('a .list-item').getText()).toMatch(/TestPerson1/);
-    expect($('a .list-item').getText()).toNotMatch(/TestPerson2/);
+    expect($('a .list-item').getText()).not.toMatch(/TestPerson2/);
   });
 
 });

@@ -25,7 +25,7 @@ describe('Base edit form', function () {
     var alertTextPromise = element(by.css('.alert-error')).getText();
     expect(alertTextPromise).toMatch(/Error!/);
     expect(alertTextPromise).toMatch(/Wash your mouth!/);
-    expect(alertTextPromise).toNotMatch(/eye/);
+    expect(alertTextPromise).not.toMatch(/eye/);
   });
 
   describe('should display deletion confirmation modal', function () {
@@ -113,7 +113,7 @@ describe('Base edit form', function () {
       var surnameInput = $('#f_surname');
       expect(surnameInput.getAttribute('value')).toMatch(/Smith/);
       $('#cancelButton').click();
-      expect(surnameInput.getAttribute('value')).toNotMatch(/Smith/);
+      expect(surnameInput.getAttribute('value')).not.toMatch(/Smith/);
     });
 
     it('enables cancel button after deleting an array element (** requires server restart)', function () {
