@@ -10,10 +10,12 @@
   "dependencies": {
     "body-parser": "1.14.1",
     "compression": "1.6.0",
+    "errorhandler": "1.4.2",
     "express": "4.13.3",
     "fng-jq-upload": "0.5.0",
     "forms-angular": "0.5.1",
     "lodash": "3.10.1",
+    "method-override": "2.3.5",
     "mongoose": "4.1.11",
     "morgan": "1.6.1",
     "serve-favicon": "2.3.0"
@@ -65,6 +67,7 @@
     "node-inspector": "0.12.3",
     "open": "0.0.5",
     "phantomjs": "1.9.18",
+    "protractor": "2.5.1",
     "protractor-jasmine2-screenshot-reporter": "^0.1.7",
     "requirejs": "2.1.20",
     "should": "7.1.0",
