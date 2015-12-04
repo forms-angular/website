@@ -9,7 +9,7 @@ describe('Base list', function () {
 
   it('should list all the records', function () {
     browser.get('/#/a_unadorned_schema');
-    expect(element.all(by.css('a .list-item')).first().getText()).toMatch(/TestPerson1/);
+    expect(element.all(by.css('a .list-item')).first().getText()).toMatch(/TestPerson/);
   });
 
   it('should support the listOrder option', function () {

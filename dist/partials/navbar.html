@@ -17,14 +17,14 @@
         </div>
         <global-search class="global-search"></global-search>
       </div>   <!-- navbar-header -->
-      <div class="navbar-collapse collapse nav-collapse" collapse="isCollapsed">
+      <div class="navbar-collapse collapse nav-collapse" uib-collapse="isCollapsed">
         <ul class="nav navbar-nav">
           <li><a ng-href="{{buildUrl('get-started')}}">Get Started</a></li>
           <li><a ng-href="{{buildUrl('schemas')}}">Schemas</a></li>
           <li><a ng-href="{{buildUrl('forms')}}">Forms</a></li>
           <li><a ng-href="{{buildUrl('plugins')}}">Plugins</a></li>
-          <li class="dropdown" dropdown><a dropdown-toggle class="dropdown-toggle">More <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+          <li uib-dropdown><a uib-dropdown-toggle>More <span class="caret"></span></a>
+            <ul class="uib-dropdown-menu dropdown-menu">
               <li><a class="dropdown-option" ng-href="{{buildUrl('examples')}}">Examples</a></li>
               <li><a class="dropdown-option" ng-href="{{buildUrl('api-docs')}}">API Documentation</a></li>
               <li><a class="dropdown-option" href="https://gitter.im/forms-angular/forms-angular" target="_blank">Chat

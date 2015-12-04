@@ -38,6 +38,9 @@ describe('Base edit form', function () {
       $('#deleteButton').click();
       var list = element.all(by.css('.modal'));
       expect(list.count()).toBe(1);
+      expect($('.modal .modal-footer').getText()).toMatch('No');
+      expect($('.modal .modal-footer').getText()).toMatch('Yes');
+      expect($('.modal').getText()).toMatch('Are you sure you want to delete this record?');
       expect($('.modal h3').getText()).toMatch('Delete Item');
       $('.modal-footer button.dlg-no').click();
       expect(browser.getCurrentUrl()).toMatch('/a_unadorned_schema/666a6075b320153869b17599/edit');
@@ -63,12 +66,14 @@ describe('Base edit form', function () {
       browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
       element(by.model('record.freeText')).sendKeys('This is a rude thing');
       $('#newButton').click();
-      browser.sleep(500);  //Really naff, but I tried for ages to do something better.  Apparently zones.js will sort it out eventually
+      browser.sleep(1000);  //Really naff, but I tried for ages to do something better.  Apparently zones.js will sort it out eventually
     });
 
     it('supports cancelling navigation', function () {
       var list = element.all(by.css('.modal'));
       expect(list.count()).toBe(1);
+      expect($('.modal').getText()).toMatch('changes');
+      expect($('.modal .modal-footer').getText()).toMatch('Cancel');
       $('.modal-footer button.dlg-cancel').click();
       expect(browser.getCurrentUrl()).toMatch('/b_enhanced_schema/519a6075b320153869b155e0/edit');
       list = element.all(by.css('.modal'));
@@ -76,23 +81,27 @@ describe('Base edit form', function () {
     });
 
     it('supports losing changes', function () {
+      var list = element.all(by.css('.modal'));
+      expect(list.count()).toBe(1);
+      expect($('.modal').getText()).toMatch('changes');
+      expect($('.modal .modal-footer').getText()).toMatch('Cancel');
       $('.modal-footer button.dlg-no').click();
       expect(browser.getCurrentUrl()).toMatch('/b_enhanced_schema/new');
-      var list = element.all(by.css('.modal'));
-      expect(list.count()).toBe(0);
     });
 
     it('supports saving changes', function () {
+      var list = element.all(by.css('.modal'));
+      expect(list.count()).toBe(1);
+      expect($('.modal').getText()).toMatch('changes');
+      expect($('.modal .modal-footer').getText()).toMatch('Cancel');
       var yesBtn = $('.modal-footer button.dlg-yes');
       yesBtn.click();
       expect($('.alert-error').getText()).toMatch(/your mouth/);
-      var list = element.all(by.css('.modal'));
-      expect(list.count()).toBe(0);
       var freeTextField = element(by.model('record.freeText'));
       freeTextField.clear();
       freeTextField.sendKeys('This is a polite thing');
       $('#newButton').click();
-      browser.sleep(500);
+      //browser.sleep(500);
       list = element.all(by.css('.modal'));
       expect(list.count()).toBe(1);
       yesBtn = $('.modal-footer button.dlg-yes');
