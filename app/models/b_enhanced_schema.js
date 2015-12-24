@@ -53,6 +53,7 @@ var BSchema = new Schema({
   },
   sex: {type: String, enum: ['Male', 'Female'], form: {type: 'radio', inlineRadio: true}},
   dateOfBirth: {type: Date, form: {helpInline: 'When is their birthday?'}},
+  education: {type: String, enum: {values:['sec', 'univ', 'mas', 'dr'], labels:['Secondary', 'University', 'Masters', 'Doctorate']}, form: {type: 'radio'}},
   CV: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Attach the CV - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{single:true, autoUpload: true, sizeLimit:524288}}},
   accepted: {type: Boolean, required: true, form: {helpInline: 'Did we take them?'}, list: {}},   // helpInline displays to the right of the input control
   interviewScore: {type: Number, form: {hidden: true}, list: {}},  // this field does appear on listings, even though it is hidden on default form
