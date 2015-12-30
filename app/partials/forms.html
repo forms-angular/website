@@ -131,8 +131,7 @@ you can easily switch between modes without having to manually change all the in
         <li><strong>searchResultFormat</strong> allows fine control of the display of search results. It points to a
             function which returns an object which must contain the following:
             <ul>
-                <li><strong>resource</strong> the model name (or model/customForm) that the search result will link to
-                </li>
+                <li><strong>resource</strong> the model name (or model/customForm) that the search result will link to</li>
                 <li><strong>resourceText</strong> the display name for the resource</li>
                 <li><strong>id</strong> the id to link to</li>
                 <li><strong>weighting</strong> is a value from 0 to 9999 (default) that specifies the sort ordering</li>
@@ -141,6 +140,7 @@ you can easily switch between modes without having to manually change all the in
             and may additionally contain
           <ul>
             <li><strong>resourceTab</strong> the tab within the target form that should be added to the URLe</li>
+            <li><strong>additional</strong> additional display text for the item (used as a pop-up when present)</li>
           </ul>
             Both the resource, resourceText and resourceTab can be localised by a line of code like
             <pre><code>DataFormHandler.getResource('person').options.localisationData = [{from: 'person/customer', to: 'person/client', context: 'resource'},{from:'Customer', to:'Client', context: 'resourceText'}];</code></pre>
