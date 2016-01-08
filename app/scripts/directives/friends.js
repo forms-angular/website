@@ -7,11 +7,15 @@ websiteApp.controller('FriendCtrl', ['$scope', '$routeParams', '$location', '$ht
   $scope.selectedFriend = null;
 
   $scope.frdHideDetails = function () {
-    if ($scope.record.friendList.length > 0) {
+    if ($scope.record.friendList && $scope.record.friendList.length > 0) {
       $scope.frdPopupName = 'Move mouse over a friend';
       $scope.frdPopupComments = 'to see their details';
     } else {
-      $scope.frdPopupName = $scope.record.forename + ' ' + $scope.record.surname + ' is Norman No Mates!';
+      if ($scope.record.surname) {
+        $scope.frdPopupName = ($scope.record.forename || '') + ' ' + $scope.record.surname + ' is Norman No Mates!';
+      } else {
+        $scope.frdPopupName = '';
+      }
       $scope.frdPopupComments = 'Click on the button ---> to add a friend';
     }
   };
@@ -62,6 +66,7 @@ websiteApp.controller('FriendCtrl', ['$scope', '$routeParams', '$location', '$ht
   };
 
   $scope.frdSaveFriend = function () {
+    $scope.record.friendList = $scope.record.friendList || [];
     $scope.record.friendList.push($scope.newFriend.friendList);
     $scope.selectedFriend = $scope.newFriend.friendList;
     $scope.frdShowAdd = false;
