@@ -121,7 +121,7 @@
 });</pre>
     <p>Each schema element (or field) has a type and optionally a number of other properties. Many of these properties
         are used by forms-angular to generate appropriate behaviour on the front end. The appropriate input types are
-        used (for instance an <strong>enum</strong>string) attribute will generate a select control (you can specify radio button - see below)
+        used (for instance an <strong>enum</strong> string) attribute will generate a select control (you can specify radio button - see below)
         and client side validation keeps round trips down (we cannot say "to a minimum" as work remains to
         be done in this area).</p>
 
@@ -129,6 +129,22 @@
         form generated from it</a>.</p>
 
     <p>For comprehensive information about Mongoose schemas visit the <a href="http://mongoosejs.com/docs/guide.html">Mongoose JS website</a>.</p>
+
+    <p>Note that enumerated fields options can be specified in the form</p>
+<pre>eyeColour: {type:String, enum:['Blue','Brown','Green','Hazel']}</pre>
+  <p>or</p>
+<pre>eyeColour: {type:String, enum:{values:['Blue','Brown','Green','Hazel']}}</pre>
+  <p>as you can see from the <a href="http://mongoosejs.com/docs/api.html#schema_string_SchemaString-enum">Mongoose documentation</a>.  In the latter case
+  a <strong>labels</strong> key in the enum object will be used for the labels in the generated input.</p>
+  <p>For example</p>
+  <pre>eyeColour: {
+  type:String,
+  enum: {
+    values:['bl','br','gr','ha'],
+    labels:['Blue','Brown','Green','Hazel']
+  }
+}</pre>
+  <p>will use shorter strings for the stored value than for the displayed label.</p>
 </section>
 <section id="list-fields" name="List Fields" affix-scroll>
     <h3>List Fields</h3>
