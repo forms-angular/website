@@ -6633,6 +6633,9 @@ hr.soften {
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 #bbbbbb;
 }
+i[class^="icon-"] {
+  opacity: 1;
+}
 .big-box {
   padding: 21px;
 }
