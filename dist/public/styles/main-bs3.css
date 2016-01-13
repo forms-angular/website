@@ -7726,9 +7726,10 @@ hr.soften {
   margin-top: 5em;
   position: fixed;
   border: 3px solid rgba(3, 154, 239, 0.45);
-  box-shadow: inset -4px -4px 0 #bbbbbb;
+  box-shadow: inset 0 2px 2px 0 #bbb;
+  z-index: 99;
 }
-.shortcut-panel .key {
+.key {
   display: inline-block;
   padding: 3px 5px;
   font: 11px Courier, monospace;
