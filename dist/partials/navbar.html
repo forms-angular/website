@@ -49,3 +49,12 @@
     <!-- container-fluid -->
   </div>
 </div>
+<div ng-show="showShortcuts" class="span6 offset3 alert alert-info shortcut-panel">
+  <h2>Keyboard Shortcuts</h2>
+  <table class="table">
+    <tr ng-repeat="shortcut in shortcuts">
+      <td ng-bind-html="markupShortcut(shortcut.key)"></td> <td>{{shortcut.act}}</td>
+    </tr>
+  </table>
+  <p>Press <span class="key">Esc</span> to hide</p>
+</div>
