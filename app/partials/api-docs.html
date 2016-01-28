@@ -8,6 +8,7 @@
   <p>
     All the examples below assume that the urlPrefix was left at the default (/api/) when instantiating the server side of forms-angular.
   </p>
+  <h2>GET</h2>
     <ul>
         <li>Models
             <ul>
@@ -25,7 +26,7 @@
                     <li><strong>a</strong>ggregation using a JSON object, gives access to the very powerful (and quite difficult) MongoDB <a href="https://docs.mongodb.org/manual/core/aggregation-introduction/">aggregation framework</a>.
                     The normal use case here is to use the aggregation framework to perform a <strong>$match</strong>.  Any $project steps must return the original _id.
                   </ul>
-                <li><strong>/api/:model/:id</strong> returns a single document from the collection</li>
+                <li><strong>/api/:model/:id</strong> a single document from the collection</li>
                 <li><strong>/api/:model/:id/list</strong> returns how a document should appear in a list</li>
             </ul>
 
@@ -48,5 +49,15 @@
             </ul>
         </li>
     </ul>
+  <h2>POST</h2>
+  <ul>
+    <li><strong>/api/:model</strong> creates a new document in a collection</li>
+    <li><strong>/api/:model/:id</strong> updates document with specified _id in a collection</li>
+  </ul>
+  <h2>DELETE</h2>
+  <ul>
+    <li><strong>/api/:model/:id</strong> removes document with specified _id from a collection</li>
+  </ul>
+
 </div>
 </div>
