@@ -27,12 +27,12 @@
         <h3>Reporting (<a href="https://github.com/forms-angular/fng-reports">fng-reports</a>)</h3>
 
         <p>With the reporting plugin installed, simple reports can be produced by navigating to URLs of the format
-          /#/analyse/modelname - see example
+          <strong>/#/analyse/:model</strong> - see example
           <a ng-href="{{buildUrl('analyse/b_enhanced_schema')}}">here</a>.</p>
 
         <p>More useful reports can be run by passing an <a href="http://docs.mongodb.org/manual/core/aggregation-pipeline/">aggregation
           pipeline</a>
-          to the server using the format <strong>/#/analyse/model?r=[pipeline]</strong> - for example
+          to the server using the format <strong>/#/analyse/:model?r=[pipeline]</strong> - for example
           <a ng-href="{{buildUrl('analyse/g_conditional_field?r=%5B%7B%22$group%22:%7B%22_id%22:%22$sex%22,%22count%22:%7B%22$sum%22:1%7D%7D%7D%5D')}}">/#/analyse/g_conditional_field?r=[{"$group":{"_id":"$sex","count":{"$sum":1}}}]</a>
           produces a breakdown of the men and women in a collection.</p>
 

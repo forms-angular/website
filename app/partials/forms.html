@@ -33,10 +33,10 @@
 
     <ul>
         <li><strong>/#/:model</strong> which lists the documents in the collection, with links to the form for editing them</li>
-        <li><strong>/#/:model/new</strong> which enables the user to create a new document using the default form for the collection</li>
+        <li><strong>/#/:model/new</strong> which enables the user to create a new document using the default form for the collection.  It is also possible to override the
+        default by passing the desired record as follows: <code>/#/:model/new?r={"field1":"value1","field2":"value2"}</code></li>
         <li><strong>/#/:model/:id/edit</strong> which enables the user to edit a document</li>
         <li><strong>/#/:model/:id/edit/:tab</strong> which enables the user to edit a document, opening a tabbed form at a specified tab</li>
-        <li><strong>/#/analyse/:model</strong> which lists the documents in the collection in a grid</li>
     </ul>
 
     <p>These routes are set up by making a call such as:<pre><code>myDemoApp.config(['formRoutesProvider', function (formRoutes) {
