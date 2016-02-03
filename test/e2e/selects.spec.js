@@ -127,6 +127,9 @@ describe('Select and select2', function () {
       addSelect.click();
       expect(element(by.id(field)).getAttribute('class')).toMatch('ng-valid');
       element(by.css('#'+field + ' a')).click();
+      browser.waitForAngular();
+      browser.waitForAngular();
+
       var input = element(by.css('#'+field + ' .select2-search input'));
       input.sendKeys(selectText);
       browser.waitForAngular();

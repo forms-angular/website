@@ -1,11 +1,12 @@
 exports.config = {
   specs: [
-    './reports.spec.js'
+    './selects.spec.js'
   ],
+
   capabilities: {
-    browserName: 'firefox',
-    version: '',
-    platform: 'ANY'
+    browserName: 'firefox'
   },
-  baseUrl: 'http://localhost:9001'
+  directConnect: true,//  broken with firefox 38 - see https://github.com/angular/protractor/issues/2134
+  baseUrl: 'http://localhost:9000',
+  framework: 'jasmine2'
 };
