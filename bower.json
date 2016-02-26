@@ -14,7 +14,7 @@
     "json3": "3.3.2",
     "angular-ui-bootstrap-bower": "0.14.3",
     "components-font-awesome": "3.2.1",
-    "angular-css": "1.0.7",
+    "angular-css": "git://github.com/castillo-io/angular-css.git#d7b1823894d4ee69cea57afc692259f54b8cfbf6",
     "es5-shim": "4.1.14"
   },
   "devDependencies": {
