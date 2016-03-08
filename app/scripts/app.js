@@ -87,7 +87,7 @@ websiteApp
         $location.path(newPath);
       }
     } else {
-      $css.add(['styles/201602261230app.css']);
+      $css.add(['styles/201603082041app.css']);
     }
     }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {
