@@ -3,13 +3,13 @@ var path = require('path');
 
 exports.config = {
   specs: [
-    './**/*.spec.js'
+    './bs2-1024x768.spec.js'
   ],
   capabilities: {
     browserName: 'chrome'
   },
-  directConnect: true,//  broken with firefox 38 - see https://github.com/angular/protractor/issues/2134
-  baseUrl: 'http://localhost:9000',
+  directConnect: true,
+  baseUrl: 'http://0.0.0.0:9000',
   framework: 'jasmine2',
 
   onPrepare: function() {
@@ -23,12 +23,11 @@ exports.config = {
 
     browser.addMockModule('disableNgAnimate', disableNgAnimate);
 
-    // Add a screenshot reporter and take screenshots of failed tests
+    // Add a screenshot reporter and store screenshots
     jasmine.getEnv().addReporter(new ScreenShotReporter({
-      dest:'failed_tests/screenshots',
-      captureOnlyFailedSpecs: true,
+      dest:'test/screen_tests/screenshots/bs2-chrome-1024x768',
       pathBuilder: function(currentSpec, suites, browserCapabilities) {
-        return currentSpec.fullName;
+        return currentSpec.description;
       }
     }));
   }

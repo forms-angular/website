@@ -43,6 +43,7 @@ describe('Base edit form', function () {
       expect($('.modal').getText()).toMatch('Are you sure you want to delete this record?');
       expect($('.modal h3').getText()).toMatch('Delete Item');
       $('.modal-footer button.dlg-no').click();
+      browser.sleep(400);
       expect(browser.getCurrentUrl()).toMatch('/a_unadorned_schema/666a6075b320153869b17599/edit');
       list = element.all(by.css('.modal'));
       expect(list.count()).toBe(0);
@@ -64,6 +65,7 @@ describe('Base edit form', function () {
 
     beforeEach(function () {
       browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
+      browser.sleep(200);
       element(by.model('record.freeText')).sendKeys('This is a rude thing');
       $('#newButton').click();
       browser.sleep(1000);  //Really naff, but I tried for ages to do something better.  Apparently zones.js will sort it out eventually
@@ -101,7 +103,7 @@ describe('Base edit form', function () {
       freeTextField.clear();
       freeTextField.sendKeys('This is a polite thing');
       $('#newButton').click();
-      //browser.sleep(500);
+      browser.sleep(500);
       list = element.all(by.css('.modal'));
       expect(list.count()).toBe(1);
       yesBtn = $('.modal-footer button.dlg-yes');

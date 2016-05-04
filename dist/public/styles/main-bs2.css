@@ -6643,6 +6643,12 @@ i[class^="icon-"] {
 .docs-sidenav.ui-scrollfix {
   top: 50px;
 }
+@media (max-width: 1299px) {
+  .global-search {
+    position: absolute;
+    right: 77px;
+  }
+}
 /* Responsive
 -------------------------------------------------- */
 /* Desktop large

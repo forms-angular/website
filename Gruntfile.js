@@ -463,19 +463,19 @@ module.exports = function (grunt) {
         noColor: false // If true, protractor will not use colors in its output.
       },
       bs2_320x480: {
-        configFile: "test/screen_tests/firefox-bs2-320x480.conf.js"
+        configFile: "test/screen_tests/chrome-bs2-320x480.conf.js"
       },
       bs3_320x480: {
-        configFile: "test/screen_tests/firefox-bs3-320x480.conf.js"
+        configFile: "test/screen_tests/chrome-bs3-320x480.conf.js"
       },
       bs2_1024x768: {
-        configFile: "test/screen_tests/firefox-bs2-1024x768.conf.js"
+        configFile: "test/screen_tests/chrome-bs2-1024x768.conf.js"
       },
       bs3_1024x768: {
-        configFile: "test/screen_tests/firefox-bs3-1024x768.conf.js"
+        configFile: "test/screen_tests/chrome-bs3-1024x768.conf.js"
       },
       e2e: {
-        configFile: "test/e2e/protractor-firefox.conf.js"
+        configFile: "test/e2e/protractor-chrome.conf.js"
       }
     },
 

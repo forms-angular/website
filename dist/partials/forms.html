@@ -14,7 +14,7 @@
 </div>
 
 <div class="affix-section span9 col-sm-9">
-<p>Forms angular comes with a small number of forms that can be used to meet a vast number of requirements.  They all use RESTful routes
+<p>Forms angular comes with a small number of built-in forms that can be used to meet a vast number of requirements.  They all use RESTful routes
     and handle querying and updating the server.  Alternatively you can build your own forms using the directives provided by forms-angular.</p>
 
 <section id="styling" name="Styling" affix-scroll><h3>Styling</h3>
@@ -44,13 +44,26 @@
     routing: 'ngroute',
     fixedRoutes: [
       {route:'/index', options:{templateUrl: 'partials/landing-page.html'}},
-      {route:'/get-started', options:{templateUrl: 'partials/get-started.html'}}
+      {route:'/get-started', options:{templateUrl: 'partials/get-started.html'}},
+      {route: '/a-model/new', options: {templateUrl: 'partials/custom-new.html'}},            // example view override
+      {route: '/a-model/:id/edit', options: {templateUrl: 'partials/custom-edit.html'}},      // example view override
     ]
   }]);</code></pre>which specifies that we are using ngRoute for our routing (ui-router is also supported) and declares
-  two routes explicitly - the standard model routes are created automatically.</p>
+  several routes explicitly, two of which over-ride the built-in routes for <strong>a-model</strong>.</p>
 
-    <p>If you prefer HTML5Mode (which gives routes without the /#) or if you want to use <a href="https://developers.google.com/webmasters/ajax-crawling/">AJAX crawling</a>
-    then you can also use the<code><pre>
+  <p>For registered models other than a-model, and for the other a-model routes the system creates routes automatically and use built-in
+  templates - see details in the <a href="{{ buildUrl('forms#input-form') }}">Input Form</a> and
+  <a href="{{ buildUrl('forms#listing-form') }}">Listing form</a>.</p>
+
+  The built-in templates can be over-ridden by creating your own templates and adding a <code>templateFolder</code> property
+    to the object passed to <code>formRoutes.start()</code>.  The
+    <a href="https://github.com/forms-angular/forms-angular/blob/master/template/base-edit.html"><code>base-edit.html</code></a> and
+    <a href="https://github.com/forms-angular/forms-angular/blob/master/template/base-list.html"><code>base-list.html</code></a> both need
+    to be overridden (as does the
+    <a href="https://github.com/forms-angular/forms-angular/blob/master/template/base-analysis.html"><code>base-analysis.html</code></a>
+    if the <a href="{{ buildUrl('plugins#reports')}}">fng-reports plugin</a> is used).
+
+    <p>If you prefer HTML5Mode (which gives routes without the /#) then you can also use the<code><pre>
   html5Mode: true,
   hashPrefix: '!'
 </pre></code> properties.</p>
@@ -65,8 +78,8 @@ you can easily switch between modes without having to manually change all the in
 <h3>Input Form</h3>
 <p>The <strong>form-input</strong> directive expands the schema into nice looking
     data capture form, but that is only a small part of the story.
-    The <a href="https://github.com/forms-angular/generator-angular-fullstack/blob/master/app/templates/client/partials/base-edit.html">
-    basic edit form</a> also gives you:</p>
+    The <a href="https://github.com/forms-angular/forms-angular/blob/master/template/base-edit.html">
+    built-in edit form</a> also gives you:</p>
 <ul>
     <li>Header section showing the key fields from the record.</li>
     <li><p>Buttons to perform the usual Save, Cancel, New and Delete operations.  forms-angular handles all
@@ -77,6 +90,7 @@ you can easily switch between modes without having to manually change all the in
             example.</p></li>
     <li>Error message section, which displays error messages when (for example) some server-side validation fails when updating something.</li>
 </ul>
+  <p>You can specify an alternative edit form for an individual model or override all built-in models as shown in the <a href="{{ buildUrl('forms#routes')}}">Routes</a> section above.</p>
 </section>
 
 <section id="listing" name="Listing Form" affix-scroll>

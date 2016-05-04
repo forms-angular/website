@@ -73,6 +73,7 @@ describe('Select and select2', function () {
     var input = element.all(by.css('.select2-input')).first();
     input.sendKeys('Sec');
     input.sendKeys(protractor.Key.ENTER);
+    browser.sleep(50);
     addSelect.click();
     expect(element(by.id('f_moreOptions_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.css('#s2id_f_moreOptions_1 .select2-arrow')).click();
@@ -83,6 +84,7 @@ describe('Select and select2', function () {
 
     // Save the record and check they all refresh OK
     element(by.css('#saveButton')).click();
+    browser.sleep(400);
     browser.switchTo().alert().then(function (alert) {alert.accept() });    // THis model has an onSave event
     expect(browser.getCurrentUrl()).toMatch(/d_array_example\/[0-9a-f]{24}\/edit/);
     checkValues();
@@ -122,13 +124,16 @@ describe('Select and select2', function () {
       expect(element(by.css('#f_team2_1 a span.select2-chosen span')).getText()).toBe('Brown Jenny');
     }
 
-    function selectFngUiSelect(addSelect, field, selectText, fullText) {
+    function selectFngUiSelect(addSelect, field, selectText, fullText, selectAgain) {
 
       addSelect.click();
       expect(element(by.id(field)).getAttribute('class')).toMatch('ng-valid');
-      element(by.css('#'+field + ' a')).click();
-      browser.waitForAngular();
-      browser.waitForAngular();
+
+      if (selectAgain) {
+        element(by.css('#' + field + ' a')).click();
+        browser.waitForAngular();
+        browser.waitForAngular();
+      }
 
       var input = element(by.css('#'+field + ' .select2-search input'));
       input.sendKeys(selectText);
@@ -144,8 +149,8 @@ describe('Select and select2', function () {
 
     expect(element(by.css('#f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
     element(by.cssContainingText('#f_mentor option', 'Anderson John')).click();
-
-    selectFngUiSelect(element(by.css('#f_teacher a')), 'f_teacher', 'Is', 'IsAccepted John');
+// browser.pause();
+    selectFngUiSelect(element(by.css('#f_teacher a')), 'f_teacher', 'Is', 'IsAccepted John', false);
 
     var addSelect = element(by.id('add_f_assistants'));
     addSelect.click();
@@ -163,10 +168,10 @@ describe('Select and select2', function () {
     expect(element(by.id('f_assistants2_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.cssContainingText('#f_assistants2_1 option', 'TestPerson2')).click();
 
-    selectFngUiSelect(element(by.id('add_f_team')), 'f_team_0', 'Jo', 'Brown, John')
-    selectFngUiSelect(element(by.id('add_f_team')), 'f_team_1', 'Je', 'Brown, Jenny')
-    selectFngUiSelect(element(by.id('add_f_team2')), 'f_team2_0', 'Jo', 'Brown, John')
-    selectFngUiSelect(element(by.id('add_f_team2')), 'f_team2_1', 'Je', 'Brown, Jenny')
+    selectFngUiSelect(element(by.id('add_f_team')), 'f_team_0', 'Jo', 'Brown, John', true);
+    selectFngUiSelect(element(by.id('add_f_team')), 'f_team_1', 'Je', 'Brown, Jenny', true);
+    selectFngUiSelect(element(by.id('add_f_team2')), 'f_team2_0', 'Jo', 'Brown, John', true);
+    selectFngUiSelect(element(by.id('add_f_team2')), 'f_team2_1', 'Je', 'Brown, Jenny', true);
 
     checkPreSavedValues();
 
