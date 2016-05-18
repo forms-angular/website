@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="bower_components/fng-jq-upload/css/override-blueimp.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
-      <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="quick-start/prism/prism.css">
     <!-- endbuild -->
 
     <script>
@@ -53,8 +54,8 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
+    <!-- build:js(app) scripts/vendor.js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -75,13 +76,12 @@
     <script src="bower_components/ng-grid/build/ng-grid.min.js"></script>
     <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
     <script src="bower_components/fng-reports/dist/fng-reports.js"></script>
-    <script src="bower_components/blueimp-load-image/js/load-image.js"></script>
-    <script src="bower_components/blueimp-load-image/js/load-image-ios.js"></script>
-    <script src="bower_components/blueimp-load-image/js/load-image-orientation.js"></script>
-    <script src="bower_components/blueimp-load-image/js/load-image-meta.js"></script>
-    <script src="bower_components/blueimp-load-image/js/load-image-exif.js"></script>
-    <script src="bower_components/blueimp-load-image/js/load-image-exif-map.js"></script>
+    <!-- endbuild -->
+
+    <script src="bower_components/blueimp-load-image/js/load-image.all.min.js"></script>
+
     <script src="bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+    <!-- build:js(app) scripts/vendor2.js -->
     <script src="bower_components/blueimp-file-upload/js/cors/jquery.postmessage-transport.js"></script>
     <script src="bower_components/blueimp-file-upload/js/cors/jquery.xdr-transport.js"></script>
     <script src="bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
@@ -97,12 +97,13 @@
     <script src="bower_components/ng-ckeditor/ng-ckeditor.js"></script>
     <script src="bower_components/fng-ckeditor/dummy.js"></script>
     <script src="bower_components/angular-css/angular-css.js"></script>
-    <!-- endbower -->
     <!-- endbuild -->
+    <!-- endbower -->
     <!--<script src="bower_components/ckeditor/ckeditor.js"></script>-->
-    <script src="//cdn.ckeditor.com/4.4.4/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="quick-start/prism/prism.js"></script>
     <!-- bootstrap javascript that we need-->
     <script src="bower_components/bootstrap-2-3-2/js/bootstrap-collapse.js"></script>
     <script src="bower_components/bootstrap-2-3-2/js/bootstrap-transition.js"></script>

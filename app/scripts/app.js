@@ -12,6 +12,24 @@ var websiteApp = angular.module('websiteApp', [
   'door3.css'
 ]);
 
+websiteApp.directive('ngPrism', [function() {
+  return {
+    restrict: 'A',
+    link: function($scope, element, attrs) {
+      element.ready(function() {
+        if(element[0].className.indexOf('language-markup') !== -1) {
+          // Put the markup in a comment
+          element[0].innerHTML = '<!--\n' +
+            element[0].innerHTML
+              .replace(' ng-scope','')
+            + '\n-->'
+        }
+        Prism.highlightElement(element[0]);
+      });
+    }
+  }
+}]);
+
 websiteApp
   .config(['$routeProvider',function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/'});
@@ -87,7 +105,7 @@ websiteApp
         $location.path(newPath);
       }
     } else {
-      $css.add(['styles/201603171349app.css']);
+      $css.add(['styles/201605181630app.css']);
     }
     }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {

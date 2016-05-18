@@ -218,22 +218,22 @@ module.exports = function (grunt) {
       }
     },
 
-    // Automatically inject Bower components into the app
-    wiredep: {
-      app: {
-        exclude: [
-          /bootstrap-sass-official/,
-          /bootstrap.js/,
-          '/json3/',
-          '/es5-shim/',
-          /blueimp-file-upload\/js\/jquery.fileupload-ui.js/,
-          /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/,
-          /ckeditor\/ckeditor.js/,
-          /select2-bootstrap-css\/select2-bootstrap.css/
-          ],
-        src: ['<%= yeoman.app %>/index.html']
-      }
-    },
+    // // Automatically inject Bower components into the app - Which was lovely, but people are moving to npm
+    // wiredep: {
+    //   app: {
+    //     exclude: [
+    //       /bootstrap-sass-official/,
+    //       /bootstrap.js/,
+    //       '/json3/',
+    //       '/es5-shim/',
+    //       /blueimp-file-upload\/js\/jquery.fileupload-ui.js/,
+    //       /blueimp-file-upload\/js\/jquery.fileupload-jquery-ui.js/,
+    //       /ckeditor\/ckeditor.js/,
+    //       /select2-bootstrap-css\/select2-bootstrap.css/
+    //       ],
+    //     src: ['<%= yeoman.app %>/index.html']
+    //   }
+    // },
 
     // Renames files for browser caching purposes
     rev: {
@@ -504,7 +504,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('prepare', [
     'clean:server',
-    'wiredep',
+    // 'wiredep',
     'less',
     'concurrent:server',
     'autoprefixer'
@@ -581,7 +581,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
+    // 'wiredep',
     'less',
     'useminPrepare',
     'concurrent:dist',

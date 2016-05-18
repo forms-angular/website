@@ -19,3 +19,7 @@ lib/config/env/test.js
 dist/lib/config/env/development.js
 dist/lib/config/env/test.js
 .DS_Store
+
+# quick start stuff
+quick-start/.idea
+quick-start/node_modules

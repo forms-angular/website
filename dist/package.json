@@ -1,7 +1,7 @@
 {
   "name": "website",
   "author": "Mark Chapman <support@forms-angular.org>",
-  "version": "0.5.1",
+  "version": "0.7.0",
   "description": "The demonstration website for the forms-angular library",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "errorhandler": "1.4.2",
     "express": "4.13.3",
     "fng-jq-upload": "*",
-    "forms-angular": "0.6.0",
+    "forms-angular": "0.7.0",
     "lodash": "3.10.1",
     "method-override": "2.3.5",
     "mongoose": "4.4.14",
