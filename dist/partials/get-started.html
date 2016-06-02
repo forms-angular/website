@@ -112,8 +112,8 @@
                     <li>(If you are going to use the file upload plugin with image files) Install <a href="http://www.imagemagick.org/script/index.php">imagemagick</a> - <code>npm install -g imagemagick</code></li>
                 </ul>
 
-                <p>If you are just having a play you can do all the above on a new Ubuntu server (from
-                    <a href="https://www.digitalocean.com/?refcode=e6e0021274c9">Digital Ocean</a>, for instance)
+                <p>If you are just having a play you can do all the above on a new server (for the video we used an Ubuntu 14.04 x64 based server from
+                    <a href="https://www.digitalocean.com/?refcode=e6e0021274c9">Digital Ocean</a>)
                     you can do the above steps with the following commands</p>
                 <pre><code>apt-get update && apt-get install -y mongodb git make g++ imagemagick
 git clone https://github.com/tj/n.git && cd n && make install  && n stable</code></pre>
@@ -132,6 +132,8 @@ git clone https://github.com/tj/n.git && cd n && make install  && n stable</code
                 <p><code>grunt serve</code></p>
                 <p>Grunt will open the application in your browser.  It should look something like this:</p>
                 <img src="/images/8b30bb6c.generated-app.png" alt="Screen shot of landing page of generated application">
+                <p>If grunt fails for some reason you may be able to see the generated app by running it directly:</p>
+                <p><code>node server/app.js</code></p>
                 <p>Do Applicants | New to see the form that forms-angular has generated from the schema at
                     <code>lib/fng-models/applicant.js</code>.  You are on your way!</p>
             </section>
