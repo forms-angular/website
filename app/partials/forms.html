@@ -266,7 +266,7 @@ you can easily switch between modes without having to manually change all the in
       <ol>
         <li><strong>When the BaseCtrl scope is available.</strong> Sometimes it is useful to have model controllers access the base controller, which is created after them.  The best way to
     do this is to add a <em>$scope.onBaseCtrlReady = function (baseScope)</em> to the model controller.</li>
-        <li><strong>When the forms is generated and the data is available.</strong> This allows the model controllers to modify the form in ways that
+        <li><strong>When the form is generated and the data is available.</strong> This allows the model controllers to modify the form in ways that
           depend on the value of the data.  This is done by adding a <em>$scope.onAllReady = function (baseScope)</em> to the model controller.</li>
       </ol>
 
