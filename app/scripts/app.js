@@ -44,7 +44,8 @@ websiteApp
 websiteApp.frameworks = ['bs2', 'bs3'];   // Just for testing forms-angular
 websiteApp.defaultFramework = 'bs2';
 
-formsAngular.config(['cssFrameworkServiceProvider', 'routingServiceProvider', function (cssFrameworkService, routingService) {
+formsAngular.config(['$locationProvider', 'cssFrameworkServiceProvider', 'routingServiceProvider', function ($locationProvider, cssFrameworkService, routingService) {
+//  $locationProvider.hashPrefix('');
   routingService.start(
     {
       // Define the fixed routes (the dynamic routes for CRUD will be created by forms-angular)

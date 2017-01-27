@@ -30,7 +30,8 @@ websiteApp.controller('FriendCtrl', ['$scope', '$routeParams', '$location', '$ht
   });
 
   $scope.showFriendDetails = function (friend) {
-    $http.get('/api/a_unadorned_schema/' + $scope.textToId(friend.friend), {cache: true}).success(function (data) {
+    $http.get('/api/a_unadorned_schema/' + $scope.textToId(friend.friend), {cache: true}).then(function (response) {
+      var data = response.data;
       if (data && data.success !== false) {
         $scope.selectedFriend = friend;
         $scope.frdPopupName = data.forename + ' ' + data.surname;

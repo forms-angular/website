@@ -4,7 +4,7 @@
   "author": "Mark Chapman <support@forms-angular.org>",
   "dependencies": {
     "angular-route": "*",
-    "forms-angular": "^0.7.0",
+    "forms-angular": "^0.7.2",
     "fng-select2": "latest",
     "fng-ui-select": "latest",
     "fng-ui-date": "latest",
@@ -28,6 +28,6 @@
   },
   "testPath": "test/client/spec",
   "resolutions": {
-    "angular": "1.5.5"
+    "angular": "1.6.1"
   }
 }

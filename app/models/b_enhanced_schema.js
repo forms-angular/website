@@ -149,6 +149,7 @@ BSchema.statics.report = function (report) {
 module.exports = {
   model: B,                                          // pass the model in an object if you want to add options
   options: {
+    idIsList: {params:'timestamp'},
     findFunc: BSchema.statics.findAccepted,            // this can be used to 'pre' filter selections.
     // A common use case is to restrict a user to only see their own records
     // as described in https://groups.google.com/forum/?fromgroups=#!topic/mongoose-orm/TiR5OXR9mAM

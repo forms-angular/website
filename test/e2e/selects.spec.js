@@ -95,7 +95,7 @@ describe('Select and select2', function () {
 
     function checkNonChangingValues() {
       expect(element(by.id('f_mentor')).getAttribute('value')).toBe('Anderson John');
-      expect(element(by.css('#f_teacher a span.select2-chosen span')).getText()).toMatch('IsAccepted John');
+      expect(element(by.css('#f_teacher a')).getText()).toMatch('IsAccepted John');
       expect(element(by.id('f_assistants_0')).getAttribute('value')).toBe('TestPerson1');
       expect(element(by.id('f_assistants_1')).getAttribute('value')).toBe('TestPerson2');
       expect(element(by.id('f_assistants2_0')).getAttribute('value')).toBe('TestPerson1');
@@ -107,10 +107,10 @@ describe('Select and select2', function () {
 
       checkNonChangingValues();
 
-      expect(element(by.css('#f_team_0 a span.select2-chosen span')).getText()).toBe('Brown, John');
-      expect(element(by.css('#f_team_1 a span.select2-chosen span')).getText()).toBe('Brown, Jenny');
-      expect(element(by.css('#f_team2_0 a span.select2-chosen span')).getText()).toBe('Brown, John');
-      expect(element(by.css('#f_team2_1 a span.select2-chosen span')).getText()).toBe('Brown, Jenny');
+      expect(element(by.css('#f_team_0 a')).getText()).toBe('Brown, John');
+      expect(element(by.css('#f_team_1 a')).getText()).toBe('Brown, Jenny');
+      expect(element(by.css('#f_team2_0 a')).getText()).toBe('Brown, John');
+      expect(element(by.css('#f_team2_1 a')).getText()).toBe('Brown, Jenny');
 
     }
 
@@ -118,10 +118,10 @@ describe('Select and select2', function () {
 
       checkNonChangingValues();
 
-      expect(element(by.css('#f_team_0 a span.select2-chosen span')).getText()).toBe('Brown John');
-      expect(element(by.css('#f_team_1 a span.select2-chosen span')).getText()).toBe('Brown Jenny');
-      expect(element(by.css('#f_team2_0 a span.select2-chosen span')).getText()).toBe('Brown John');
-      expect(element(by.css('#f_team2_1 a span.select2-chosen span')).getText()).toBe('Brown Jenny');
+      expect(element(by.css('#f_team_0 a')).getText()).toBe('Brown John');
+      expect(element(by.css('#f_team_1 a')).getText()).toBe('Brown Jenny');
+      expect(element(by.css('#f_team2_0 a')).getText()).toBe('Brown John');
+      expect(element(by.css('#f_team2_1 a')).getText()).toBe('Brown Jenny');
     }
 
     function selectFngUiSelect(addSelect, field, selectText, fullText, selectAgain) {
@@ -131,25 +131,17 @@ describe('Select and select2', function () {
 
       if (selectAgain) {
         element(by.css('#' + field + ' a')).click();
-        browser.waitForAngular();
-        browser.waitForAngular();
       }
-
       var input = element(by.css('#'+field + ' .select2-search input'));
       input.sendKeys(selectText);
-      browser.waitForAngular();
       input.sendKeys(protractor.Key.ENTER);
-      browser.waitForAngular();
-      expect(element(by.css('#'+field + ' a span.select2-chosen span')).getText()).toMatch(fullText);
-
+      expect(element(by.css('#'+field + ' a')).getText()).toMatch(fullText);
     }
 
     browser.get('/#/e_referencing_another_collection/new');
 
-
     expect(element(by.css('#f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
     element(by.cssContainingText('#f_mentor option', 'Anderson John')).click();
-// browser.pause();
     selectFngUiSelect(element(by.css('#f_teacher a')), 'f_teacher', 'Is', 'IsAccepted John', false);
 
     var addSelect = element(by.id('add_f_assistants'));
