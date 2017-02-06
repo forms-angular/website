@@ -21,7 +21,7 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 var app = express();
 require('./lib/config/express')(app);
 
-var fngHandler = new (formsAngular)(app, {
+var fngHandler = new (formsAngular)(mongoose, app, {
   urlPrefix: '/api/',
   JQMongoFileUploader: {module: fngJqUpload.Controller}
 });
