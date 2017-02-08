@@ -31,7 +31,7 @@ module.exports = function (config) {
       'app/bower_components/fng-ui-select/src/fng-ui-select.js',
       'app/bower_components/jquery-ui/jquery-ui.js',
       'app/bower_components/angular-ui-date/src/date.js',
-      'app/bower_components/ng-grid/build/ng-grid.min.js',
+      'app/bower_components/angular-ui-grid/ui-grid.js',
       'app/bower_components/jspdf/dist/jspdf.min.js',
       'app/bower_components/fng-reports/dist/fng-reports.js',
       'app/bower_components/ng-ckeditor/ng-ckeditor.js',

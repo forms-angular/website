@@ -9,15 +9,13 @@ var ExamsSchema = new Schema({
   score: Number,
   result: {type: String, enum: ['distinction', 'merit', 'pass', 'fail']},
   scan: {type: [new Schema(jqUploads.FileSchema)], form: {hidden: true, help:'Attach a scan of the paper - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{single:true, autoUpload: true, sizeLimit:524288}}},
-  grader: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {select2: {fngAjax: true}, label: 'Marked By'}},
+  grader: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema', form: {directive: 'fng-ui-select', fngUiSelect: {fngAjax: true}, label: 'Marked By'}},
   retakeDate: {type: Date, form: {showWhen: {lhs: '$exams.result', comp: 'eq', rhs: 'fail'}}}
 }, {_id: false});
 
 var FSchema = new Schema({
   surname: {type: String, index: true, required: true, list: {}},
   forename: {type: String, index: true, list: true},
-  aTest: { type: Schema.Types.ObjectId, ref: 'b_enhanced_schema'},
-
   exams: [ExamsSchema]    // defaults to horizontal compact form
   // or
   //exams: {type: [ExamsSchema], form: {formStyle: 'inline'}}

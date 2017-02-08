@@ -12,9 +12,7 @@ var DSchema = new Schema({
   hobbies: [{type: String}],
   sports: {type: [String]},
   someOptions:  {type: [String], enum:['First','Second','Third']},
-  moreOptions:  {type: [String], enum:['First','Second','Third'], form:{select2: true}}, // deprecated
   someOptions2:[{type:  String , enum:['First','Second','Third']}],
-  moreOptions2:[{type:  String , enum:['First','Second','Third'], form:{select2: true}}], // deprecated
   yetMoreOptions:   {type: [String], enum:['First','Second','Third'], form:{directive: 'fng-ui-select'}},
   evenMoreOptions:  {type: [String], enum:['First','Second','Third'], form:{directive: 'fng-ui-select', fngUiSelect: {forceMultiple: true}}},
   yetMoreOptions2: [{type:  String , enum:['First','Second','Third'], form:{directive: 'fng-ui-select'}}],

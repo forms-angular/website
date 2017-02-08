@@ -4,9 +4,9 @@ var websiteApp = angular.module('websiteApp', [
   'ngRoute',
   'formsAngular',
   'ui.date',
-  'ngGrid',
+  'ui.grid',
+  'ui.grid.selection',
   'ngCkeditor',
-  'ui.select2',
   'fng.uiSelect',
   'uploadModule',
   'door3.css'

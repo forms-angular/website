@@ -40,22 +40,14 @@ var BSchema = new Schema({
       help:'This controller uses the <a href="https://github.com/forms-angular/fng-ui-select">fng-ui-select plugin</a> which pulls in the <a href="https://github.com/angular-ui/ui-select">angular-ui ui-select component</a>.'
     }
   },
-  eyeColour: {
-    type: String,
-    enum: ['Blue', 'Brown', 'Green', 'Hazel'],
-    required: false,
-    form: {
-      placeHolder: 'Select eye colour',   // Placeholders work in a combo box
-      select2: {},     // deprecated - use fng-ui-select
-      help: 'This control has had an event handler added to it (which looks horrid - sorry!).' +
-            '  See post form-input generation processing section of <a ng-href="{{buildUrl(\'forms#client-side-customisation\')}}">documentation</a> for details. This field uses the (deprecated) ui-select2 component.'
-    }
-  },
   sex: {type: String, enum: ['Male', 'Female'], form: {type: 'radio', inlineRadio: true}},
   dateOfBirth: {type: Date, form: {helpInline: 'When is their birthday?'}},
   education: {type: String, enum: {values:['sec', 'univ', 'mas', 'dr'], labels:['Secondary', 'University', 'Masters', 'Doctorate']}, form: {type: 'radio'}},
   CV: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Attach the CV - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{single:true, autoUpload: true, sizeLimit:524288}}},
-  accepted: {type: Boolean, required: true, form: {helpInline: 'Did we take them?'}, list: {}},   // helpInline displays to the right of the input control
+  accepted: {type: Boolean, required: true, form: {
+    help: 'This control has had an event handler added to it (which looks horrid - sorry!).' +
+    '  See post form-input generation processing section of <a ng-href="{{buildUrl(\'forms#client-side-customisation\')}}">documentation</a> for details.'
+  }, list: {}},   // helpInline displays to the right of the input control
   interviewScore: {type: Number, form: {hidden: true}, list: {}},  // this field does appear on listings, even though it is hidden on default form
   interviewForms: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Attach the scans of the interview forms - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{autoUpload:true, sizeLimit:524288}}},
   freeText: {
@@ -149,7 +141,7 @@ BSchema.statics.report = function (report) {
 module.exports = {
   model: B,                                          // pass the model in an object if you want to add options
   options: {
-    idIsList: {params:'timestamp'},
+//    idIsList: {params:'timestamp'},
     findFunc: BSchema.statics.findAccepted,            // this can be used to 'pre' filter selections.
     // A common use case is to restrict a user to only see their own records
     // as described in https://groups.google.com/forum/?fromgroups=#!topic/mongoose-orm/TiR5OXR9mAM

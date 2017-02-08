@@ -5,7 +5,6 @@
   "dependencies": {
     "angular-route": "*",
     "forms-angular": "*",
-    "fng-select2": "latest",
     "fng-ui-select": "latest",
     "fng-ui-date": "latest",
     "fng-reports": "latest",
@@ -28,6 +27,7 @@
   },
   "testPath": "test/client/spec",
   "resolutions": {
-    "angular": "1.6.1"
+    "angular": "1.6.1",
+    "jquery": "3.1.1"
   }
 }

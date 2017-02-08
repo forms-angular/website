@@ -7,10 +7,10 @@ describe('Events', function () {
   browser.driver.manage().window().setSize(width, height);
 
   it('should get an event from form input', function () {
-    // this tests the event handling between form-input directive and that it works with a select2 control
+    // this tests the event handling on form input change
     browser.get('/#/b_enhanced_schema/519a6075b320153869b175e0/edit');
     browser.waitForAngular();
-    expect($('#cg_f_eyeColour').getCssValue('background-color')).toEqual('rgba(109, 219, 79, 1)');
+    expect($('#cg_f_accepted').getCssValue('background-color')).toEqual('rgba(255, 182, 193, 1)');
   });
 
 });

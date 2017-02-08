@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Select and select2', function () {
+describe('Select', function () {
 
   var width = 1024;
   var height = 768;
@@ -8,7 +8,7 @@ describe('Select and select2', function () {
 
   it('should handle enums', function () {
     browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
-    expect($('#s2id_f_eyeColour').getText()).toMatch(/Brown/);
+    expect(element.all(by.css('.ui-select-container > .select2-choice > span.select2-chosen')).last().getText()).toMatch(/Brown/);
   });
 
   it('should handle lookups using Ajax', function () {
@@ -46,10 +46,6 @@ describe('Select and select2', function () {
       checkArray('sports');
       expect(element(by.id('f_someOptions_0')).getAttribute('value')).toBe('Second');
       expect(element(by.id('f_someOptions_1')).getAttribute('value')).toBe('Third');
-      expect(element(by.id('f_moreOptions_0')).getAttribute('value')).toBe('1');
-      expect(element(by.css('#s2id_f_moreOptions_0 span.select2-chosen')).getText()).toBe('Second');
-      expect(element(by.id('f_moreOptions_1')).getAttribute('value')).toBe('2');
-      expect(element(by.css('#s2id_f_moreOptions_1 span.select2-chosen')).getText()).toBe('Third');
     }
 
     browser.get('/#/d_array_example/new');
@@ -66,20 +62,6 @@ describe('Select and select2', function () {
     expect(element(by.id('f_someOptions_1')).getAttribute('class')).toMatch('ng-pristine');
     element(by.cssContainingText('#f_someOptions_1 option', 'Third')).click();
 
-    addSelect = element(by.id('add_f_moreOptions'));
-    addSelect.click();
-    expect(element(by.id('f_moreOptions_0')).getAttribute('class')).toMatch('ng-pristine');
-    element(by.css('#s2id_f_moreOptions_0 .select2-arrow')).click();
-    var input = element.all(by.css('.select2-input')).first();
-    input.sendKeys('Sec');
-    input.sendKeys(protractor.Key.ENTER);
-    browser.sleep(50);
-    addSelect.click();
-    expect(element(by.id('f_moreOptions_1')).getAttribute('class')).toMatch('ng-pristine');
-    element(by.css('#s2id_f_moreOptions_1 .select2-arrow')).click();
-    input = element.all(by.css('.select2-input')).last();
-    input.sendKeys('Th');
-    input.sendKeys(protractor.Key.ENTER);
     checkValues();
 
     // Save the record and check they all refresh OK

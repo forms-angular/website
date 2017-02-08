@@ -61,23 +61,19 @@ websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', fun
     }
   ];
 
-  function setColour(number) {
-    var colours = ['#81B7DB', '#C2A369', '#6DDB4F', '#47820C'];
-    if (number !== '') {
-      angular.element(document.querySelector('#cg_f_eyeColour')).css('background-color', colours[parseInt(number)]);
-    } else {
-      angular.element(document.querySelector('#cg_f_eyeColour')).css('background-color', 'white');
-    }
+  function setColour(on) {
+    var colour = on?'lightgreen':'lightpink';
+    angular.element(document.querySelector('#cg_f_accepted')).css('background-color', colour);
   }
 
   $scope.onAllReady = function () {
-    var eyeColor = angular.element(document.querySelector('#f_eyeColour'));
-    eyeColor.on('change', function (e) {
-      console.log('change ' + JSON.stringify({val: e.val, added: e.added, removed: e.removed}));
-      setColour(e.val);
+    var accepted = angular.element(document.querySelector('#f_accepted'));
+    accepted.on('change', function (e) {
+      setColour($scope.record.accepted);
     });
-    if ($scope.record.eyeColour && $scope.record.eyeColour.id) {
-      setColour($scope.record.eyeColour.id);
+    if (typeof $scope.record.accepted !== 'undefined') {
+      setColour($scope.record.accepted);
     }
+
   };
 }]);
