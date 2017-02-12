@@ -7,7 +7,6 @@ npm link fng-jq-upload
 
 bower link forms-angular
 bower link fng-jq-upload
-bower link fng-select2
 bower link fng-reports
 bower link fng-ckeditor
 bower link fng-ui-date

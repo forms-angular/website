@@ -19,10 +19,8 @@
   "devDependencies": {
     "angular-mocks": "*",
     "bootstrap-2-3-2": "git://github.com/twbs/bootstrap.git#v2.3.2",
-    "select2-bootstrap-css-1-2": "git://github.com/t0m/select2-bootstrap-css.git#v1.2.4",
     "angular-ui-bootstrap-0-8-0": "git://github.com/angular-ui/bootstrap-bower.git#v0.8.0",
     "bootstrap-3-3-5": "git://github.com/twbs/bootstrap.git#v3.3.5",
-    "select2-bootstrap-css-1-3": "git://github.com/t0m/select2-bootstrap-css.git#v1.3.1",
     "angular-ui-bootstrap-0-14-2": "git://github.com/angular-ui/bootstrap-bower.git#v0.14.2"
   },
   "testPath": "test/client/spec",

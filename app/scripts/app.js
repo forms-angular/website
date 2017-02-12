@@ -80,8 +80,8 @@ formsAngular.config(['$locationProvider', 'cssFrameworkServiceProvider', 'routin
  **/
 
 websiteApp.css = {
-  bs2: ['styles/main-bs2.css', 'bower_components/select2-bootstrap-css-1-2/select2-bootstrap.css'],
-  bs3: ['styles/main-bs3.css', 'bower_components/select2-bootstrap-css-1-3/select2-bootstrap.css']
+  bs2: ['styles/main-bs2.css', 'bower_components/select2/select2.css'],   // Select2 needs to be reloaded after the framework style
+  bs3: ['styles/main-bs3.css', 'bower_components/select2/select2.css']
 };
 websiteApp.cssLoaded = false;
 

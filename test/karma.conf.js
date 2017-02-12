@@ -25,8 +25,6 @@ module.exports = function (config) {
       'app/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
       'app/bower_components/angular-elastic/elastic.js',
       'app/bower_components/forms-angular/dist/forms-angular.js',
-      'app/bower_components/select2/select2.js',
-      'app/bower_components/angular-ui-select2/src/select2.js',
       'app/bower_components/angular-ui-select/dist/select.js',
       'app/bower_components/fng-ui-select/src/fng-ui-select.js',
       'app/bower_components/jquery-ui/jquery-ui.js',
