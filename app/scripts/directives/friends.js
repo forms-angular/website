@@ -63,7 +63,9 @@ websiteApp.controller('FriendCtrl', ['$scope', '$routeParams', '$location', '$ht
   };
 
   $scope.textToId = function (text) {
+    /*jshint camelcase: false */
     return $scope.f_friendList_friend_ids[$scope.f_friendList_friendOptions.indexOf(text)];
+    /*jshint camelcase: true */
   };
 
   $scope.frdSaveFriend = function () {

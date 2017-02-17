@@ -13,7 +13,7 @@ describe('Select', function () {
 
   it('should handle lookups using Ajax', function () {
     browser.get('/#/f_nested_schema/51c583d5b5c51226db418f16/edit');
-    expect(element.all(by.css('.select2-container')).get(0).element(by.css('a > span.select2-chosen')).getText()).toMatch(/IsAccepted/);
+    expect(element.all(by.css('.select2-container a > span.select2-chosen')).get(1).getText()).toMatch(/IsAccepted/);
   });
 
   it('should do all the arrays in d as expected', function(){

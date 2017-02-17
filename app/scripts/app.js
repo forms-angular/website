@@ -9,25 +9,22 @@ var websiteApp = angular.module('websiteApp', [
   'ngCkeditor',
   'fng.uiSelect',
   'uploadModule',
-  'door3.css'
+  'angularCSS'
 ]);
 
 websiteApp.directive('ngPrism', [function() {
   return {
     restrict: 'A',
-    link: function($scope, element, attrs) {
+    link: function($scope, element) {
       element.ready(function() {
         if(element[0].className.indexOf('language-markup') !== -1) {
           // Put the markup in a comment
-          element[0].innerHTML = '<!--\n' +
-            element[0].innerHTML
-              .replace(' ng-scope','')
-            + '\n-->'
+          element[0].innerHTML = '<!--\n' + element[0].innerHTML.replace(' ng-scope','') + '\n-->';
         }
         Prism.highlightElement(element[0]);
       });
     }
-  }
+  };
 }]);
 
 websiteApp
@@ -106,7 +103,7 @@ websiteApp
         $location.path(newPath);
       }
     } else {
-      $css.add(['styles/201702061144app.css']);
+      $css.add(['styles/201702161946app.css']);
     }
     }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {

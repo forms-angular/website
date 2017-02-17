@@ -12,7 +12,16 @@ bower link fng-ckeditor
 bower link fng-ui-date
 bower link fng-ui-select
 
-npm install --production
 bower install
 
-echo "If this is a development environment you need to run npm install"
+if [[ "$1" = "dev" ]]; then
+  npm install
+else
+  npm install --production
+  echo If this is a development environment run
+    echo ""
+    echo npm install
+    echo ""
+    echo "(or run this script with a dev argument)"
+fi
+

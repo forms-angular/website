@@ -68,7 +68,7 @@ websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', fun
 
   $scope.onAllReady = function () {
     var accepted = angular.element(document.querySelector('#f_accepted'));
-    accepted.on('change', function (e) {
+    accepted.on('change', function () {
       setColour($scope.record.accepted);
     });
     if (typeof $scope.record.accepted !== 'undefined') {

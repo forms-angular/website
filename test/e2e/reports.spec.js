@@ -47,7 +47,7 @@ describe('Reports', function () {
     expect(element.all(by.css('.ui-grid-cell-contents')).getText()).toInclude('519a6075b320153869b155e0');
     expect(element.all(by.css('.ui-grid-cell-contents')).getText()).toInclude('519a6075b440153869b155e0');
     element.all(by.css('.ui-grid-cell-contents')).last().click();
-    expect(browser.getCurrentUrl()).toMatch('\/b_enhanced_schema\/519a6075b440153869b155e0\/edit');
+    expect(browser.getCurrentUrl()).toMatch('\/b_enhanced_schema\/(519a6075b440153869b155e0|519a6075b320153869b155e0)\/edit');
   });
 
   it('should run a standard report', function(){
