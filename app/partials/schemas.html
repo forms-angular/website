@@ -65,7 +65,8 @@
     <li><strong>helpInline</strong> is for specifying help text which is displayed inline</li>
     <li><strong>add</strong> allows anything else to be added to the input html.  For example
         <code>add: 'class="myClass" '</code> (note the space at the end - add always needs this)
-        allows custom styling of a specific input.
+      allows custom styling of a specific input or the use of <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions" target="_blank">Angular model options</a> - for example
+        <code>add: 'ng-model-options="{updateOn: \'default blur\', debounce: { \'default\': 500, \'blur\': 0 }}" '</code>
     </li>
     <li><strong>rows</strong> (in conjunction with a textarea type) allows the depth of the control to be
         specified.  The <strong>auto</strong> option creates a textarea that automatically expands</li>
@@ -89,7 +90,7 @@
     <div class="well well-sm well-small" ng-init="example2=[
         {name:'surname',label:'Family Name',required:true},
         {name:'forename',id:'fnameinput'},
-        {name:'dateOfBirth',type:'date'},
+        {name:'dateOfBirth',type:'date',help:'Here is some help text'},
         {name:'sex',type:'radio',options:['male','female']},
         {name:'hairColour',type:'select',options:['brown','black','blonde','grey']}]">
         <!--Add a noautofocus & forceform here and modify the model-->
@@ -193,7 +194,8 @@ surname: {
   }
 }</code></pre></p>
 
-    <p>The form object can have the following optional keys:</p>
+    <p>The form object can have the following optional keys (many of which are duplicates of options in the Form Schemas section
+      <a href="{{buildUrl('schemas#formschema')}}">above</a> (where they may have additional documentation and examples) :</p>
     <ul>
         <li><strong>type</strong> the input type to be generated - which must be compatible with the Mongoose type.
             Common examples are <em>email</em>, <em>url</em>.  Note that if the field type is String and the name (or label) contains the string 'password'

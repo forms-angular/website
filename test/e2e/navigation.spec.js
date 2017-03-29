@@ -21,7 +21,7 @@ describe('Navigation', function () {
   });
 
   it('should cope with an edit screen with menu options', function () {
-    browser.get('/#/b_enhanced_schema/519a6075b320153869b175e0/edit');
+    browser.get('/#/b_enhanced_schema/519a6075b320153869b155e0/edit');
     var list = element.all(by.css('.dropdown-option'));
     expect(list.count()).toBe(2 + baseMenuCount);
   });
