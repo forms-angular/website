@@ -5,6 +5,7 @@ node_modules
 ~tmpnpmout.txt
 npm-debug.log
 app/bower_components
+app/styles/font-awesome.css
 heroku
 /views
 test.js
