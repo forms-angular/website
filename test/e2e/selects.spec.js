@@ -77,6 +77,7 @@ describe('Select', function () {
 
     function checkNonChangingValues() {
       expect(element(by.id('f_mentor')).getAttribute('value')).toBe('Anderson John');
+      expect(element(by.id('f_leadMentor')).getAttribute('value')).toBe('Anderson John');
       expect(element(by.css('#f_teacher a')).getText()).toMatch('IsAccepted John');
       expect(element(by.id('f_assistants_0')).getAttribute('value')).toBe('TestPerson1');
       expect(element(by.id('f_assistants_1')).getAttribute('value')).toBe('TestPerson2');
@@ -123,6 +124,7 @@ describe('Select', function () {
     browser.get('/#/e_referencing_another_collection/new');
 
     expect(element(by.css('#f_teacher')).getAttribute('class')).not.toMatch('select2-allowclear');
+    element(by.cssContainingText('#f_leadMentor option', 'Anderson John')).click();
     element(by.cssContainingText('#f_mentor option', 'Anderson John')).click();
     selectFngUiSelect(element(by.css('#f_teacher a')), 'f_teacher', 'Is', 'IsAccepted John', false);
 

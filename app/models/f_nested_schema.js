@@ -41,7 +41,7 @@ F.prototype.searchResultFormat = function () {
     resourceText: 'Exams',
     id: this._id,
     weighting: weighting,
-    text: this.surname + (this.forename ? ', ' + this.forname : '')
+    text: this.surname + (this.forename ? ', ' + this.forename : '')
   };
 };
 

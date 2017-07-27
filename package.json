@@ -19,7 +19,8 @@
     "method-override": "2.3.7",
     "mongoose": "4.8.1",
     "morgan": "1.8.0",
-    "serve-favicon": "2.3.2"
+    "serve-favicon": "2.3.2",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "connect-livereload": "0.6.0",
@@ -67,7 +68,7 @@
     "mocha": "3.2.0",
     "node-inspector": "0.12.8",
     "open": "0.0.5",
-    "phantomjs-prebuilt":"2.1.14 ",
+    "phantomjs-prebuilt": "2.1.14 ",
     "protractor": "5.1.0",
     "protractor-jasmine2-screenshot-reporter": "0.3.2",
     "requirejs": "2.3.2",
