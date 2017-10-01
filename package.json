@@ -7,6 +7,18 @@
     "type": "git",
     "url": "https://github.com/forms-angular/website"
   },
+  "knownIssue":[
+    "For some reason npm -i sometimes comes up with ENOENT errors (generally saying .staging somewhere in them)",
+    "A way round them appears to be:",
+    " npm -g i npm@5.2",
+    " npm cache clear --force",
+    " rm -rf node_modules/",
+    " mv package.json old.package.json",
+    " npm i forms-angular --production",
+    " npm i fng-jq-upload --production",
+    " mv old.package.json package.json",
+    " npm i --production"
+  ],
   "dependencies": {
     "body-parser": "1.16.0",
     "compression": "1.6.2",
