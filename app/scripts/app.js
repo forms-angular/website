@@ -9,7 +9,10 @@ var websiteApp = angular.module('websiteApp', [
   'ngCkeditor',
   'fng.uiSelect',
   'uploadModule',
-  'angularCSS'
+  'angularCSS',
+  'fng.uiBootstrapDate',
+  'ui.bootstrap.datetimepicker',
+  'fng.uiBootstrapDateTime'
 ]);
 
 websiteApp.directive('ngPrism', [function() {
@@ -103,7 +106,7 @@ websiteApp
         $location.path(newPath);
       }
     } else {
-      $css.add(['styles/201709261516app.css']);
+      $css.add(['styles/201710092022app.css']);
     }
     }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {

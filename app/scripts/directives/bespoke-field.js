@@ -8,7 +8,7 @@ websiteApp.directive('emailField', ['$compile', '$filter', 'pluginHelper', 'form
       compile: function () {
         return function (scope, element, attrs) {
           var template;
-          var processedAttr = pluginHelper.extractFromAttr(attrs, 'fngUiSelect');
+          var processedAttr = pluginHelper.extractFromAttr(attrs, 'emailField');
           template = pluginHelper.buildInputMarkup(scope, attrs.model, processedAttr.info, processedAttr.options, false, false, function (buildingBlocks) {
             var atSign = {};
             if (cssFrameworkService.framework() === 'bs2') {
