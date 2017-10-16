@@ -10,6 +10,7 @@
     "fng-reports": "latest",
     "fng-jq-upload": "latest",
     "fng-ckeditor": "latest",
+    "fng-colour-picker": "latest",
     "json3": "3.3.2",
     "angular-ui-bootstrap-bower": "1.3.2",
     "components-font-awesome": "3.2.1",
