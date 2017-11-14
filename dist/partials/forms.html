@@ -34,7 +34,7 @@
     <ul>
         <li><strong>/#/:model</strong> which lists the documents in the collection, with links to the form for editing them</li>
         <li><strong>/#/:model/new</strong> which enables the user to create a new document using the default form for the collection.  It is also possible to override the
-        default by passing the desired record as follows: <code>/#/:model/new?r={"field1":"value1","field2":"value2"}</code></li>
+        default values for new records passing the desired record as follows: <code>/#/:model/new?r={"field1":"value1","field2":"value2"}</code></li>
         <li><strong>/#/:model/:id/edit</strong> which enables the user to edit a document</li>
         <li><strong>/#/:model/:id/edit/:tab</strong> which enables the user to edit a document, opening a tabbed form at a specified tab</li>
     </ul>
@@ -134,7 +134,7 @@ you can easily switch between modes without having to manually change all the in
         found
         in the model definitions files for <a href="/models/f_nested_schema.js">f_nested_schema</a> and <a href="/models/g_conditional_field.js">g_conditional_field</a>.</p>
     <ul>
-        <li><strong>searchImportance</strong> can be <strong>false</strong> (which suppresses the model from appearing in search results)
+        <li><strong>searchImportance</strong> can be <strong>false</strong> (which suppresses the model from appearing in general search results - ie searches with no model specified)
             or a value from 0 to 99 (default) that can be used to determine the order
             of table searches. There is an example in <a href="/models/g_conditional_field.js">this</a> model.
         </li>
@@ -314,14 +314,15 @@ you can easily switch between modes without having to manually change all the in
 
     <p>There are hooks before and after CRUD events as follows:</p>
     <ul>
-        <li>onBeforeCreate function(data, callback(err))</li>
-        <li>onAfterCreate function(data)</li>
-        <li>onBeforeRead function(id, callback(err))</li>
-        <li>onAfterRead function(data)</li>
-        <li>onBeforeUpdate function(data, old, callback(err))</li>
-        <li>onAfterUpdate function(data, old)</li>
-        <li>onBeforeDelete function(old, callback(err))</li>
-        <li>onAfterDelete function(old)</li>
+      <li>onInitialiseNewRecord function(data) - called as the new object is instantiated on the client after any application of the r query parameter (see <a href="/#/forms#routes">new route</a> above)</li>
+      <li>onBeforeRead function(id, callback(err))</li>
+      <li>onAfterRead function(data)</li>
+      <li>onBeforeCreate function(data, callback(err)) - called before a new record is added to the collection</li>
+      <li>onAfterCreate function(data)</li>
+      <li>onBeforeUpdate function(data, old, callback(err))</li>
+      <li>onAfterUpdate function(data, old)</li>
+      <li>onBeforeDelete function(old, callback(err))</li>
+      <li>onAfterDelete function(old)</li>
     </ul>
     <p>In all onBefore... cases passing an error back will stop the event completing. There is a trivial example of
         how a data event hook might be used in <a href="/scripts/controllers/d-array-example.js">this</a> controller, which shows

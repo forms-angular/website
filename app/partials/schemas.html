@@ -64,9 +64,12 @@
     <li><strong>help</strong> is for specifying help text</li>
     <li><strong>helpInline</strong> is for specifying help text which is displayed inline</li>
     <li><strong>add</strong> allows anything else to be added to the input html.  For example
-        <code>add: 'class="myClass" '</code> (note the space at the end - add always needs this)
-      allows custom styling of a specific input or the use of <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions" target="_blank">Angular model options</a> - for example
-        <code>add: 'ng-model-options="{updateOn: \'default blur\', debounce: { \'default\': 500, \'blur\': 0 }}" '</code>
+      <ul>
+        <li><code>add: 'class="myClass"'</code> allows custom styling of a specific input</li>
+        <li><a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions" target="_blank">Angular model options</a> can be used - for example
+          <code>add: 'ng-model-options="{updateOn: \'default blur\', debounce: { \'default\': 500, \'blur\': 0 }}" '</code></li>
+        <li>custom validation directives, such as the <a href="/scripts/directives/timezone.js">timezone validation</a> in <a href="/models/b_enhanced_schema.js">this schema</a></li>
+      </ul>
     </li>
     <li><strong>rows</strong> (in conjunction with a textarea type) allows the depth of the control to be
         specified.  The <strong>auto</strong> option creates a textarea that automatically expands</li>

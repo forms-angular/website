@@ -64,9 +64,12 @@
     <li><strong>help</strong> is for specifying help text</li>
     <li><strong>helpInline</strong> is for specifying help text which is displayed inline</li>
     <li><strong>add</strong> allows anything else to be added to the input html.  For example
-        <code>add: 'class="myClass" '</code> (note the space at the end - add always needs this)
-      allows custom styling of a specific input or the use of <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions" target="_blank">Angular model options</a> - for example
-        <code>add: 'ng-model-options="{updateOn: \'default blur\', debounce: { \'default\': 500, \'blur\': 0 }}" '</code>
+      <ul>
+        <li><code>add: 'class="myClass"'</code> allows custom styling of a specific input</li>
+        <li><a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions" target="_blank">Angular model options</a> can be used - for example
+          <code>add: 'ng-model-options="{updateOn: \'default blur\', debounce: { \'default\': 500, \'blur\': 0 }}" '</code></li>
+        <li>custom validation directives, such as the <a href="/scripts/directives/timezone.js">timezone validation</a> in <a href="/models/b_enhanced_schema.js">this schema</a></li>
+      </ul>
     </li>
     <li><strong>rows</strong> (in conjunction with a textarea type) allows the depth of the control to be
         specified.  The <strong>auto</strong> option creates a textarea that automatically expands</li>
@@ -246,6 +249,8 @@ howManyPerDay: {type: Number, form:{showWhen:{lhs:"$smoker", comp:"eq", rhs:true
         <li><strong>editor</strong> (only valid when type is textarea) should be set to <em>ckEditor</em> to use <a href="http://ckeditor.com">CKEditor</a></li>
         <li><strong>directive</strong> allows you to specify custom behaviour.  Gets passed attributes from form-input (with
             <em>schema</em> replaced with the current element - so <em>add</em> can be used to pass data into directives).</li>
+        <li><strong>noLookup</strong>, which can only be used in confunction with <em>directive</em>, inhibits the forms-angular client from looking up the possible values for a
+          'lookup' field (when the directive has a an alternative way of handling things)</li>
         <li><strong>customSubDoc</strong> (only valid on a sub document) allows you to specify custom HTML (which may include directives) for the sub doc</li>
         <li><strong>customFooter</strong> (only valid on a sub document) allows you to specify custom HTML (which may include directives) for the footer of a group of sub docs</li>
         <li><strong>formstyle</strong> (only valid on a sub schema) sets style of sub form. See <a ng-href="{{buildUrl('forms#form-styles')}}">form style section</a> for options.

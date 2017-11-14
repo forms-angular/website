@@ -6815,7 +6815,7 @@ button.close {
   position: fixed;
   width: 100%;
   margin-top: 11px;
-  z-index: 1;
+  z-index: 101;
   background-color: #fff;
 }
 .list-body {
@@ -6829,7 +6829,7 @@ button.close {
 }
 .page-header {
   padding-left: 20px;
-  z-index: 2;
+  z-index: 102;
 }
 .header-rhs {
   min-width: 226px;
@@ -6845,7 +6845,7 @@ button.close {
   position: fixed;
   width: 100%;
   margin-top: 11px;
-  z-index: 1;
+  z-index: 101;
 }
 .gridStyle {
   border: 1px solid #d4d4d4;
@@ -6936,6 +6936,9 @@ form select.ng-invalid-required,
 form textarea.ng-invalid-required {
   background-color: rgba(255, 0, 0, 0.1);
 }
+form input.ng-invalid:focus {
+  border: solid 1px red;
+}
 form option {
   background-color: white;
 }
@@ -6964,7 +6967,7 @@ span input[type="radio"] {
 }
 .results-container {
   width: 6000px;
-  z-index: 3;
+  z-index: 103;
   position: absolute;
   top: 41px;
   right: 0;

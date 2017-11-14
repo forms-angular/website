@@ -107,7 +107,7 @@ websiteApp
         $location.path(newPath);
       }
     } else {
-      $css.add(['styles/201710161353app.css']);
+      $css.add(['styles/201711141244app.css']);
     }
     }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {
