@@ -52,7 +52,7 @@ var BSchema = new Schema({
     '  See post form-input generation processing section of <a ng-href="{{buildUrl(\'forms#client-side-customisation\')}}">documentation</a> for details.'
   }, list: {}},   // helpInline displays to the right of the input control
   favouriteColour: {type: String, form:{directive:'fng-colour-picker'}},
-  timezone: {type: String, form:{add: ' timezone'}},    // use custom validation - see https://docs.angularjs.org/guide/forms#custom-validation
+  timezone: {type: String, form:{add: ' timezone', help:'This field uses <a href="https://docs.angularjs.org/guide/forms#custom-validation" target="_blank">customer validation</a> from <a href="/scripts/directives/timezone.js" target="_blank">this directive</a>.  Timezone example is <strong>Europe/London</strong>'}},
   interviewDate: {type: Date, form:{helpInline: 'This uses fng-bootstrap-datetime plugin. Bootstrap 2 looks poor - 3 is fine.', directive: 'fng-ui-bootstrap-datetime-picker', fngUiBootstrapDatetimePicker:{'date-format': 'dd-MMM-yyyy', 'date-options':"{'show-weeks':true}"}}},
   interviewScore: {type: Number, form: {hidden: true}, list: {}},  // this field does appear on listings, even though it is hidden on default form
   interviewForms: {type: [new Schema(jqUploads.FileSchema)], form: {help:'Attach the scans of the interview forms - maximumm size 0.5MB', directive: 'fng-jq-upload-form', fngJqUploadForm:{autoUpload:true, sizeLimit:524288}}},
