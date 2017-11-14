@@ -6923,6 +6923,9 @@ form .schema-foot {
   padding: 5px 180px;
   margin: 5px 0;
 }
+form input.ng-invalid:not(.ng-invalid-required):focus {
+  border: solid 1px red;
+}
 form input[type="checkbox"].ng-invalid-required:before,
 form span:first-child input[type="radio"].ng-invalid-required:before {
   content: "*";
@@ -6935,9 +6938,6 @@ form select.fng-invalid-required,
 form select.ng-invalid-required,
 form textarea.ng-invalid-required {
   background-color: rgba(255, 0, 0, 0.1);
-}
-form input.ng-invalid:focus {
-  border: solid 1px red;
 }
 form option {
   background-color: white;
