@@ -5,7 +5,7 @@ var express = require('express'),
     fs = require('fs'),
     mongoose = require('mongoose'),
     formsAngular = require('forms-angular'),
-    fngJqUpload = require('fng-jq-upload');
+    fngAudit = require('fng-audit');
 
 /**
  * Main application file
@@ -16,6 +16,9 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./lib/config/config');
 mongoose.connect(config.mongo.uri, config.mongo.options);
+mongoose.Promise = global.Promise;
+
+mongoose.set('debug',true);
 
 // Setup Express
 var app = express();
@@ -23,7 +26,10 @@ require('./lib/config/express')(app);
 
 var fngHandler = new (formsAngular)(mongoose, app, {
   urlPrefix: '/api/',
-  JQMongoFileUploader: {module: fngJqUpload.Controller}
+  plugins: {
+    JQMongoFileUploader: { plugin: require('fng-jq-upload').Controller, options: { } },
+    fngAudit: {plugin: fngAudit.controller, options:{ }}
+  }
 });
 
 // Bootstrap forms-angular controlled models

@@ -358,12 +358,16 @@ you can easily switch between modes without having to manually change all the in
 
     <p>On the server side there are hooks around data events as follows:</p>
     <ul>
-        <li>findFunc function(req, callback(err, query)) applies a filter to records returned by the server. A common
-            use case is to restrict a user to only see their own records.
-        </li>
-        <li>onSave function(doc, req, callback(err)) is a pre save hook that allows access to the record and the
-            environment. A common use case is to apply 'fine-grain' authentication.
-        </li>
+      <li>findFunc function(req, callback(err, query)) applies a filter to records returned by the server. A common
+          use case is to restrict a user to only see their own records.
+      </li>
+      <li>onSave function(doc, req, callback(err)) is a pre save hook that allows access to the record and the
+          environment. A common use case is to apply 'fine-grain' authentication, or to add additional pseudo-fields (such as user)
+          to the document for use with the audit plugin.
+      </li>
+      <li>onRemove function(doc, req, callback(err)) is a pre remove hook that allows access to the record and the
+        environment.
+      </li>
     </ul>
     <p>There are examples of both in <a href="/models/b_enhanced_schema.js">this</a> model</p>
 </section>

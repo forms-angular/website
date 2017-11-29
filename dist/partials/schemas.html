@@ -166,7 +166,11 @@
     </ul>
 
     <p>A field may be specified to be a list field by adding a truthy value for a <strong>list</strong> key
-        in the schema element: <code>forename: {type:String, list:true}</code></p>
+        in the schema element: <code>forename: {type:String, list:true}</code></p>.  The <strong>_id</strong> field can be made a list field
+  by setting up an <strong>idIsList</strong> property on the model options (since it is implicitly added to mongoose schemas).
+  This is useful to get the creation date of the object (for which
+  you need to pass the timestamp parameter).  There is an example of this in <a href="/models/b_enhanced_schema.js">this</a> model
+  and you can see result in the listing <a ng-href="{{buildUrl('b_enhanced_schema')}}">here</a>.<p></p>
 
     <p>List fields can be generated on both the front and back end, and it is done as follows:</p>
     <ol>

@@ -13,7 +13,8 @@ var websiteApp = angular.module('websiteApp', [
   'fng.uiBootstrapDate',
   'ui.bootstrap.datetimepicker',
   'fng.uiBootstrapDateTime',
-  'fng.colourPicker'
+  'fng.colourPicker',
+  'fngAuditModule'
 ]);
 
 websiteApp.directive('ngPrism', [function() {
@@ -107,7 +108,7 @@ websiteApp
         $location.path(newPath);
       }
     } else {
-      $css.add(['styles/201711141301app.css']);
+      $css.add(['styles/201711291951app.css']);
     }
     }])
   .controller('CSSSwitchCtrl', ['$location', '$scope', 'cssFrameworkService', '$css', function($location, $scope, cssFrameworkService, $css) {

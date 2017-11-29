@@ -2,6 +2,8 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var fngAudit = require("fng-audit");
+
 
 var ASchema = new Schema({
   surname: {type: String, required: true, index: true},
@@ -18,6 +20,7 @@ var A;
 try {
   A = mongoose.model('a_unadorned_schema');
 } catch (e) {
+  ASchema.plugin(fngAudit.plugin, {});
   A = mongoose.model('a_unadorned_schema', ASchema);
 }
 
