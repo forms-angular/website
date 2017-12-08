@@ -9,10 +9,8 @@ module.exports = {
   ip: '0.0.0.0',
   port: process.env.PORT || 9000,
   mongo: {
-    options: {
-      db: {
-        safe: true
-      }
+    options:{
+      useMongoClient: true
     }
   }
 };

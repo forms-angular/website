@@ -20,9 +20,7 @@
             </p><p>Some of the preparation is common to both methods (if you are already a MEAN stack developer you can skip this bit, as you will have these programs installed).</p><p>
             </p><p>Please note: the "just a few minutes" in the title starts from <em>after</em> these are installed!</p>
             <ul>
-              <li>Install <a href="http://nodejs.org">Node JS</a> and (if it isn't part of the Node install) <a href="https://www.npmjs.org/">npm</a> (installation depends on
-                operating system)</li>
-              <li>Install <a href="http://www.mongodb.org">MongoDB</a> (installation depends
+              <li>Install <a href="http://nodejs.org">Node JS</a> and <a href="http://www.mongodb.org">MongoDB</a> (installation depends
                 on operating system)</li>
             </ul>
           </section>
@@ -33,7 +31,9 @@
               <section id="server" name="server" affix-scroll>
                 <h4>The server side code</h4>
                 <p>First create a directory named <code>myapp</code>, change to it and run <code>npm init</code>. Then install
-                 the dependencies, by running the command <code>npm install forms-angular angular-route --save</code></p>
+                 the dependencies, by running the command <code>npm install forms-angular express body-parser method-override mongoose --save-exact</code></p>
+
+                <p>Next run <code>bower init</code> then install the bower dependencies: <code>bower install forms-angular angular-route --save-exact</code></p>
 
                 <p>Next create the following file:</p>
                 <code>server.js</code>
@@ -51,33 +51,46 @@
                   files in it:</p>
                 <p><code>app/index.html</code> mostly just tells the browser to loads stylesheets and javascript libraries,
                   but it also tells angular to load the navbar and the view.</p>
+
                 <pre><code class="language-markup">&lt;!doctype html>
-  &lt;head>
-    &lt;title>Forms-Angular Quick Start&lt;/title>
-    &lt;link rel="stylesheet" href="/forms-angular/dist/forms-angular-with-bs3.css" />
-  &lt;/head>
-  &lt;body ng-app="quickStartApp" ng-controller="NavCtrl" ng-keyup="globalShortcuts($event)" style="padding-top: 60px;">
+&lt;head>
+  &lt;title>Forms-Angular Quick Start&lt;/title>
+  &lt;link rel="stylesheet" href="/forms-angular/dist/forms-angular-with-bs3.css" />
+&lt;/head>
+&lt;body ng-app="quickStartApp" ng-controller="NavCtrl" ng-keyup="globalShortcuts($event)" style="padding-top: 60px;">
+&lt;div ng-include="'/navbar.html'">&lt;/div>
+&lt;div ng-view>&lt;/div>
 
-    &lt;div ng-include="'/navbar.html'">&lt;/div>
-    &lt;div ng-view>&lt;/div>
-
-    &lt;script src="/angular/angular.js">&lt;/script>
-    &lt;script src="/angular-sanitize/angular-sanitize.js">&lt;/script>
-    &lt;script src="/angular-messages/angular-messages.js">&lt;/script>
-    &lt;script src="/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js">&lt;/script>
-    &lt;script src="/underscore/underscore.js">&lt;/script>
-    &lt;script src="/ng-infinite-scroll/build/ng-infinite-scroll.js">&lt;/script>
-    &lt;script src="/angular-elastic/elastic.js">&lt;/script>
-    &lt;script src="/forms-angular/dist/forms-angular.js">&lt;/script>
-    &lt;script src="/angular-route/angular-route.js">&lt;/script>
-    &lt;script src="/main.js">&lt;/script>
-  &lt;/body>
+&lt;script src="/angular/angular.js">&lt;/script>
+&lt;script src="/angular-route/angular-route.js">&lt;/script>
+&lt;script src="/angular-sanitize/angular-sanitize.js">&lt;/script>
+&lt;script src="/angular-messages/angular-messages.js">&lt;/script>
+&lt;script src="/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js">&lt;/script>
+&lt;script src="/underscore/underscore.js">&lt;/script>
+&lt;script src="/ngInfiniteScroll/build/ng-infinite-scroll.js">&lt;/script>
+&lt;script src="/angular-elastic/elastic.js">&lt;/script>
+&lt;script src="/forms-angular/dist/forms-angular.js">&lt;/script>
+&lt;script src="/main.js">&lt;/script>
+&lt;/body>
 &lt;/html>
 </code></pre>
 
                 <p><code>app/navbar.html</code> gives us a page header that includes a search box.  It also gives us a keyboard shortcut popup.
                   Most of the file is Bootstrap related markup</p>
-                <pre><code ng-include="'quick-start/app/navbar.html'" class="language-markup" ng-prism></code></pre>
+                <pre><code class="language-markup">
+&lt;div class="navbar navbar-default navbar-fixed-top">
+  &lt;div class="container-fluid" ng-cloak>
+    &lt;div class="navbar-header">
+      &lt;div class="pull-left">
+        &lt;a ng-href="{{buildUrl('/')}}">
+          &lt;span style="font-size:xx-large">&lt;strong>forms-angular&lt;/strong> quick start&lt;/span>
+          &lt;global-search class="global-search">&lt;/global-search>
+        &lt;/a>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+</code></pre>
 
                 <p><code>app/landing-page.html</code> is hopefully self explanatory</p>
                 <pre><code ng-include="'quick-start/app/landing-page.html'" class="language-markup" ng-prism></code></pre>

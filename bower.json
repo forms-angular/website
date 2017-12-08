@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.9.0",
+  "version": "0.11.0",
   "author": "Mark Chapman <support@forms-angular.org>",
   "dependencies": {
     "angular-route": "*",
@@ -26,7 +26,7 @@
   },
   "testPath": "test/client/spec",
   "resolutions": {
-    "angular": "1.6.2",
-    "jquery": "3.1.1"
+    "angular": "1.6.7",
+    "jquery": "3.2.1"
   }
 }

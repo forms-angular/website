@@ -4,6 +4,7 @@ rm -rf node_modules
 
 npm link forms-angular
 npm link fng-jq-upload
+npm link fng-audit
 
 bower link forms-angular
 bower link fng-jq-upload
@@ -11,6 +12,9 @@ bower link fng-reports
 bower link fng-ckeditor
 bower link fng-ui-date
 bower link fng-ui-select
+bower link fng-bootstrap-datetime
+bower link fng-bootstrap-date
+bower link fng-colour-picker
 
 bower install
 

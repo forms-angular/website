@@ -10,17 +10,18 @@ var mongoose = require('mongoose');
 var formsAngular = require('forms-angular');   // The server side of forms-angular
 
 // Connect to database - no error handling in this quick example
-mongoose.connect('127.0.0.1/fng-quickstart');
+mongoose.connect('mongodb://127.0.0.1/fng-quickstart', {useMongoClient: true});
 
 // Set up express and middleware
 app.use(express.static('app'));
+app.use(express.static('bower_components'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
 // Initialise forms angular server
-var DataFormHandler = new (formsAngular)(app, {urlPrefix: '/api/'});
+var DataFormHandler = new (formsAngular)(mongoose, app, {urlPrefix: '/api/'});
 
 // Tell forms-angular what models to serve (everything in the models folder in this case)
 // This sets up all the /api/ routes
