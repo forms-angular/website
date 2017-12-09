@@ -1,7 +1,7 @@
 {
   "name": "website",
   "author": "Mark Chapman <support@forms-angular.org>",
-  "version": "0.9.0",
+  "version": "0.11.0",
   "description": "The demonstration website for the forms-angular library",
   "repository": {
     "type": "git",
@@ -24,9 +24,9 @@
     "compression": "1.7.1",
     "errorhandler": "1.5.0",
     "express": "^4.16.2",
-    "fng-audit": "git://github.com/forms-angular/fng-audit#master",
-    "fng-jq-upload": "git://github.com/forms-angular/fng-jq-upload#master",
-    "forms-angular": "git://github.com/forms-angular/forms-angular#master",
+    "fng-audit": "0.11.x",
+    "fng-jq-upload": "0.11.x",
+    "forms-angular": "0.11.x",
     "lodash": "4.17.4",
     "method-override": "2.3.7",
     "mongoose": "^4.13.3",

@@ -6,7 +6,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     formsAngular = require('forms-angular'),
     fngAudit = require('fng-audit'),
-    fngJqUpload = new require('fng-jq-upload');
+    fngJqUpload = require('fng-jq-upload');
 
 /**
  * Main application file
@@ -28,7 +28,7 @@ require('./lib/config/express')(app);
 var fngHandler = new (formsAngular)(mongoose, app, {
   urlPrefix: '/api/',
   plugins: {
-    JQMongoFileUploader:  {plugin: (new fngJqUpload).Controller, options: { } },
+    JQMongoFileUploader:  {plugin: fngJqUpload.Controller, options: { } },
     fngAudit:             {plugin: fngAudit.controller, options:{ }}
   }
 });
