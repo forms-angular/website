@@ -1,9 +1,9 @@
 'use strict';
-websiteApp.controller('DArrayExampleCtrl', ['$scope', '$data', function ($scope, $data) {
+websiteApp.controller('DArrayExampleCtrl', ['$scope', function ($scope) {
 
-  $scope.disableFunctions = $data.disableFunctions;
-  $scope.dataEventFunctions = $data.dataEventFunctions;
-  $scope.record = $data.record;
+  $scope.disableFunctions = $scope.sharedData.disableFunctions;
+  $scope.dataEventFunctions = $scope.sharedData.dataEventFunctions;
+  $scope.record = $scope.sharedData.record;
 
   $scope.disableFunctions.isDeleteDisabled = function (record, oldRecord) {
     // Do not allow records that have previously been "accepted" to be deleted

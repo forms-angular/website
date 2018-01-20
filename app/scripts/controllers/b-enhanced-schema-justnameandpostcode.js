@@ -1,10 +1,10 @@
 'use strict';
-websiteApp.controller('BEnhancedSchemaJustnameandpostcodeCtrl', ['$scope', '$data', function ($scope, $data) {
+websiteApp.controller('BEnhancedSchemaJustnameandpostcodeCtrl', ['$scope', function ($scope) {
 
-  $scope.record = $data.record;
+  $scope.record = $scope.sharedData.record;
 
-  $data.modelNameDisplay = 'Another override';
-  $data.dropDownDisplay = 'Custom 2nd Level';
+  $scope.sharedData.modelNameDisplay = 'Another override';
+  $scope.sharedData.dropDownDisplay = 'Custom 2nd Level';
 
 
   $scope.contextMenu = [

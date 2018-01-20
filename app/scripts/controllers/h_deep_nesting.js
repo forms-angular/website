@@ -1,7 +1,7 @@
 'use strict';
-websiteApp.controller('HDeepNestingCtrl', ['$data', function ($data) {
+websiteApp.controller('HDeepNestingCtrl', ['$scope', function ($scope) {
 
-  $data.modelNameDisplay = 'Nesting (work in early progress - buggy)';
+  $scope.sharedData.modelNameDisplay = 'Nesting (work in early progress - buggy)';
 
 }]);
 

@@ -1,10 +1,10 @@
 'use strict';
 
-websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', '$data', '$timeout', function ($scope, $data) {
+websiteApp.controller('BEnhancedSchemaCtrl', ['$scope', function ($scope) {
 
-  $scope.record = $data.record;
+  $scope.record = $scope.sharedData.record;
 
-  $data.dropDownDisplay = 'Custom Dropdown';
+  $scope.sharedData.dropDownDisplay = 'Custom Dropdown';
 
   $scope.doAlert = function (message, showId) {
     var alertMessage = message;
